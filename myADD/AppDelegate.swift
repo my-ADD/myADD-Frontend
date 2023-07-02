@@ -2,7 +2,7 @@
 //  AppDelegate.swift
 //  myADD
 //
-//  Created by bloss on 2023/07/03.
+//  
 //
 
 import UIKit

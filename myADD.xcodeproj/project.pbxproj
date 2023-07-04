@@ -14,6 +14,12 @@
 		180454272A51D06C00D02308 /* myADD.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 180454252A51D06C00D02308 /* myADD.xcdatamodeld */; };
 		180454292A51D06D00D02308 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 180454282A51D06D00D02308 /* Assets.xcassets */; };
 		1804542C2A51D06D00D02308 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1804542A2A51D06D00D02308 /* LaunchScreen.storyboard */; };
+		C64A33D12A5409040038BB02 /* myAddViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C64A33D02A5409040038BB02 /* myAddViewController.swift */; };
+		C64A33D32A540A480038BB02 /* myInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C64A33D22A540A480038BB02 /* myInfoViewController.swift */; };
+		C694737E2A544C90000A7307 /* aniViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C694737D2A544C90000A7307 /* aniViewController.swift */; };
+		C69473802A544CA7000A7307 /* docuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C694737F2A544CA7000A7307 /* docuViewController.swift */; };
+		C69473822A544CCB000A7307 /* dramaViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C69473812A544CCB000A7307 /* dramaViewController.swift */; };
+		F29C5DCD404B94EEC23D703F /* Pods_myADD.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 726BC5779C0B394084472558 /* Pods_myADD.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +32,14 @@
 		180454282A51D06D00D02308 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1804542B2A51D06D00D02308 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		1804542D2A51D06D00D02308 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		726BC5779C0B394084472558 /* Pods_myADD.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_myADD.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		AC2CD44308D7F5ACA242FE2D /* Pods-myADD.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-myADD.debug.xcconfig"; path = "Target Support Files/Pods-myADD/Pods-myADD.debug.xcconfig"; sourceTree = "<group>"; };
+		C64A33D02A5409040038BB02 /* myAddViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = myAddViewController.swift; sourceTree = "<group>"; };
+		C64A33D22A540A480038BB02 /* myInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = myInfoViewController.swift; sourceTree = "<group>"; };
+		C694737D2A544C90000A7307 /* aniViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = aniViewController.swift; sourceTree = "<group>"; };
+		C694737F2A544CA7000A7307 /* docuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = docuViewController.swift; sourceTree = "<group>"; };
+		C69473812A544CCB000A7307 /* dramaViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = dramaViewController.swift; sourceTree = "<group>"; };
+		CA7BD3C5A1212F49C36B58EF /* Pods-myADD.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-myADD.release.xcconfig"; path = "Target Support Files/Pods-myADD/Pods-myADD.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -33,6 +47,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F29C5DCD404B94EEC23D703F /* Pods_myADD.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -44,6 +59,8 @@
 			children = (
 				1804541B2A51D06C00D02308 /* myADD */,
 				1804541A2A51D06C00D02308 /* Products */,
+				DCA509194981BB15EF928C3D /* Pods */,
+				648DF3A4BF8FC8229239D1FE /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -58,16 +75,47 @@
 		1804541B2A51D06C00D02308 /* myADD */ = {
 			isa = PBXGroup;
 			children = (
+				C64A33D42A540A6B0038BB02 /* New Group */,
 				1804541C2A51D06C00D02308 /* AppDelegate.swift */,
 				1804541E2A51D06C00D02308 /* SceneDelegate.swift */,
+				C64A33D22A540A480038BB02 /* myInfoViewController.swift */,
+				C64A33D02A5409040038BB02 /* myAddViewController.swift */,
 				180454202A51D06C00D02308 /* ViewController.swift */,
 				180454222A51D06C00D02308 /* Main.storyboard */,
+				C694737D2A544C90000A7307 /* aniViewController.swift */,
+				C694737F2A544CA7000A7307 /* docuViewController.swift */,
+				C69473812A544CCB000A7307 /* dramaViewController.swift */,
 				180454282A51D06D00D02308 /* Assets.xcassets */,
 				1804542A2A51D06D00D02308 /* LaunchScreen.storyboard */,
 				1804542D2A51D06D00D02308 /* Info.plist */,
 				180454252A51D06C00D02308 /* myADD.xcdatamodeld */,
 			);
 			path = myADD;
+			sourceTree = "<group>";
+		};
+		648DF3A4BF8FC8229239D1FE /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				726BC5779C0B394084472558 /* Pods_myADD.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		C64A33D42A540A6B0038BB02 /* New Group */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = "New Group";
+			path = ..;
+			sourceTree = "<group>";
+		};
+		DCA509194981BB15EF928C3D /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				AC2CD44308D7F5ACA242FE2D /* Pods-myADD.debug.xcconfig */,
+				CA7BD3C5A1212F49C36B58EF /* Pods-myADD.release.xcconfig */,
+			);
+			path = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -77,9 +125,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 180454302A51D06D00D02308 /* Build configuration list for PBXNativeTarget "myADD" */;
 			buildPhases = (
+				BCD4C21DD4001D150B42505E /* [CP] Check Pods Manifest.lock */,
 				180454152A51D06C00D02308 /* Sources */,
 				180454162A51D06C00D02308 /* Frameworks */,
 				180454172A51D06C00D02308 /* Resources */,
+				40BCE323693847BA7F64A336 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -136,15 +186,62 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		40BCE323693847BA7F64A336 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-myADD/Pods-myADD-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-myADD/Pods-myADD-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-myADD/Pods-myADD-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		BCD4C21DD4001D150B42505E /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-myADD-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		180454152A51D06C00D02308 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C64A33D32A540A480038BB02 /* myInfoViewController.swift in Sources */,
 				180454212A51D06C00D02308 /* ViewController.swift in Sources */,
 				180454272A51D06C00D02308 /* myADD.xcdatamodeld in Sources */,
 				1804541D2A51D06C00D02308 /* AppDelegate.swift in Sources */,
+				C64A33D12A5409040038BB02 /* myAddViewController.swift in Sources */,
+				C69473802A544CA7000A7307 /* docuViewController.swift in Sources */,
+				C694737E2A544C90000A7307 /* aniViewController.swift in Sources */,
 				1804541F2A51D06C00D02308 /* SceneDelegate.swift in Sources */,
+				C69473822A544CCB000A7307 /* dramaViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -286,11 +383,13 @@
 		};
 		180454312A51D06D00D02308 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = AC2CD44308D7F5ACA242FE2D /* Pods-myADD.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 285ZKW5MPR;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = myADD/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -313,11 +412,13 @@
 		};
 		180454322A51D06D00D02308 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = CA7BD3C5A1212F49C36B58EF /* Pods-myADD.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 285ZKW5MPR;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = myADD/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;

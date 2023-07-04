@@ -3,6 +3,8 @@
 <plist version="1.0">
 <dict>
 	<key>APP_KEY</key>
-	<string>VALUE</string>
+	<string>VALUES</string>
+	<key>APP_KEY2</key>
+	<string>VALUE2</string>
 </dict>
 </plist>

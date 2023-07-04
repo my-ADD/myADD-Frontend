@@ -6,6 +6,14 @@
 //
 
 import UIKit
+import KakaoSDKCommon
+import KakaoSDKTalk
+import KakaoSDKAuth
+import KakaoSDKUser
+import KakaoSDKTemplate
+import KakaoSDKShare
+import SafariServices
+import NaverThirdPartyLogin
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
@@ -49,7 +57,19 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // Save changes in the application's managed object context when the application transitions to the background.
         (UIApplication.shared.delegate as? AppDelegate)?.saveContext()
     }
-
+    
+    func scene(_ scene: UIScene, openURLContexts URLContexts: Set<UIOpenURLContext>) {
+        
+        NaverThirdPartyLoginConnection
+                .getSharedInstance()?
+                .receiveAccessToken(URLContexts.first?.url)
+        
+            if let url = URLContexts.first?.url {
+                if (AuthApi.isKakaoTalkLoginUrl(url)) {
+                    _ = AuthController.handleOpenUrl(url: url)
+                }
+            }
+        }
 
 }
 

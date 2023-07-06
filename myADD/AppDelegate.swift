@@ -34,8 +34,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         instance?.consumerKey = kConsumerKey
         instance?.consumerSecret = kConsumerSecret
         instance?.appName = kServiceAppName
-
-        KakaoSDK.initSDK(appKey:"")
+        
+        let kakaoAppKey = Bundle.main.infoDictionary?["KAKAO_NATIVE_APP_KEY"] ?? ""
+        KakaoSDK.initSDK(appKey: kakaoAppKey as! String)
                     
         return true
     }

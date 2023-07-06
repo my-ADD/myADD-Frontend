@@ -8,10 +8,26 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Navigation Controller-->
+        <scene sceneID="1GT-Zu-HmB">
+            <objects>
+                <navigationController id="w4n-g2-3NV" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="QsI-la-WMa">
+                        <rect key="frame" x="0.0" y="59" width="393" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="WdO-b6-hfm"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="gv6-XY-x5s" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="53" y="-46"/>
+        </scene>
+        <!--loginViewController-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="myADD" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController restorationIdentifier="loginViewController" storyboardIdentifier="loginViewController" title="loginViewController" id="BYZ-38-t0r" customClass="LoginViewController" customModule="myADD" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -22,7 +38,7 @@
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="K"/>
                                 <connections>
-                                    <action selector="kakaologin:" destination="BYZ-38-t0r" eventType="touchUpInside" id="5wf-0X-onC"/>
+                                    <action selector="kakaologin:" destination="BYZ-38-t0r" eventType="touchUpInside" id="5a9-QS-qfB"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="i4y-QC-eJl">
@@ -31,7 +47,7 @@
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="N"/>
                                 <connections>
-                                    <action selector="naverlogin:" destination="BYZ-38-t0r" eventType="touchUpInside" id="bkg-X3-e3N"/>
+                                    <action selector="naverlogin:" destination="BYZ-38-t0r" eventType="touchUpInside" id="0dL-zz-QFY"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="로그인" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bwk-D2-YyF">
@@ -52,10 +68,44 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
+                    <navigationItem key="navigationItem" id="fPT-Hb-xO9"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="55" y="-34"/>
+            <point key="canvasLocation" x="908" y="-46"/>
+        </scene>
+        <!--signupFinishedViewController-->
+        <scene sceneID="mc2-io-pus">
+            <objects>
+                <viewController restorationIdentifier="signupFinishedViewController" storyboardIdentifier="signupFinishedViewController" title="signupFinishedViewController" id="ujn-Rg-0zO" customClass="LoginViewController" customModule="myADD" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Gey-fY-gjr">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="회원가입 완료!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xfE-eQ-R8C">
+                                <rect key="frame" x="59" y="220" width="171" height="36"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jWe-Dp-42S">
+                                <rect key="frame" x="122" y="711" width="150" height="35"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="my ADD 시작하기"/>
+                                <connections>
+                                    <action selector="startmyADD:" destination="ujn-Rg-0zO" eventType="touchUpInside" id="tdS-6v-zeK"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="cNb-Q9-xEm"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ODt-El-fuF" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1749" y="-46"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="NbD-BZ-tnP">
@@ -87,10 +137,10 @@
             </objects>
             <point key="canvasLocation" x="908" y="694"/>
         </scene>
-        <!--View Controller-->
+        <!--logoutViewController-->
         <scene sceneID="MMo-3Q-sT6">
             <objects>
-                <viewController id="S8s-dr-UCN" sceneMemberID="viewController">
+                <viewController restorationIdentifier="logoutViewController" storyboardIdentifier="logoutViewController" title="logoutViewController" id="S8s-dr-UCN" customClass="LoginViewController" customModule="myADD" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="YmH-oI-ymJ">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -100,6 +150,10 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="로그아웃"/>
+                                <connections>
+                                    <action selector="kakaologout:" destination="S8s-dr-UCN" eventType="touchUpInside" id="W9V-Jp-n0X"/>
+                                    <action selector="naverlogout:" destination="S8s-dr-UCN" eventType="touchUpInside" id="Kjo-qO-u1S"/>
+                                </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vlu-t4-moY"/>
@@ -109,7 +163,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UWx-lX-4NN" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="908" y="-35"/>
+            <point key="canvasLocation" x="2640" y="-46"/>
         </scene>
     </scenes>
     <resources>

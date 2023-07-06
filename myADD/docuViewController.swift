@@ -7,10 +7,3 @@
 
 import UIKit
 
-class docuViewController: UIViewController {
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-    }
-    
-}

@@ -14,3 +14,19 @@ class aniViewController: UIViewController {
     }
     
 }
+
+class docuViewController: UIViewController {
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+    }
+    
+}
+
+class dramaViewController: UIViewController {
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+    }
+    
+}

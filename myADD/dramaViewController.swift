@@ -7,10 +7,3 @@
 
 import UIKit
 
-class dramaViewController: UIViewController {
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-    }
-    
-}

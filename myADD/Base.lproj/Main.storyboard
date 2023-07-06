@@ -61,9 +61,6 @@
                                 <color key="tintColor" systemColor="labelColor"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="my ADD 정보"/>
-                                <connections>
-                                    <action selector="didTapButton" destination="BYZ-38-t0r" eventType="touchUpInside" id="v6u-B1-dKe"/>
-                                </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
@@ -71,8 +68,9 @@
                     </view>
                     <navigationItem key="navigationItem" id="AUb-DO-Wfz"/>
                     <connections>
-                        <outlet property="myButton" destination="kK5-lL-DeM" id="KWe-zd-wJE"/>
-                        <outlet property="myLabel" destination="fT8-H9-e7F" id="cB8-Yr-Vsi"/>
+                        <outlet property="calendar" destination="17k-tC-WAg" id="Qnr-4s-PqJ"/>
+                        <outlet property="myButton" destination="kK5-lL-DeM" id="rt4-2s-9gh"/>
+                        <outlet property="myLabel" destination="fT8-H9-e7F" id="S3d-bO-Mae"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -92,7 +90,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jC6-7T-qwJ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="981" y="1761"/>
+            <point key="canvasLocation" x="981" y="1506"/>
         </scene>
         <!--Ani View Controller-->
         <scene sceneID="XfO-LL-b7w">
@@ -107,7 +105,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gJL-NX-dZR" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="981" y="1045"/>
+            <point key="canvasLocation" x="981" y="789"/>
         </scene>
         <!--Drama View Controller-->
         <scene sceneID="nEc-ae-jFL">
@@ -122,45 +120,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1ex-lS-26z" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="981" y="2496"/>
-        </scene>
-        <!--My Add View Controller-->
-        <scene sceneID="sMw-7e-c7i">
-            <objects>
-                <viewController storyboardIdentifier="myAdd" useStoryboardIdentifierAsRestorationIdentifier="YES" id="p8f-S4-QnK" customClass="myAddViewController" customModule="myADD" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="0Pf-BB-Gym">
-                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="6월 9일, 홍길동님의 2가지 ADD 기록" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sgQ-9k-Zy4">
-                                <rect key="frame" x="16" y="124" width="361" height="90"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <tabBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="e6C-oT-RER">
-                                <rect key="frame" x="0.0" y="769" width="393" height="49"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <items>
-                                    <tabBarItem title="A" id="jGV-28-as1"/>
-                                    <tabBarItem title="D" id="KrN-aS-JWv"/>
-                                    <tabBarItem title="D" id="vXD-wa-jVw"/>
-                                </items>
-                            </tabBar>
-                        </subviews>
-                        <viewLayoutGuide key="safeArea" id="aTv-BY-tPi"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                    </view>
-                    <navigationItem key="navigationItem" id="xTp-Xi-Mhg"/>
-                    <connections>
-                        <outlet property="myLabel" destination="sgQ-9k-Zy4" id="e0e-6c-2uG"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="otY-RU-wDm" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1760" y="313"/>
+            <point key="canvasLocation" x="981" y="2224"/>
         </scene>
         <!--My Info View Controller-->
         <scene sceneID="Sp0-l9-wiF">
@@ -244,7 +204,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="N0b-O0-KCi" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1759.5419847328244" y="-385.21126760563385"/>
+            <point key="canvasLocation" x="1943" y="-35"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="cpC-1z-oNU">

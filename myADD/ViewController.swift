@@ -173,13 +173,14 @@ class ViewController: UIViewController, CardSliderDataSource, FSCalendarDelegate
             let image = UIImage(named: "movie.png")
             let imageSize = CGSize(width: 30, height: 30) // 이미지 크기 조정
             
-            if let imageWithAlpha = image?.applyAlpha(0.5) {
-                return imageWithAlpha.resize(to: imageSize)
+            if let roundedImage = image?.roundedImage()?.applyAlpha(0.5) {
+                return roundedImage.resize(to: imageSize)
             }
         }
         
         return nil
     }
+
 
 
     // ====================================================================================
@@ -222,6 +223,19 @@ extension UIImage {
         UIGraphicsEndImageContext()
         return newImage
     }
+    
+    func roundedImage() -> UIImage? {
+        let imageView = UIImageView(image: self)
+        imageView.layer.cornerRadius = self.size.width / 2
+        imageView.layer.masksToBounds = true
+        imageView.contentMode = .scaleAspectFill
+
+        UIGraphicsBeginImageContextWithOptions(self.size, false, self.scale)
+        guard let context = UIGraphicsGetCurrentContext() else { return nil }
+        imageView.layer.render(in: context)
+        let roundedImage = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+
+        return roundedImage
+    }
 }
-
-

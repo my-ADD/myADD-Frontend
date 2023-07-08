@@ -37,19 +37,25 @@ class ViewController: UIViewController, CardSliderDataSource, FSCalendarDelegate
         //
         
         // Configure card data
-        data.append(Item(image: UIImage(named: "movie.png")!,
+        data.append(Item(image: UIImage(named: "Image1.png")!,
                          rating: nil,
                          title: "영화 제목",
                          subtitle: "플랫폼",
                          description: "You can add ADD in the app right now"))
 
-        data.append(Item(image: UIImage(named: "lastofus.png")!,
+        data.append(Item(image: UIImage(named: "Image2.png")!,
                          rating: nil,
                          title: "영화 제목",
                          subtitle: "플랫폼",
                          description: "You can add ADD in the app right now"))
 
-        data.append(Item(image: UIImage(named: "Avengers.png")!,
+        data.append(Item(image: UIImage(named: "Image3.png")!,
+                         rating: nil,
+                         title: "영화 제목",
+                         subtitle: "플랫폼",
+                         description: "You can add ADD in the app right now"))
+        
+        data.append(Item(image: UIImage(named: "Image4.png")!,
                          rating: nil,
                          title: "영화 제목",
                          subtitle: "플랫폼",
@@ -157,29 +163,29 @@ class ViewController: UIViewController, CardSliderDataSource, FSCalendarDelegate
         return data.count
     }
     
-    fileprivate let imageDateFormatter: DateFormatter = {
-        let formatter = DateFormatter()
-        formatter.dateFormat = "yyyy-MM-dd"
-        return formatter
-    }()
-
-    fileprivate let datesWithImage = ["2023-07-11", "2023-08-05"]
-
-    // 특정 날짜에 이미지 삽입
-    func calendar(_ calendar: FSCalendar, imageFor date: Date) -> UIImage? {
-        let dateString = imageDateFormatter.string(from: date)
-        
-        if datesWithImage.contains(dateString) {
-            let image = UIImage(named: "movie.png")
-            let imageSize = CGSize(width: 30, height: 30) // 이미지 크기 조정
-            
-            if let roundedImage = image?.roundedImage()?.applyAlpha(0.5) {
-                return roundedImage.resize(to: imageSize)
-            }
-        }
-        
-        return nil
-    }
+//    // 특정 날짜에 이미지 삽입
+//    fileprivate let imageDateFormatter: DateFormatter = {
+//        let formatter = DateFormatter()
+//        formatter.dateFormat = "yyyy-MM-dd"
+//        return formatter
+//    }()
+//
+//    fileprivate let datesWithImage = ["2023-07-11", "2023-08-05"]
+//
+//    func calendar(_ calendar: FSCalendar, imageFor date: Date) -> UIImage? {
+//        let dateString = imageDateFormatter.string(from: date)
+//
+//        if datesWithImage.contains(dateString) {
+//            let image = UIImage(named: "movie.png")
+//            let imageSize = CGSize(width: 30, height: 30) // 이미지 크기 조정
+//
+//            if let roundedImage = image?.roundedImage()?.applyAlpha(0.5) {
+//                return roundedImage.resize(to: imageSize)
+//            }
+//        }
+//
+//        return nil
+//    }
 
 
 
@@ -207,35 +213,36 @@ class ViewController: UIViewController, CardSliderDataSource, FSCalendarDelegate
 
 }
 
-extension UIImage {
-    func applyAlpha(_ value: CGFloat) -> UIImage? {
-        UIGraphicsBeginImageContextWithOptions(size, false, scale)
-        draw(at: .zero, blendMode: .normal, alpha: value)
-        let newImage = UIGraphicsGetImageFromCurrentImageContext()
-        UIGraphicsEndImageContext()
-        return newImage
-    }
-    
-    func resize(to newSize: CGSize) -> UIImage? {
-        UIGraphicsBeginImageContextWithOptions(newSize, false, 0.0)
-        draw(in: CGRect(origin: .zero, size: newSize))
-        let newImage = UIGraphicsGetImageFromCurrentImageContext()
-        UIGraphicsEndImageContext()
-        return newImage
-    }
-    
-    func roundedImage() -> UIImage? {
-        let imageView = UIImageView(image: self)
-        imageView.layer.cornerRadius = self.size.width / 2
-        imageView.layer.masksToBounds = true
-        imageView.contentMode = .scaleAspectFill
-
-        UIGraphicsBeginImageContextWithOptions(self.size, false, self.scale)
-        guard let context = UIGraphicsGetCurrentContext() else { return nil }
-        imageView.layer.render(in: context)
-        let roundedImage = UIGraphicsGetImageFromCurrentImageContext()
-        UIGraphicsEndImageContext()
-
-        return roundedImage
-    }
-}
+//// 특정 날짜에 이미지 삽입, 디자인
+//extension UIImage {
+//    func applyAlpha(_ value: CGFloat) -> UIImage? {
+//        UIGraphicsBeginImageContextWithOptions(size, false, scale)
+//        draw(at: .zero, blendMode: .normal, alpha: value)
+//        let newImage = UIGraphicsGetImageFromCurrentImageContext()
+//        UIGraphicsEndImageContext()
+//        return newImage
+//    }
+//
+//    func resize(to newSize: CGSize) -> UIImage? {
+//        UIGraphicsBeginImageContextWithOptions(newSize, false, 0.0)
+//        draw(in: CGRect(origin: .zero, size: newSize))
+//        let newImage = UIGraphicsGetImageFromCurrentImageContext()
+//        UIGraphicsEndImageContext()
+//        return newImage
+//    }
+//
+//    func roundedImage() -> UIImage? {
+//        let imageView = UIImageView(image: self)
+//        imageView.layer.cornerRadius = self.size.width / 2
+//        imageView.layer.masksToBounds = true
+//        imageView.contentMode = .scaleAspectFill
+//
+//        UIGraphicsBeginImageContextWithOptions(self.size, false, self.scale)
+//        guard let context = UIGraphicsGetCurrentContext() else { return nil }
+//        imageView.layer.render(in: context)
+//        let roundedImage = UIGraphicsGetImageFromCurrentImageContext()
+//        UIGraphicsEndImageContext()
+//
+//        return roundedImage
+//    }
+//}

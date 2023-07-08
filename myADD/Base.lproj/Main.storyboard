@@ -27,7 +27,7 @@
         <!--loginViewController-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController restorationIdentifier="loginViewController" storyboardIdentifier="loginViewController" title="loginViewController" id="BYZ-38-t0r" customClass="LoginViewController" customModule="myADD" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController restorationIdentifier="loginViewController" storyboardIdentifier="loginViewController" title="loginViewController" modalPresentationStyle="fullScreen" id="BYZ-38-t0r" customClass="LoginViewController" customModule="myADD" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -72,12 +72,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="908" y="-46"/>
+            <point key="canvasLocation" x="907.63358778625945" y="-46.478873239436624"/>
         </scene>
         <!--signupFinishedViewController-->
         <scene sceneID="mc2-io-pus">
             <objects>
-                <viewController restorationIdentifier="signupFinishedViewController" storyboardIdentifier="signupFinishedViewController" title="signupFinishedViewController" id="ujn-Rg-0zO" customClass="LoginViewController" customModule="myADD" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController restorationIdentifier="signupFinishedViewController" storyboardIdentifier="signupFinishedViewController" title="signupFinishedViewController" modalPresentationStyle="fullScreen" id="ujn-Rg-0zO" customClass="LoginViewController" customModule="myADD" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Gey-fY-gjr">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -94,14 +94,12 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="my ADD 시작하기"/>
-                                <connections>
-                                    <action selector="startmyADD:" destination="ujn-Rg-0zO" eventType="touchUpInside" id="tdS-6v-zeK"/>
-                                </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="cNb-Q9-xEm"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
+                    <navigationItem key="navigationItem" id="Irl-wl-kce"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ODt-El-fuF" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -135,12 +133,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sut-8b-DL9" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="908" y="694"/>
+            <point key="canvasLocation" x="1027" y="708"/>
         </scene>
         <!--logoutViewController-->
         <scene sceneID="MMo-3Q-sT6">
             <objects>
-                <viewController restorationIdentifier="logoutViewController" storyboardIdentifier="logoutViewController" title="logoutViewController" id="S8s-dr-UCN" customClass="LoginViewController" customModule="myADD" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController restorationIdentifier="logoutViewController" storyboardIdentifier="logoutViewController" title="logoutViewController" modalPresentationStyle="fullScreen" id="S8s-dr-UCN" customClass="LoginViewController" customModule="myADD" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="YmH-oI-ymJ">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -160,6 +158,7 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </view>
+                    <navigationItem key="navigationItem" id="i0B-nK-Ftt"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UWx-lX-4NN" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

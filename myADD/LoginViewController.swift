@@ -23,7 +23,6 @@ class LoginViewController: UIViewController, NaverThirdPartyLoginConnectionDeleg
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
         naverLoginInstance?.delegate = self
     }
 
@@ -151,20 +150,9 @@ class LoginViewController: UIViewController, NaverThirdPartyLoginConnectionDeleg
                     let nickname = user?.kakaoAccount?.profile?.nickname
                     let email = user?.kakaoAccount?.email
 
-                    guard let signupFinishedViewController = self.storyboard?.instantiateViewController(withIdentifier: "signupFinishedViewController") else { return }
-
-                    self.navigationController?.pushViewController(signupFinishedViewController, animated: true)
+                
                 }
             }
         }
-    
-    @IBAction func startmyADD(_ sender: Any) {
-        
-        guard let logoutViewController = self.storyboard?.instantiateViewController(withIdentifier: "logoutViewController") else { return }
-
-        self.navigationController?.pushViewController(logoutViewController, animated: true)
-        
-    }
-    
     
 }

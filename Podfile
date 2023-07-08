@@ -15,5 +15,6 @@ pod 'KakaoSDKShare'
 pod 'KakaoSDKTemplate'  
 pod 'KakaoSDKNavi' 
 pod 'naveridlogin-sdk-ios'
+pod 'Alamofire'
 
 end

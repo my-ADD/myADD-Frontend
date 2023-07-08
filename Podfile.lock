@@ -26,6 +26,7 @@ PODS:
   - naveridlogin-sdk-ios (4.1.6)
 
 DEPENDENCIES:
+  - Alamofire
   - KakaoSDKAuth
   - KakaoSDKCommon
   - KakaoSDKNavi
@@ -61,6 +62,6 @@ SPEC CHECKSUMS:
   KakaoSDKUser: a997ca5c4c18ece2ab30646ff74841bc29d4399d
   naveridlogin-sdk-ios: cdd34e3585a3d5aaf37c1d84c1f41faba4a25d1a
 
-PODFILE CHECKSUM: 8856cd138318c6ee5c464d68da9f6566cc5d1d8b
+PODFILE CHECKSUM: 66fc3ed349d4f3fbed20d0edca869aeaa5f61e76
 
 COCOAPODS: 1.12.1

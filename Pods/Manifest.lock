@@ -1,0 +1,20 @@
+PODS:
+  - CardSlider (0.1.0)
+  - FSCalendar (2.8.4)
+
+DEPENDENCIES:
+  - CardSlider
+  - FSCalendar
+
+SPEC REPOS:
+  trunk:
+    - CardSlider
+    - FSCalendar
+
+SPEC CHECKSUMS:
+  CardSlider: 0a8f5f17f5a76701771794b07fdaeddc512358c8
+  FSCalendar: 2d1d0d9398f12d439f55c1fe0f01525b151b8260
+
+PODFILE CHECKSUM: cb2924f1a73eb5484ac0d283b9e75298e58a7b59
+
+COCOAPODS: 1.12.1

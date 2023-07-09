@@ -2,10 +2,9 @@
 //  ViewController.swift
 //  myADD
 //
-//
+//  Created by 이융의 on 2023/07/09.
 //
 
-import Foundation
 import UIKit
 
 class ViewController: UIViewController {
@@ -14,5 +13,7 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
     }
+
+
 }
 

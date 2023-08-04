@@ -14,7 +14,10 @@ pod 'KakaoSDKStory'
 pod 'KakaoSDKShare'  
 pod 'KakaoSDKTemplate'  
 pod 'KakaoSDKNavi' 
-pod 'naveridlogin-sdk-ios'
 pod 'Alamofire'
+pod 'FirebaseAuth'
+pod 'FirebaseFirestore'
+pod 'FirebaseAnalytics'
+pod 'GoogleSignIn'
 
 end

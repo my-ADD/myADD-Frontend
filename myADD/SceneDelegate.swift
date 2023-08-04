@@ -13,7 +13,9 @@ import KakaoSDKUser
 import KakaoSDKTemplate
 import KakaoSDKShare
 import SafariServices
-import NaverThirdPartyLogin
+import FirebaseAuth
+import FirebaseCore
+import GoogleSignIn
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
@@ -25,6 +27,24 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // If using a storyboard, the `window` property will automatically be initialized and attached to the scene.
         // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
         guard let _ = (scene as? UIWindowScene) else { return }
+        
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        
+        if Auth.auth().currentUser != nil || AuthApi.hasToken() {
+            let loginFinishViewController = storyboard.instantiateViewController(identifier: "loginFinishViewController")
+            self.window?.rootViewController = loginFinishViewController
+            self.window?.makeKeyAndVisible()
+        }
+        
+        /*if GIDSignIn.sharedInstance.hasPreviousSignIn() {
+            GIDSignIn.sharedInstance.restorePreviousSignIn()
+            {_,_ in
+                let loginFinishViewController = storyboard.instantiateViewController(identifier: "loginFinishViewController")
+                self.window?.rootViewController = loginFinishViewController
+                self.window?.makeKeyAndVisible()
+            }
+        }*/
+        
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {
@@ -59,10 +79,6 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     }
     
     func scene(_ scene: UIScene, openURLContexts URLContexts: Set<UIOpenURLContext>) {
-        
-        NaverThirdPartyLoginConnection
-                .getSharedInstance()?
-                .receiveAccessToken(URLContexts.first?.url)
         
             if let url = URLContexts.first?.url {
                 if (AuthApi.isKakaoTalkLoginUrl(url)) {

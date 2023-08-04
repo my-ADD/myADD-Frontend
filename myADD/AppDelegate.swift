@@ -15,41 +15,36 @@ import KakaoSDKAuth
 import KakaoSDKUser
 import KakaoSDKTemplate
 import KakaoSDKShare
-import NaverThirdPartyLogin
+import FirebaseCore
+import GoogleSignIn
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
-
+    var window: UIWindow?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         
-        let instance = NaverThirdPartyLoginConnection.getSharedInstance()
-        instance?.isNaverAppOauthEnable = true
-        instance?.isInAppOauthEnable = true
-        instance?.isOnlyPortraitSupportedInIphone()
-        
-        instance?.serviceUrlScheme = kServiceAppUrlScheme
-        instance?.consumerKey = kConsumerKey
-        instance?.consumerSecret = kConsumerSecret
-        instance?.appName = kServiceAppName
+        FirebaseApp.configure()
         
         let kakaoAppKey = Bundle.main.infoDictionary?["KAKAO_NATIVE_APP_KEY"] ?? ""
         KakaoSDK.initSDK(appKey: kakaoAppKey as! String)
+        
+        //sleep(1)
                     
         return true
     }
     
     func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any] = [:]) -> Bool {
            
-        NaverThirdPartyLoginConnection.getSharedInstance().application(app, open: url, options: options)
-        
         if (AuthApi.isKakaoTalkLoginUrl(url)) {
                 return AuthController.handleOpenUrl(url: url)
             }
+        
+        return GIDSignIn.sharedInstance.handle(url)
 
-            return false
+        return false
     }
 
     // MARK: UISceneSession Lifecycle
@@ -112,4 +107,3 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
 }
-

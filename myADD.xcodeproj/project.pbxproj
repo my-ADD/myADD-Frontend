@@ -32,7 +32,7 @@
 		18F076442A7D1F55005234CC /* MyPageButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 18F076432A7D1F55005234CC /* MyPageButton.png */; };
 		18F076462A7D1F5F005234CC /* ProfileEditButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 18F076452A7D1F5F005234CC /* ProfileEditButton.png */; };
 		18F076482A7D1F64005234CC /* ProfileImageEditButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 18F076472A7D1F64005234CC /* ProfileImageEditButton.png */; };
-		18F0764A2A7D20AB005234CC /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 18F076492A7D20AB005234CC /* GoogleService-Info.plist */; };
+		18F076502A7D2EB1005234CC /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 18F0764F2A7D2EB1005234CC /* GoogleService-Info.plist */; };
 		2EA27BDC5CC5C5EB8E8152CA /* Pods_myADD.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FC78431A1F07D286CB8A48D1 /* Pods_myADD.framework */; };
 /* End PBXBuildFile section */
 
@@ -65,7 +65,7 @@
 		18F076432A7D1F55005234CC /* MyPageButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = MyPageButton.png; path = ../../myADDAssets/MyPageButton.png; sourceTree = "<group>"; };
 		18F076452A7D1F5F005234CC /* ProfileEditButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = ProfileEditButton.png; path = ../../myADDAssets/ProfileEditButton.png; sourceTree = "<group>"; };
 		18F076472A7D1F64005234CC /* ProfileImageEditButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = ProfileImageEditButton.png; path = ../../myADDAssets/ProfileImageEditButton.png; sourceTree = "<group>"; };
-		18F076492A7D20AB005234CC /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../myADDAssets/0804googleplist/GoogleService-Info.plist"; sourceTree = "<group>"; };
+		18F0764F2A7D2EB1005234CC /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../myADDAssets/0804googleplist/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		4E9FCC9790A9D7C39B09E572 /* Pods-myADD.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-myADD.debug.xcconfig"; path = "Target Support Files/Pods-myADD/Pods-myADD.debug.xcconfig"; sourceTree = "<group>"; };
 		D120F8CE219FB2A1584AE21B /* Pods-myADD.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-myADD.release.xcconfig"; path = "Target Support Files/Pods-myADD/Pods-myADD.release.xcconfig"; sourceTree = "<group>"; };
 		FC78431A1F07D286CB8A48D1 /* Pods_myADD.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_myADD.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -122,7 +122,7 @@
 				180454252A51D06C00D02308 /* myADD.xcdatamodeld */,
 				180454392A5695B800D02308 /* LoginConfig.xcconfig */,
 				1804543A2A56B71600D02308 /* LoginViewController.swift */,
-				18F076492A7D20AB005234CC /* GoogleService-Info.plist */,
+				18F0764F2A7D2EB1005234CC /* GoogleService-Info.plist */,
 				18F076272A7D1EC5005234CC /* MainLogo.png */,
 				18F076292A7D1EDF005234CC /* LoginButton.png */,
 				18F076312A7D1EFB005234CC /* NextButton.png */,
@@ -233,7 +233,7 @@
 				180454242A51D06C00D02308 /* Main.storyboard in Resources */,
 				18F076342A7D1F01005234CC /* NextGrayButton.png in Resources */,
 				18F076482A7D1F64005234CC /* ProfileImageEditButton.png in Resources */,
-				18F0764A2A7D20AB005234CC /* GoogleService-Info.plist in Resources */,
+				18F076502A7D2EB1005234CC /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

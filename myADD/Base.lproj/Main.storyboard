@@ -35,7 +35,7 @@
                             <button opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="252" verticalCompressionResistancePriority="752" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="i4y-QC-eJl">
                                 <rect key="frame" x="198" y="734" width="84" height="74"/>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" image="GoogleLoginButton.png"/>
+                                <buttonConfiguration key="configuration" style="plain" image="GoogleLoginButton"/>
                                 <connections>
                                     <action selector="googleLoginButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="sm9-6f-tml"/>
                                 </connections>
@@ -68,7 +68,7 @@
                                     <constraint firstAttribute="height" constant="64" id="zm4-1J-mGU"/>
                                 </constraints>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" image="LoginButton.png"/>
+                                <buttonConfiguration key="configuration" style="plain" image="LoginButton"/>
                                 <connections>
                                     <action selector="loginButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="vaG-PA-H8Y"/>
                                 </connections>
@@ -76,7 +76,7 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Hnc-fa-m7W">
                                 <rect key="frame" x="109" y="734" width="84" height="74"/>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" image="KakaoLoginButton.png"/>
+                                <buttonConfiguration key="configuration" style="plain" image="KakaoLoginButton"/>
                                 <connections>
                                     <action selector="kakaologin:" destination="BYZ-38-t0r" eventType="touchUpInside" id="5a9-QS-qfB"/>
                                 </connections>
@@ -122,7 +122,7 @@
                                 <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" image="MainLogo.png" translatesAutoresizingMaskIntoConstraints="NO" id="bql-Ox-IH9">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" image="MainLogo" translatesAutoresizingMaskIntoConstraints="NO" id="bql-Ox-IH9">
                                 <rect key="frame" x="53" y="31" width="78" height="76"/>
                             </imageView>
                         </subviews>
@@ -228,7 +228,7 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4Dq-k2-15D">
                                 <rect key="frame" x="14" y="762" width="365" height="64"/>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" image="NextGrayButton.png" title=""/>
+                                <buttonConfiguration key="configuration" style="plain" image="NextGrayButton" title=""/>
                                 <connections>
                                     <action selector="signUpTermsButton:" destination="eao-Gb-YYw" eventType="touchUpInside" id="Jpc-le-cgF"/>
                                     <action selector="signUpTermsButton:" destination="GVC-VK-d4y" eventType="touchUpInside" id="h2y-Uq-Txb"/>
@@ -250,7 +250,7 @@
                                 <rect key="frame" x="42" y="592" width="229" height="35"/>
                                 <color key="tintColor" systemColor="labelColor"/>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" image="AllUncheckButton.png" title="     모두 동의하기"/>
+                                <buttonConfiguration key="configuration" style="plain" image="AllUncheckButton" title="     모두 동의하기"/>
                                 <connections>
                                     <action selector="termsAllCheckButton:" destination="GVC-VK-d4y" eventType="touchUpInside" id="EqO-Qp-P3V"/>
                                 </connections>
@@ -258,7 +258,7 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lu6-di-f9a">
                                 <rect key="frame" x="44" y="645" width="40" height="30"/>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" image="UncheckButton.png"/>
+                                <buttonConfiguration key="configuration" style="plain" image="UncheckButton"/>
                                 <connections>
                                     <action selector="termsCheck1Button:" destination="GVC-VK-d4y" eventType="touchUpInside" id="S9a-V3-s05"/>
                                 </connections>
@@ -266,7 +266,7 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="g3U-el-3BI">
                                 <rect key="frame" x="44" y="693" width="40" height="30"/>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" image="UncheckButton.png"/>
+                                <buttonConfiguration key="configuration" style="plain" image="UncheckButton"/>
                                 <connections>
                                     <action selector="termsCheck2Button:" destination="GVC-VK-d4y" eventType="touchUpInside" id="0Jy-fd-5n2"/>
                                 </connections>
@@ -275,7 +275,7 @@
                                 <rect key="frame" x="92.666666666666671" y="644" width="247.33333333333331" height="30"/>
                                 <color key="tintColor" systemColor="labelColor"/>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" image="TermsButton.png" title="(필수) 이용약관 동의                            ">
+                                <buttonConfiguration key="configuration" style="plain" image="TermsButton" title="(필수) 이용약관 동의                            ">
                                     <fontDescription key="titleFontDescription" style="UICTFontTextStyleFootnote"/>
                                 </buttonConfiguration>
                                 <connections>
@@ -286,7 +286,7 @@
                                 <rect key="frame" x="94.333333333333329" y="693" width="245.66666666666669" height="30"/>
                                 <color key="tintColor" systemColor="labelColor"/>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" image="TermsButton.png" title="(필수) 개인정보 처리방침 동의              ">
+                                <buttonConfiguration key="configuration" style="plain" image="TermsButton" title="(필수) 개인정보 처리방침 동의              ">
                                     <fontDescription key="titleFontDescription" style="UICTFontTextStyleFootnote"/>
                                 </buttonConfiguration>
                                 <connections>
@@ -435,7 +435,7 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZQq-Cs-Nr6">
                                 <rect key="frame" x="14" y="728" width="365" height="64"/>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" image="FinishButton.png" title=""/>
+                                <buttonConfiguration key="configuration" style="plain" image="FinishButton" title=""/>
                                 <connections>
                                     <action selector="signUpButton:" destination="kc7-JE-xo9" eventType="touchUpInside" id="chO-DG-cDm"/>
                                 </connections>
@@ -553,7 +553,7 @@
                                     <segue destination="BYZ-38-t0r" kind="show" id="hCv-4Q-7Yn"/>
                                 </connections>
                             </button>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="SignUpFinish.png" translatesAutoresizingMaskIntoConstraints="NO" id="dcq-nY-OuU">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="SignUpFinish" translatesAutoresizingMaskIntoConstraints="NO" id="dcq-nY-OuU">
                                 <rect key="frame" x="75" y="328" width="245" height="197"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="197" id="5Hj-eU-YuU"/>
@@ -608,7 +608,7 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="B4a-AK-Wbr">
                                 <rect key="frame" x="15" y="735" width="365" height="64"/>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" image="FinishButton.png" title=""/>
+                                <buttonConfiguration key="configuration" style="plain" image="FinishButton" title=""/>
                                 <connections>
                                     <action selector="passwordChangeButton:" destination="kmW-0a-bcU" eventType="touchUpInside" id="dEG-T8-bwn"/>
                                     <action selector="passwordChangeButton:" destination="RSG-Pk-beb" eventType="touchUpInside" id="fvc-jW-3d2"/>
@@ -672,7 +672,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="MainLogo.png" translatesAutoresizingMaskIntoConstraints="NO" id="Sdt-gR-hC9">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="MainLogo" translatesAutoresizingMaskIntoConstraints="NO" id="Sdt-gR-hC9">
                                 <rect key="frame" x="32" y="90" width="78" height="48"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
@@ -714,36 +714,6 @@
             <point key="canvasLocation" x="52.671755725190835" y="-937.32394366197184"/>
         </scene>
         <!--View Controller-->
-        <scene sceneID="NbD-BZ-tnP">
-            <objects>
-                <viewController id="vZQ-r8-1s7" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="yna-NV-Bcv">
-                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <viewLayoutGuide key="safeArea" id="UKy-iP-SCU"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="KGn-Aq-Azb" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="54" y="694"/>
-        </scene>
-        <!--View Controller-->
-        <scene sceneID="osD-N7-Yb2">
-            <objects>
-                <viewController id="y40-Uf-H1P" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="EHg-RU-FTX">
-                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <viewLayoutGuide key="safeArea" id="Nbx-Ik-ZXg"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="sut-8b-DL9" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1027" y="708"/>
-        </scene>
-        <!--View Controller-->
         <scene sceneID="gMI-81-UNX">
             <objects>
                 <viewController modalPresentationStyle="fullScreen" id="4UJ-jI-G0s" sceneMemberID="viewController">
@@ -751,7 +721,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="MainLogo.png" translatesAutoresizingMaskIntoConstraints="NO" id="heX-SQ-bZC">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="MainLogo" translatesAutoresizingMaskIntoConstraints="NO" id="heX-SQ-bZC">
                                 <rect key="frame" x="32" y="90" width="78" height="48"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
@@ -831,7 +801,7 @@
                                     <segue destination="4UJ-jI-G0s" kind="show" id="aOd-M9-u0L"/>
                                 </connections>
                             </button>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="MyPageProfileImage.png" translatesAutoresizingMaskIntoConstraints="NO" id="jdC-OK-TJW">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="MyPageProfileImage" translatesAutoresizingMaskIntoConstraints="NO" id="jdC-OK-TJW">
                                 <rect key="frame" x="40" y="155" width="69" height="68"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
@@ -858,7 +828,7 @@
                                 <rect key="frame" x="306" y="170" width="47" height="37"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" image="ProfileEditButton.png" title=""/>
+                                <buttonConfiguration key="configuration" style="plain" image="ProfileEditButton" title=""/>
                                 <connections>
                                     <action selector="profileEditButton:" destination="S8s-dr-UCN" eventType="touchUpInside" id="h0C-aD-1Ic"/>
                                 </connections>
@@ -919,7 +889,7 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="MyPageProfileImage.png" translatesAutoresizingMaskIntoConstraints="NO" id="Cx4-kM-I4v">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="MyPageProfileImage" translatesAutoresizingMaskIntoConstraints="NO" id="Cx4-kM-I4v">
                                 <rect key="frame" x="130" y="170" width="133" height="128"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
@@ -927,7 +897,7 @@
                                 <rect key="frame" x="212" y="260" width="62" height="52"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" image="ProfileImageEditButton.png" title=""/>
+                                <buttonConfiguration key="configuration" style="plain" image="ProfileImageEditButton" title=""/>
                                 <connections>
                                     <action selector="ProfileImageEditButton:" destination="fxu-zT-53N" eventType="touchUpInside" id="KZq-Ss-i4x"/>
                                 </connections>
@@ -949,7 +919,7 @@
                                 <rect key="frame" x="14" y="394" width="365" height="64"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" image="FinishButton.png" title=""/>
+                                <buttonConfiguration key="configuration" style="plain" image="FinishButton" title=""/>
                                 <connections>
                                     <action selector="profileNicknameEditButton:" destination="fxu-zT-53N" eventType="touchUpInside" id="9JM-KL-8Jl"/>
                                 </connections>
@@ -1010,7 +980,7 @@
                                 <rect key="frame" x="16" y="394" width="365" height="64"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" image="FinishButton.png" title=""/>
+                                <buttonConfiguration key="configuration" style="plain" image="FinishButton" title=""/>
                                 <connections>
                                     <action selector="deleteAccountButton:" destination="ctd-3A-o1G" eventType="touchUpInside" id="5v2-Y0-MAZ"/>
                                     <action selector="profileNicknameEditButton:" destination="fxu-zT-53N" eventType="touchUpInside" id="HM6-Ti-vtz"/>
@@ -1095,7 +1065,7 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ryx-Uf-QGy">
                                 <rect key="frame" x="14" y="728" width="365" height="64"/>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" image="NextButton.png" title=""/>
+                                <buttonConfiguration key="configuration" style="plain" image="NextButton" title=""/>
                                 <connections>
                                     <action selector="signUpNicknameButton:" destination="Nwe-Zu-7Kn" eventType="touchUpInside" id="ov5-y1-iBH"/>
                                 </connections>
@@ -1133,24 +1103,24 @@
     </scenes>
     <inferredMetricsTieBreakers>
         <segue reference="aOd-M9-u0L"/>
-        <segue reference="d3t-NS-Dr7"/>
+        <segue reference="oac-rZ-zGd"/>
         <segue reference="jSy-ah-xqa"/>
     </inferredMetricsTieBreakers>
     <resources>
-        <image name="AllUncheckButton.png" width="17" height="17"/>
-        <image name="FinishButton.png" width="341" height="50"/>
-        <image name="GoogleLoginButton.png" width="60" height="60"/>
-        <image name="KakaoLoginButton.png" width="60" height="60"/>
-        <image name="LoginButton.png" width="341" height="50"/>
-        <image name="MainLogo.png" width="138" height="76"/>
-        <image name="MyPageProfileImage.png" width="85" height="84"/>
-        <image name="NextButton.png" width="341" height="50"/>
-        <image name="NextGrayButton.png" width="341" height="50"/>
-        <image name="ProfileEditButton.png" width="23" height="23"/>
-        <image name="ProfileImageEditButton.png" width="38" height="38"/>
-        <image name="SignUpFinish.png" width="271" height="270"/>
-        <image name="TermsButton.png" width="16" height="16"/>
-        <image name="UncheckButton.png" width="16" height="16"/>
+        <image name="AllUncheckButton" width="17" height="17"/>
+        <image name="FinishButton" width="341" height="50"/>
+        <image name="GoogleLoginButton" width="60" height="60"/>
+        <image name="KakaoLoginButton" width="60" height="60"/>
+        <image name="LoginButton" width="341" height="50"/>
+        <image name="MainLogo" width="138" height="76"/>
+        <image name="MyPageProfileImage" width="85" height="84"/>
+        <image name="NextButton" width="341" height="50"/>
+        <image name="NextGrayButton" width="341" height="50"/>
+        <image name="ProfileEditButton" width="23" height="23"/>
+        <image name="ProfileImageEditButton" width="38" height="38"/>
+        <image name="SignUpFinish" width="271" height="270"/>
+        <image name="TermsButton" width="16" height="16"/>
+        <image name="UncheckButton" width="16" height="16"/>
         <image name="chevron.backward" catalog="system" width="97" height="128"/>
         <image name="person" catalog="system" width="128" height="121"/>
         <image name="xmark" catalog="system" width="128" height="113"/>

@@ -15,23 +15,6 @@
 		180454292A51D06D00D02308 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 180454282A51D06D00D02308 /* Assets.xcassets */; };
 		1804542C2A51D06D00D02308 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1804542A2A51D06D00D02308 /* LaunchScreen.storyboard */; };
 		1804543B2A56B71600D02308 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1804543A2A56B71600D02308 /* LoginViewController.swift */; };
-		18F076282A7D1EC5005234CC /* MainLogo.png in Resources */ = {isa = PBXBuildFile; fileRef = 18F076272A7D1EC5005234CC /* MainLogo.png */; };
-		18F0762A2A7D1EDF005234CC /* LoginButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 18F076292A7D1EDF005234CC /* LoginButton.png */; };
-		18F0762C2A7D1EE5005234CC /* FinishButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 18F0762B2A7D1EE5005234CC /* FinishButton.png */; };
-		18F0762E2A7D1EF3005234CC /* KakaoLoginButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 18F0762D2A7D1EF3005234CC /* KakaoLoginButton.png */; };
-		18F076302A7D1EF6005234CC /* SignUpFinish.png in Resources */ = {isa = PBXBuildFile; fileRef = 18F0762F2A7D1EF6005234CC /* SignUpFinish.png */; };
-		18F076322A7D1EFC005234CC /* NextButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 18F076312A7D1EFB005234CC /* NextButton.png */; };
-		18F076342A7D1F01005234CC /* NextGrayButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 18F076332A7D1F01005234CC /* NextGrayButton.png */; };
-		18F076362A7D1F15005234CC /* AllCheckButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 18F076352A7D1F15005234CC /* AllCheckButton.png */; };
-		18F076382A7D1F1E005234CC /* AllUncheckButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 18F076372A7D1F1E005234CC /* AllUncheckButton.png */; };
-		18F0763A2A7D1F22005234CC /* CheckButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 18F076392A7D1F22005234CC /* CheckButton.png */; };
-		18F0763C2A7D1F26005234CC /* UncheckButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 18F0763B2A7D1F26005234CC /* UncheckButton.png */; };
-		18F0763E2A7D1F2C005234CC /* TermsButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 18F0763D2A7D1F2B005234CC /* TermsButton.png */; };
-		18F076402A7D1F3B005234CC /* GoogleLoginButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 18F0763F2A7D1F3B005234CC /* GoogleLoginButton.png */; };
-		18F076422A7D1F52005234CC /* MyPageProfileImage.png in Resources */ = {isa = PBXBuildFile; fileRef = 18F076412A7D1F52005234CC /* MyPageProfileImage.png */; };
-		18F076442A7D1F55005234CC /* MyPageButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 18F076432A7D1F55005234CC /* MyPageButton.png */; };
-		18F076462A7D1F5F005234CC /* ProfileEditButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 18F076452A7D1F5F005234CC /* ProfileEditButton.png */; };
-		18F076482A7D1F64005234CC /* ProfileImageEditButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 18F076472A7D1F64005234CC /* ProfileImageEditButton.png */; };
 		18F076502A7D2EB1005234CC /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 18F0764F2A7D2EB1005234CC /* GoogleService-Info.plist */; };
 		2EA27BDC5CC5C5EB8E8152CA /* Pods_myADD.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FC78431A1F07D286CB8A48D1 /* Pods_myADD.framework */; };
 /* End PBXBuildFile section */
@@ -48,23 +31,6 @@
 		1804542D2A51D06D00D02308 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		180454392A5695B800D02308 /* LoginConfig.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = LoginConfig.xcconfig; sourceTree = "<group>"; };
 		1804543A2A56B71600D02308 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
-		18F076272A7D1EC5005234CC /* MainLogo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = MainLogo.png; path = "../../myADDAssets/회원가입/MainLogo.png"; sourceTree = "<group>"; };
-		18F076292A7D1EDF005234CC /* LoginButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = LoginButton.png; path = "../../myADDAssets/회원가입/LoginButton.png"; sourceTree = "<group>"; };
-		18F0762B2A7D1EE5005234CC /* FinishButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = FinishButton.png; path = "../../myADDAssets/회원가입/FinishButton.png"; sourceTree = "<group>"; };
-		18F0762D2A7D1EF3005234CC /* KakaoLoginButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = KakaoLoginButton.png; path = "../../myADDAssets/회원가입/KakaoLoginButton.png"; sourceTree = "<group>"; };
-		18F0762F2A7D1EF6005234CC /* SignUpFinish.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = SignUpFinish.png; path = "../../myADDAssets/회원가입/SignUpFinish.png"; sourceTree = "<group>"; };
-		18F076312A7D1EFB005234CC /* NextButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = NextButton.png; path = "../../myADDAssets/회원가입/NextButton.png"; sourceTree = "<group>"; };
-		18F076332A7D1F01005234CC /* NextGrayButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = NextGrayButton.png; path = "../../myADDAssets/회원가입/NextGrayButton.png"; sourceTree = "<group>"; };
-		18F076352A7D1F15005234CC /* AllCheckButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = AllCheckButton.png; path = "../../myADDAssets/회원가입/AllCheckButton.png"; sourceTree = "<group>"; };
-		18F076372A7D1F1E005234CC /* AllUncheckButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = AllUncheckButton.png; path = "../../myADDAssets/회원가입/AllUncheckButton.png"; sourceTree = "<group>"; };
-		18F076392A7D1F22005234CC /* CheckButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = CheckButton.png; path = "../../myADDAssets/회원가입/CheckButton.png"; sourceTree = "<group>"; };
-		18F0763B2A7D1F26005234CC /* UncheckButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = UncheckButton.png; path = "../../myADDAssets/회원가입/UncheckButton.png"; sourceTree = "<group>"; };
-		18F0763D2A7D1F2B005234CC /* TermsButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = TermsButton.png; path = "../../myADDAssets/회원가입/TermsButton.png"; sourceTree = "<group>"; };
-		18F0763F2A7D1F3B005234CC /* GoogleLoginButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = GoogleLoginButton.png; path = "../../myADDAssets/회원가입/회원가입/GoogleLoginButton.png"; sourceTree = "<group>"; };
-		18F076412A7D1F52005234CC /* MyPageProfileImage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = MyPageProfileImage.png; path = ../../myADDAssets/MyPageProfileImage.png; sourceTree = "<group>"; };
-		18F076432A7D1F55005234CC /* MyPageButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = MyPageButton.png; path = ../../myADDAssets/MyPageButton.png; sourceTree = "<group>"; };
-		18F076452A7D1F5F005234CC /* ProfileEditButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = ProfileEditButton.png; path = ../../myADDAssets/ProfileEditButton.png; sourceTree = "<group>"; };
-		18F076472A7D1F64005234CC /* ProfileImageEditButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = ProfileImageEditButton.png; path = ../../myADDAssets/ProfileImageEditButton.png; sourceTree = "<group>"; };
 		18F0764F2A7D2EB1005234CC /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../myADDAssets/0804googleplist/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		4E9FCC9790A9D7C39B09E572 /* Pods-myADD.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-myADD.debug.xcconfig"; path = "Target Support Files/Pods-myADD/Pods-myADD.debug.xcconfig"; sourceTree = "<group>"; };
 		D120F8CE219FB2A1584AE21B /* Pods-myADD.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-myADD.release.xcconfig"; path = "Target Support Files/Pods-myADD/Pods-myADD.release.xcconfig"; sourceTree = "<group>"; };
@@ -123,23 +89,6 @@
 				180454392A5695B800D02308 /* LoginConfig.xcconfig */,
 				1804543A2A56B71600D02308 /* LoginViewController.swift */,
 				18F0764F2A7D2EB1005234CC /* GoogleService-Info.plist */,
-				18F076272A7D1EC5005234CC /* MainLogo.png */,
-				18F076292A7D1EDF005234CC /* LoginButton.png */,
-				18F076312A7D1EFB005234CC /* NextButton.png */,
-				18F076332A7D1F01005234CC /* NextGrayButton.png */,
-				18F0762B2A7D1EE5005234CC /* FinishButton.png */,
-				18F0762D2A7D1EF3005234CC /* KakaoLoginButton.png */,
-				18F0763F2A7D1F3B005234CC /* GoogleLoginButton.png */,
-				18F0762F2A7D1EF6005234CC /* SignUpFinish.png */,
-				18F076352A7D1F15005234CC /* AllCheckButton.png */,
-				18F076372A7D1F1E005234CC /* AllUncheckButton.png */,
-				18F076392A7D1F22005234CC /* CheckButton.png */,
-				18F0763B2A7D1F26005234CC /* UncheckButton.png */,
-				18F076432A7D1F55005234CC /* MyPageButton.png */,
-				18F076412A7D1F52005234CC /* MyPageProfileImage.png */,
-				18F076452A7D1F5F005234CC /* ProfileEditButton.png */,
-				18F076472A7D1F64005234CC /* ProfileImageEditButton.png */,
-				18F0763D2A7D1F2B005234CC /* TermsButton.png */,
 			);
 			path = myADD;
 			sourceTree = "<group>";
@@ -214,25 +163,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				1804542C2A51D06D00D02308 /* LaunchScreen.storyboard in Resources */,
-				18F0763C2A7D1F26005234CC /* UncheckButton.png in Resources */,
-				18F0763E2A7D1F2C005234CC /* TermsButton.png in Resources */,
-				18F0763A2A7D1F22005234CC /* CheckButton.png in Resources */,
-				18F076382A7D1F1E005234CC /* AllUncheckButton.png in Resources */,
-				18F076282A7D1EC5005234CC /* MainLogo.png in Resources */,
-				18F076302A7D1EF6005234CC /* SignUpFinish.png in Resources */,
-				18F076422A7D1F52005234CC /* MyPageProfileImage.png in Resources */,
-				18F0762C2A7D1EE5005234CC /* FinishButton.png in Resources */,
-				18F076322A7D1EFC005234CC /* NextButton.png in Resources */,
-				18F0762E2A7D1EF3005234CC /* KakaoLoginButton.png in Resources */,
-				18F076402A7D1F3B005234CC /* GoogleLoginButton.png in Resources */,
-				18F076462A7D1F5F005234CC /* ProfileEditButton.png in Resources */,
 				180454292A51D06D00D02308 /* Assets.xcassets in Resources */,
-				18F076362A7D1F15005234CC /* AllCheckButton.png in Resources */,
-				18F076442A7D1F55005234CC /* MyPageButton.png in Resources */,
-				18F0762A2A7D1EDF005234CC /* LoginButton.png in Resources */,
 				180454242A51D06C00D02308 /* Main.storyboard in Resources */,
-				18F076342A7D1F01005234CC /* NextGrayButton.png in Resources */,
-				18F076482A7D1F64005234CC /* ProfileImageEditButton.png in Resources */,
 				18F076502A7D2EB1005234CC /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

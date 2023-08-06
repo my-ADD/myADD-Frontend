@@ -16,6 +16,26 @@
 		1804542C2A51D06D00D02308 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1804542A2A51D06D00D02308 /* LaunchScreen.storyboard */; };
 		1804543B2A56B71600D02308 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1804543A2A56B71600D02308 /* LoginViewController.swift */; };
 		18F076502A7D2EB1005234CC /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 18F0764F2A7D2EB1005234CC /* GoogleService-Info.plist */; };
+		18F0768A2A7FC28A005234CC /* EmojiPicker in Frameworks */ = {isa = PBXBuildFile; productRef = 18F076892A7FC28A005234CC /* EmojiPicker */; };
+		18F076B22A7FC4AA005234CC /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18F076AF2A7FC4A9005234CC /* ImagePicker.swift */; };
+		18F076B32A7FC4AA005234CC /* HideKeyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18F076B02A7FC4A9005234CC /* HideKeyboard.swift */; };
+		18F076B42A7FC4AA005234CC /* EmojiPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18F076B12A7FC4A9005234CC /* EmojiPicker.swift */; };
+		18F076B82A7FC4B6005234CC /* CardViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18F076B62A7FC4B6005234CC /* CardViewModel.swift */; };
+		18F076B92A7FC4B6005234CC /* CardDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18F076B72A7FC4B6005234CC /* CardDataModel.swift */; };
+		18F076BC2A7FC4BF005234CC /* CardData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18F076BB2A7FC4BF005234CC /* CardData.swift */; };
+		18F076CE2A7FC4D2005234CC /* FlippableCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18F076BF2A7FC4D2005234CC /* FlippableCardView.swift */; };
+		18F076CF2A7FC4D2005234CC /* CardFrontView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18F076C02A7FC4D2005234CC /* CardFrontView.swift */; };
+		18F076D02A7FC4D2005234CC /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18F076C12A7FC4D2005234CC /* OnboardingView.swift */; };
+		18F076D12A7FC4D2005234CC /* CardBackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18F076C22A7FC4D2005234CC /* CardBackView.swift */; };
+		18F076D22A7FC4D2005234CC /* MyInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18F076C32A7FC4D2005234CC /* MyInfoView.swift */; };
+		18F076D32A7FC4D2005234CC /* AddCardFrontView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18F076C52A7FC4D2005234CC /* AddCardFrontView.swift */; };
+		18F076D42A7FC4D2005234CC /* EditCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18F076C62A7FC4D2005234CC /* EditCardView.swift */; };
+		18F076D52A7FC4D2005234CC /* MemoInputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18F076C72A7FC4D2005234CC /* MemoInputView.swift */; };
+		18F076D62A7FC4D2005234CC /* AddCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18F076C82A7FC4D2005234CC /* AddCardView.swift */; };
+		18F076D72A7FC4D2005234CC /* AddCardBackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18F076C92A7FC4D2005234CC /* AddCardBackView.swift */; };
+		18F076D82A7FC4D2005234CC /* GridLayoutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18F076CB2A7FC4D2005234CC /* GridLayoutView.swift */; };
+		18F076D92A7FC4D2005234CC /* GridItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18F076CC2A7FC4D2005234CC /* GridItemView.swift */; };
+		18F076DA2A7FC4D2005234CC /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18F076CD2A7FC4D2005234CC /* MainView.swift */; };
 		2EA27BDC5CC5C5EB8E8152CA /* Pods_myADD.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FC78431A1F07D286CB8A48D1 /* Pods_myADD.framework */; };
 /* End PBXBuildFile section */
 
@@ -32,6 +52,25 @@
 		180454392A5695B800D02308 /* LoginConfig.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = LoginConfig.xcconfig; sourceTree = "<group>"; };
 		1804543A2A56B71600D02308 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		18F0764F2A7D2EB1005234CC /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../myADDAssets/0804googleplist/GoogleService-Info.plist"; sourceTree = "<group>"; };
+		18F076AF2A7FC4A9005234CC /* ImagePicker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
+		18F076B02A7FC4A9005234CC /* HideKeyboard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HideKeyboard.swift; sourceTree = "<group>"; };
+		18F076B12A7FC4A9005234CC /* EmojiPicker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmojiPicker.swift; sourceTree = "<group>"; };
+		18F076B62A7FC4B6005234CC /* CardViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardViewModel.swift; sourceTree = "<group>"; };
+		18F076B72A7FC4B6005234CC /* CardDataModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardDataModel.swift; sourceTree = "<group>"; };
+		18F076BB2A7FC4BF005234CC /* CardData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardData.swift; sourceTree = "<group>"; };
+		18F076BF2A7FC4D2005234CC /* FlippableCardView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FlippableCardView.swift; sourceTree = "<group>"; };
+		18F076C02A7FC4D2005234CC /* CardFrontView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardFrontView.swift; sourceTree = "<group>"; };
+		18F076C12A7FC4D2005234CC /* OnboardingView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
+		18F076C22A7FC4D2005234CC /* CardBackView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardBackView.swift; sourceTree = "<group>"; };
+		18F076C32A7FC4D2005234CC /* MyInfoView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyInfoView.swift; sourceTree = "<group>"; };
+		18F076C52A7FC4D2005234CC /* AddCardFrontView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddCardFrontView.swift; sourceTree = "<group>"; };
+		18F076C62A7FC4D2005234CC /* EditCardView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditCardView.swift; sourceTree = "<group>"; };
+		18F076C72A7FC4D2005234CC /* MemoInputView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MemoInputView.swift; sourceTree = "<group>"; };
+		18F076C82A7FC4D2005234CC /* AddCardView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddCardView.swift; sourceTree = "<group>"; };
+		18F076C92A7FC4D2005234CC /* AddCardBackView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddCardBackView.swift; sourceTree = "<group>"; };
+		18F076CB2A7FC4D2005234CC /* GridLayoutView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GridLayoutView.swift; sourceTree = "<group>"; };
+		18F076CC2A7FC4D2005234CC /* GridItemView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GridItemView.swift; sourceTree = "<group>"; };
+		18F076CD2A7FC4D2005234CC /* MainView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		4E9FCC9790A9D7C39B09E572 /* Pods-myADD.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-myADD.debug.xcconfig"; path = "Target Support Files/Pods-myADD/Pods-myADD.debug.xcconfig"; sourceTree = "<group>"; };
 		D120F8CE219FB2A1584AE21B /* Pods-myADD.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-myADD.release.xcconfig"; path = "Target Support Files/Pods-myADD/Pods-myADD.release.xcconfig"; sourceTree = "<group>"; };
 		FC78431A1F07D286CB8A48D1 /* Pods_myADD.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_myADD.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -43,6 +82,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2EA27BDC5CC5C5EB8E8152CA /* Pods_myADD.framework in Frameworks */,
+				18F0768A2A7FC28A005234CC /* EmojiPicker in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -81,16 +121,95 @@
 				1804541C2A51D06C00D02308 /* AppDelegate.swift */,
 				1804541E2A51D06C00D02308 /* SceneDelegate.swift */,
 				180454202A51D06C00D02308 /* ViewController.swift */,
+				1804543A2A56B71600D02308 /* LoginViewController.swift */,
 				180454222A51D06C00D02308 /* Main.storyboard */,
+				18F076BD2A7FC4D2005234CC /* View */,
+				18F076BA2A7FC4BF005234CC /* Data */,
+				18F076B52A7FC4B6005234CC /* Model */,
+				18F076AE2A7FC4A9005234CC /* Extension */,
 				180454282A51D06D00D02308 /* Assets.xcassets */,
 				1804542A2A51D06D00D02308 /* LaunchScreen.storyboard */,
 				1804542D2A51D06D00D02308 /* Info.plist */,
 				180454252A51D06C00D02308 /* myADD.xcdatamodeld */,
 				180454392A5695B800D02308 /* LoginConfig.xcconfig */,
-				1804543A2A56B71600D02308 /* LoginViewController.swift */,
 				18F0764F2A7D2EB1005234CC /* GoogleService-Info.plist */,
 			);
 			path = myADD;
+			sourceTree = "<group>";
+		};
+		18F076AE2A7FC4A9005234CC /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				18F076AF2A7FC4A9005234CC /* ImagePicker.swift */,
+				18F076B02A7FC4A9005234CC /* HideKeyboard.swift */,
+				18F076B12A7FC4A9005234CC /* EmojiPicker.swift */,
+			);
+			name = Extension;
+			path = "../../myADDDownload/08060838-2/myADD/myADD/Extension";
+			sourceTree = "<group>";
+		};
+		18F076B52A7FC4B6005234CC /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				18F076B62A7FC4B6005234CC /* CardViewModel.swift */,
+				18F076B72A7FC4B6005234CC /* CardDataModel.swift */,
+			);
+			name = Model;
+			path = "../../myADDDownload/08060838-2/myADD/myADD/Model";
+			sourceTree = "<group>";
+		};
+		18F076BA2A7FC4BF005234CC /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				18F076BB2A7FC4BF005234CC /* CardData.swift */,
+			);
+			name = Data;
+			path = "../../myADDDownload/08060838-2/myADD/myADD/Data";
+			sourceTree = "<group>";
+		};
+		18F076BD2A7FC4D2005234CC /* View */ = {
+			isa = PBXGroup;
+			children = (
+				18F076C32A7FC4D2005234CC /* MyInfoView.swift */,
+				18F076CD2A7FC4D2005234CC /* MainView.swift */,
+				18F076BE2A7FC4D2005234CC /* Card */,
+				18F076C42A7FC4D2005234CC /* AddCard */,
+				18F076CA2A7FC4D2005234CC /* GridLayout */,
+			);
+			name = View;
+			path = "../../myADDDownload/08060838-2/myADD/myADD/View";
+			sourceTree = "<group>";
+		};
+		18F076BE2A7FC4D2005234CC /* Card */ = {
+			isa = PBXGroup;
+			children = (
+				18F076BF2A7FC4D2005234CC /* FlippableCardView.swift */,
+				18F076C02A7FC4D2005234CC /* CardFrontView.swift */,
+				18F076C12A7FC4D2005234CC /* OnboardingView.swift */,
+				18F076C22A7FC4D2005234CC /* CardBackView.swift */,
+			);
+			path = Card;
+			sourceTree = "<group>";
+		};
+		18F076C42A7FC4D2005234CC /* AddCard */ = {
+			isa = PBXGroup;
+			children = (
+				18F076C52A7FC4D2005234CC /* AddCardFrontView.swift */,
+				18F076C62A7FC4D2005234CC /* EditCardView.swift */,
+				18F076C72A7FC4D2005234CC /* MemoInputView.swift */,
+				18F076C82A7FC4D2005234CC /* AddCardView.swift */,
+				18F076C92A7FC4D2005234CC /* AddCardBackView.swift */,
+			);
+			path = AddCard;
+			sourceTree = "<group>";
+		};
+		18F076CA2A7FC4D2005234CC /* GridLayout */ = {
+			isa = PBXGroup;
+			children = (
+				18F076CB2A7FC4D2005234CC /* GridLayoutView.swift */,
+				18F076CC2A7FC4D2005234CC /* GridItemView.swift */,
+			);
+			path = GridLayout;
 			sourceTree = "<group>";
 		};
 		9C5341E42ECF0376392FED9F /* Pods */ = {
@@ -120,6 +239,9 @@
 			dependencies = (
 			);
 			name = myADD;
+			packageProductDependencies = (
+				18F076892A7FC28A005234CC /* EmojiPicker */,
+			);
 			productName = myADD;
 			productReference = 180454192A51D06C00D02308 /* myADD.app */;
 			productType = "com.apple.product-type.application";
@@ -148,6 +270,9 @@
 				Base,
 			);
 			mainGroup = 180454102A51D06C00D02308;
+			packageReferences = (
+				18F076882A7FC28A005234CC /* XCRemoteSwiftPackageReference "EmojiPicker" */,
+			);
 			productRefGroup = 1804541A2A51D06C00D02308 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -219,10 +344,29 @@
 			buildActionMask = 2147483647;
 			files = (
 				180454212A51D06C00D02308 /* ViewController.swift in Sources */,
+				18F076DA2A7FC4D2005234CC /* MainView.swift in Sources */,
 				180454272A51D06C00D02308 /* myADD.xcdatamodeld in Sources */,
+				18F076CE2A7FC4D2005234CC /* FlippableCardView.swift in Sources */,
+				18F076D52A7FC4D2005234CC /* MemoInputView.swift in Sources */,
 				1804541D2A51D06C00D02308 /* AppDelegate.swift in Sources */,
+				18F076BC2A7FC4BF005234CC /* CardData.swift in Sources */,
+				18F076B92A7FC4B6005234CC /* CardDataModel.swift in Sources */,
+				18F076B32A7FC4AA005234CC /* HideKeyboard.swift in Sources */,
+				18F076B22A7FC4AA005234CC /* ImagePicker.swift in Sources */,
+				18F076D22A7FC4D2005234CC /* MyInfoView.swift in Sources */,
 				1804543B2A56B71600D02308 /* LoginViewController.swift in Sources */,
+				18F076B42A7FC4AA005234CC /* EmojiPicker.swift in Sources */,
+				18F076D32A7FC4D2005234CC /* AddCardFrontView.swift in Sources */,
+				18F076D42A7FC4D2005234CC /* EditCardView.swift in Sources */,
+				18F076D62A7FC4D2005234CC /* AddCardView.swift in Sources */,
+				18F076D92A7FC4D2005234CC /* GridItemView.swift in Sources */,
 				1804541F2A51D06C00D02308 /* SceneDelegate.swift in Sources */,
+				18F076D12A7FC4D2005234CC /* CardBackView.swift in Sources */,
+				18F076D72A7FC4D2005234CC /* AddCardBackView.swift in Sources */,
+				18F076D82A7FC4D2005234CC /* GridLayoutView.swift in Sources */,
+				18F076B82A7FC4B6005234CC /* CardViewModel.swift in Sources */,
+				18F076CF2A7FC4D2005234CC /* CardFrontView.swift in Sources */,
+				18F076D02A7FC4D2005234CC /* OnboardingView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -442,6 +586,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		18F076882A7FC28A005234CC /* XCRemoteSwiftPackageReference "EmojiPicker" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Kelvas09/EmojiPicker.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		18F076892A7FC28A005234CC /* EmojiPicker */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 18F076882A7FC28A005234CC /* XCRemoteSwiftPackageReference "EmojiPicker" */;
+			productName = EmojiPicker;
+		};
+/* End XCSwiftPackageProductDependency section */
 
 /* Begin XCVersionGroup section */
 		180454252A51D06C00D02308 /* myADD.xcdatamodeld */ = {

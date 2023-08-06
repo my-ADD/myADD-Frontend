@@ -713,20 +713,24 @@
             </objects>
             <point key="canvasLocation" x="52.671755725190835" y="-937.32394366197184"/>
         </scene>
-        <!--View Controller-->
+        <!--Hosting Controller-->
+        <scene sceneID="c7l-Lo-SEb">
+            <objects>
+                <hostingController id="Adf-KV-C8b" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="YdF-bo-zv5" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="818" y="-937"/>
+        </scene>
+        <!--Login View Controller-->
         <scene sceneID="gMI-81-UNX">
             <objects>
-                <viewController modalPresentationStyle="fullScreen" id="4UJ-jI-G0s" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="MyPageViewController" modalPresentationStyle="fullScreen" useStoryboardIdentifierAsRestorationIdentifier="YES" id="4UJ-jI-G0s" customClass="LoginViewController" customModule="myADD" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="vug-Ph-eSK">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="MainLogo" translatesAutoresizingMaskIntoConstraints="NO" id="heX-SQ-bZC">
-                                <rect key="frame" x="32" y="90" width="78" height="48"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Aja-bo-QE0">
-                                <rect key="frame" x="32" y="521" width="81" height="38"/>
+                                <rect key="frame" x="32" y="429" width="81" height="38"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="tintColor" systemColor="labelColor"/>
                                 <state key="normal" title="Button"/>
@@ -734,24 +738,29 @@
                                     <fontDescription key="titleFontDescription" style="UICTFontTextStyleTitle3"/>
                                 </buttonConfiguration>
                                 <connections>
-                                    <segue destination="S8s-dr-UCN" kind="show" id="Kns-Uq-X6C"/>
+                                    <action selector="myInfoViewButton:" destination="4UJ-jI-G0s" eventType="touchUpInside" id="oJa-gP-GzQ"/>
                                 </connections>
                             </button>
                             <datePicker contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" style="inline" translatesAutoresizingMaskIntoConstraints="NO" id="3ge-Kb-oYU">
-                                <rect key="frame" x="29" y="167" width="334" height="329"/>
+                                <rect key="frame" x="29" y="75" width="334" height="329"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                 <color key="tintColor" systemColor="systemRedColor"/>
-                                <connections>
-                                    <segue destination="TF5-KW-ZzF" kind="show" id="Imm-k1-Dso"/>
-                                </connections>
                             </datePicker>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iMn-3J-Ltb">
-                                <rect key="frame" x="32" y="567" width="136" height="38"/>
+                                <rect key="frame" x="32" y="475" width="136" height="38"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="tintColor" systemColor="labelColor"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="my ADD 정보">
                                     <fontDescription key="titleFontDescription" style="UICTFontTextStyleTitle3"/>
+                                </buttonConfiguration>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VPc-9f-uZd">
+                                <rect key="frame" x="32" y="20" width="67" height="47"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" image="SmallLogo">
+                                    <preferredSymbolConfiguration key="preferredSymbolConfigurationForImage"/>
                                 </buttonConfiguration>
                             </button>
                         </subviews>
@@ -767,7 +776,7 @@
         <!--logoutViewController-->
         <scene sceneID="MMo-3Q-sT6">
             <objects>
-                <viewController storyboardIdentifier="logoutViewController" title="logoutViewController" modalPresentationStyle="fullScreen" useStoryboardIdentifierAsRestorationIdentifier="YES" id="S8s-dr-UCN" customClass="LoginViewController" customModule="myADD" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="myInfoViewController" title="logoutViewController" modalPresentationStyle="fullScreen" useStoryboardIdentifierAsRestorationIdentifier="YES" id="S8s-dr-UCN" customClass="LoginViewController" customModule="myADD" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="YmH-oI-ymJ">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -787,18 +796,18 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="내 정보" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MNJ-Cc-tqx">
-                                <rect key="frame" x="161" y="31" width="71" height="30"/>
+                                <rect key="frame" x="161" y="90" width="71" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9p5-O7-VNo">
-                                <rect key="frame" x="33" y="31" width="40" height="34"/>
+                                <rect key="frame" x="33" y="90" width="40" height="34"/>
                                 <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" image="chevron.backward" catalog="system" title=""/>
                                 <connections>
-                                    <segue destination="4UJ-jI-G0s" kind="show" id="aOd-M9-u0L"/>
+                                    <action selector="myInfoBackButton:" destination="S8s-dr-UCN" eventType="touchUpInside" id="EdS-ky-EZs"/>
                                 </connections>
                             </button>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="MyPageProfileImage" translatesAutoresizingMaskIntoConstraints="NO" id="jdC-OK-TJW">
@@ -880,7 +889,7 @@
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" image="chevron.backward" catalog="system" title=""/>
                                 <connections>
-                                    <action selector="ProfileEditBackButton:" destination="fxu-zT-53N" eventType="touchUpInside" id="CzL-xX-jVz"/>
+                                    <action selector="profileEditBackButton:" destination="fxu-zT-53N" eventType="touchUpInside" id="9co-Qj-Gtk"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="프로필 수정" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xnm-dF-TGD">
@@ -899,7 +908,7 @@
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" image="ProfileImageEditButton" title=""/>
                                 <connections>
-                                    <action selector="ProfileImageEditButton:" destination="fxu-zT-53N" eventType="touchUpInside" id="KZq-Ss-i4x"/>
+                                    <action selector="profileImageEditButton:" destination="fxu-zT-53N" eventType="touchUpInside" id="Mmu-si-EEo"/>
                                 </connections>
                             </button>
                             <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="닉네임" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="qrO-Wj-DzQ">
@@ -909,7 +918,7 @@
                                 <textInputTraits key="textInputTraits" returnKeyType="done"/>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="_____________________________________" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MCt-wZ-01c">
-                                <rect key="frame" x="34" y="363" width="345" height="21"/>
+                                <rect key="frame" x="34" y="363" width="325.33333333333331" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" weight="thin" pointSize="17"/>
                                 <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -1102,9 +1111,8 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="aOd-M9-u0L"/>
         <segue reference="oac-rZ-zGd"/>
-        <segue reference="jSy-ah-xqa"/>
+        <segue reference="hCv-4Q-7Yn"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="AllUncheckButton" width="17" height="17"/>
@@ -1119,6 +1127,7 @@
         <image name="ProfileEditButton" width="23" height="23"/>
         <image name="ProfileImageEditButton" width="38" height="38"/>
         <image name="SignUpFinish" width="271" height="270"/>
+        <image name="SmallLogo" width="64" height="36"/>
         <image name="TermsButton" width="16" height="16"/>
         <image name="UncheckButton" width="16" height="16"/>
         <image name="chevron.backward" catalog="system" width="97" height="128"/>

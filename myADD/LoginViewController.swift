@@ -7,6 +7,7 @@
 
 import Foundation
 import UIKit
+import SwiftUI
 import KakaoSDKCommon
 import KakaoSDKTalk
 import KakaoSDKAuth
@@ -35,7 +36,7 @@ class LoginViewController: UIViewController {
     @IBOutlet var loginPassword: UITextField!
     
     @IBOutlet var passwordChangeEmail: UITextField!
- 
+    
     @IBOutlet weak var mainNickname: UILabel!
     @IBOutlet weak var infoNickname: UILabel!
     @IBOutlet weak var profileEditNickname: UITextField!
@@ -50,34 +51,34 @@ class LoginViewController: UIViewController {
     let userDefaults = UserDefaults.standard
     
     private var handle: AuthStateDidChangeListenerHandle?
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.nicknameDefaults()
     }
     
     override func viewWillAppear(_ animated: Bool) {
-               
+        
         handle = Auth.auth().addStateDidChangeListener { auth, user in
             if let user = user {
                 print("\(user.email ?? "nil")")
-                }
             }
         }
-            
+    }
+    
     override func viewWillDisappear(_ animated: Bool) {
-            if let _ = handle {
-                Auth.auth().removeStateDidChangeListener(handle!)
-            }
+        if let _ = handle {
+            Auth.auth().removeStateDidChangeListener(handle!)
         }
-   
+    }
+    
     override func viewDidAppear(_ animated: Bool) {
         self.nicknameDefaults()
     }
     
     // 텍스트 필드
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?){
-        self.view.endEditing(true)
+            self.view.endEditing(true)
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
@@ -104,7 +105,7 @@ class LoginViewController: UIViewController {
         else {
             if password == passwordCheck {
                 Auth.auth().createUser(withEmail: email, password: password) { authResult, error in
-            
+                    
                     if let error = error { print(error)
                         
                         let errorcode = error as NSError
@@ -247,7 +248,7 @@ class LoginViewController: UIViewController {
         infoNickname?.text = (nickname ?? "회원") + "님"
         profileEditNickname?.text = nickname
     }
-
+    
     @IBAction func signUpNicknameButton(_ sender: Any) {
         
         userDefaults.set(self.signUpNickname.text, forKey: "nickname")
@@ -258,7 +259,7 @@ class LoginViewController: UIViewController {
         self.present(signUpViewController, animated: false, completion: nil)
     }
     
-  
+    
     @IBAction func signUpNicknameBackButton(_ sender: Any) {
         self.dismiss(animated: false, completion: nil)
     }
@@ -276,11 +277,11 @@ class LoginViewController: UIViewController {
             if let error = error { print(error) }
             if let result = authResult, let userEmail =  result.user.email {
                 print("\(userEmail)으로 로그인")
-       
-                guard let loginFinishViewController = self?.storyboard?.instantiateViewController(identifier: "loginFinishViewController") as? LoginViewController else { return }
-                loginFinishViewController.modalTransitionStyle = .coverVertical
-                loginFinishViewController.modalPresentationStyle = .fullScreen
-                self?.present(loginFinishViewController, animated: true, completion: nil)
+                
+                let hostingLoginViewController = UIHostingController(rootView: MainView())
+                hostingLoginViewController.modalTransitionStyle = .coverVertical
+                hostingLoginViewController.modalPresentationStyle = .fullScreen
+                self?.present(hostingLoginViewController, animated: true)
             }
         }
     }
@@ -290,7 +291,7 @@ class LoginViewController: UIViewController {
         do {
             try auth.signOut()
             print("로그아웃 성공")
-    
+            
             let loginViewController = self.storyboard?.instantiateViewController(identifier: "loginViewController")
             loginViewController?.modalTransitionStyle = .coverVertical
             loginViewController?.modalPresentationStyle = .fullScreen
@@ -304,23 +305,23 @@ class LoginViewController: UIViewController {
     @IBAction func passwordChangeButton(_ sender: Any) {
         
         guard let email = self.passwordChangeEmail.text else { return }
-            Auth.auth().sendPasswordReset(withEmail: email) { error in
-                guard let error = error else
-                {
-                    print("재설정 메일 발송")
-                    return
-                }
-                let nsError : NSError = error as NSError
-                    switch nsError.code
-                    {
-                        case 17011:
-                            print("존재하지 않는 이메일입니다.")
-                        default:
-                            break
-                    }
-                }
+        Auth.auth().sendPasswordReset(withEmail: email) { error in
+            guard let error = error else
+            {
+                print("재설정 메일 발송")
+                return
+            }
+            let nsError : NSError = error as NSError
+            switch nsError.code
+            {
+            case 17011:
+                print("존재하지 않는 이메일입니다.")
+            default:
+                break
+            }
+        }
     }
-
+    
     
     // 카카오 로그인
     @IBAction func kakaologin(_ sender: Any) {
@@ -332,39 +333,39 @@ class LoginViewController: UIViewController {
                 }
                 else {
                     print("loginWithKakaoTalk() success.")
-
+                    
                     //do something
                     _ = oauthToken
                     self.getKakaoInfo()
                     
-                    let loginFinishViewController = self.storyboard?.instantiateViewController(identifier: "loginFinishViewController")
-                    loginFinishViewController?.modalTransitionStyle = .coverVertical
-                    loginFinishViewController?.modalPresentationStyle = .fullScreen
-                    self.present(loginFinishViewController!, animated: true, completion: nil)
+                    let hostingLoginViewController = UIHostingController(rootView: MainView())
+                    hostingLoginViewController.modalTransitionStyle = .coverVertical
+                    hostingLoginViewController.modalPresentationStyle = .fullScreen
+                    self.present(hostingLoginViewController, animated: true)
                 }
             }
-        
+            
         }
         else {
             UserApi.shared.loginWithKakaoAccount {(oauthToken, error) in
-                    if let error = error {
-                        print(error)
-                    }
-                    else {
-                        print("loginWithKakaoAccount() success.")
-
-                        //do something
-                        _ = oauthToken
-                        self.getKakaoInfo()
-                        
-                        let loginFinishViewController = self.storyboard?.instantiateViewController(identifier: "loginFinishViewController")
-                        loginFinishViewController?.modalTransitionStyle = .coverVertical
-                        loginFinishViewController?.modalPresentationStyle = .fullScreen
-                        self.present(loginFinishViewController!, animated: true, completion: nil)
-                    }
-                
+                if let error = error {
+                    print(error)
                 }
+                else {
+                    print("loginWithKakaoAccount() success.")
+                    
+                    //do something
+                    _ = oauthToken
+                    self.getKakaoInfo()
+                    
+                    let hostingLoginViewController = UIHostingController(rootView: MainView())
+                    hostingLoginViewController.modalTransitionStyle = .coverVertical
+                    hostingLoginViewController.modalPresentationStyle = .fullScreen
+                    self.present(hostingLoginViewController, animated: true)
+                }
+                
             }
+        }
     }
     
     @IBAction func kakaologout(_ sender: Any) {
@@ -386,22 +387,22 @@ class LoginViewController: UIViewController {
     }
     
     private func getKakaoInfo() {
-
-            UserApi.shared.me() {(user, error) in
-                if let error = error {
-                    print(error)
-                }
-                else {
-                    print("me() success.")
-
-                    let nickname = user?.kakaoAccount?.profile?.nickname
-                    let email = user?.kakaoAccount?.email
-                    
-                    print(email)
-
-                }
+        
+        UserApi.shared.me() {(user, error) in
+            if let error = error {
+                print(error)
+            }
+            else {
+                print("me() success.")
+                
+                let nickname = user?.kakaoAccount?.profile?.nickname
+                let email = user?.kakaoAccount?.email
+                
+                print(email)
+                
             }
         }
+    }
     
     // 구글 로그인
     @IBAction func googleLoginButton(_ sender: GIDSignInButton) {
@@ -410,29 +411,29 @@ class LoginViewController: UIViewController {
         GIDSignIn.sharedInstance.configuration = config
         
         GIDSignIn.sharedInstance.signIn(withPresenting: self) { [unowned self] result, error in
-          guard error == nil else { print(error)
-              return }
+            guard error == nil else { print(error)
+                return }
             
             print(result?.user)
             print(result?.user.profile?.email)
-
-          guard let user = result?.user,
-            let idToken = user.idToken?.tokenString
-          else { return }
-
-          let credential = GoogleAuthProvider.credential(withIDToken: idToken,
-                                                         accessToken: user.accessToken.tokenString)
-        
+            
+            guard let user = result?.user,
+                  let idToken = user.idToken?.tokenString
+            else { return }
+            
+            let credential = GoogleAuthProvider.credential(withIDToken: idToken,
+                                                           accessToken: user.accessToken.tokenString)
+            
             Auth.auth().signIn(with: credential) { authResult, authError in
-                 if let authError = authError { print(authError)
-                  }
+                if let authError = authError { print(authError)
+                }
                 if let authResult = authResult {
                     print(authResult.user.email)
                     
-                    let loginFinishViewController = self.storyboard?.instantiateViewController(identifier: "loginFinishViewController")
-                    loginFinishViewController?.modalTransitionStyle = .coverVertical
-                    loginFinishViewController?.modalPresentationStyle = .fullScreen
-                    self.present(loginFinishViewController!, animated: true, completion: nil)
+                    let hostingLoginViewController = UIHostingController(rootView: MainView())
+                    hostingLoginViewController.modalTransitionStyle = .coverVertical
+                    hostingLoginViewController.modalPresentationStyle = .fullScreen
+                    self.present(hostingLoginViewController, animated: true)
                     
                 }
             }
@@ -442,15 +443,27 @@ class LoginViewController: UIViewController {
     @IBAction func googleLogoutButton(_ sender: Any) {
         let firebaseAuth = Auth.auth()
         do {
-          try firebaseAuth.signOut()
+            try firebaseAuth.signOut()
             GIDSignIn.sharedInstance.signOut()
         } catch let signOutError as NSError {
-          print("Logout Error: %@", signOutError)
+            print("Logout Error: %@", signOutError)
         }
     }
     
     
-    // 프로필 수정
+    // 프로필
+    
+    @IBAction func myInfoViewButton(_ sender: Any) {
+        let myInfoViewController = self.storyboard?.instantiateViewController(identifier: "myInfoViewController")
+        myInfoViewController?.modalTransitionStyle = .coverVertical
+        myInfoViewController?.modalPresentationStyle = .fullScreen
+        self.present(myInfoViewController!, animated: true, completion: nil)
+    }
+    
+    @IBAction func myInfoBackButton(_ sender: Any) {
+        self.dismiss(animated: true, completion: nil)
+    }
+    
     @IBAction func profileEditButton(_ sender: Any) {
         let profileEditViewController = self.storyboard?.instantiateViewController(identifier: "profileEditViewController")
         profileEditViewController?.modalTransitionStyle = .coverVertical
@@ -459,11 +472,12 @@ class LoginViewController: UIViewController {
     }
     
     
-    @IBAction func ProfileEditBackButton(_ sender: Any) {
+    @IBAction func profileEditBackButton(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)
     }
     
-    @IBAction func ProfileImageEditButton(_ sender: Any) {
+    
+    @IBAction func profileImageEditButton(_ sender: Any) {
     }
     
     @IBAction func profileNicknameEditButton(_ sender: Any) {
@@ -495,16 +509,16 @@ class LoginViewController: UIViewController {
         
         GIDSignIn.sharedInstance.disconnect { error in
             guard error == nil else { return }
-
+            
         }
         
         let user = Auth.auth().currentUser
         user?.delete { error in
-          if let error = error {
-              print(error)
-          } else {
-              print("delete account")
-          }
+            if let error = error {
+                print(error)
+            } else {
+                print("delete account")
+            }
         }
         
         let loginViewController = self.storyboard?.instantiateViewController(identifier: "loginViewController")

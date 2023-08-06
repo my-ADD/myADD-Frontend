@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SwiftUI
 import KakaoSDKCommon
 import KakaoSDKTalk
 import KakaoSDKAuth
@@ -28,22 +29,24 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
         guard let _ = (scene as? UIWindowScene) else { return }
         
-        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        
         if Auth.auth().currentUser != nil || AuthApi.hasToken() {
-            let loginFinishViewController = storyboard.instantiateViewController(identifier: "loginFinishViewController")
-            self.window?.rootViewController = loginFinishViewController
+            let hostingLoginViewController = UIHostingController(rootView: MainView())
+            hostingLoginViewController.modalTransitionStyle = .coverVertical
+            hostingLoginViewController.modalPresentationStyle = .fullScreen
+            self.window?.rootViewController = hostingLoginViewController
             self.window?.makeKeyAndVisible()
         }
         
-        /*if GIDSignIn.sharedInstance.hasPreviousSignIn() {
+        if GIDSignIn.sharedInstance.hasPreviousSignIn() {
             GIDSignIn.sharedInstance.restorePreviousSignIn()
             {_,_ in
-                let loginFinishViewController = storyboard.instantiateViewController(identifier: "loginFinishViewController")
-                self.window?.rootViewController = loginFinishViewController
+                let hostingLoginViewController = UIHostingController(rootView: MainView())
+                hostingLoginViewController.modalTransitionStyle = .coverVertical
+                hostingLoginViewController.modalPresentationStyle = .fullScreen
+                self.window?.rootViewController = hostingLoginViewController
                 self.window?.makeKeyAndVisible()
             }
-        }*/
+        }
         
     }
 

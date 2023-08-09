@@ -19,6 +19,7 @@ import FirebaseCore
 import FirebaseAuth
 import FirebaseFirestore
 import GoogleSignIn
+import Alamofire
 
 class LoginViewController: UIViewController {
     
@@ -94,6 +95,8 @@ class LoginViewController: UIViewController {
         guard let email = self.signUpEmail.text else { return }
         guard let password = self.signUpPassword.text else { return }
         guard let passwordCheck = self.signUpPasswordCheck.text else { return }
+        // guard let nickname = self.signUpEmail.text else { return } // self.signUpNickname.text else { return }
+        let nickname = userDefaults.object(forKey: "nickname") as? String
         
         self.signUpErrorLabel.text = ""
         
@@ -132,6 +135,25 @@ class LoginViewController: UIViewController {
                         self.present(signupFinishedViewController!, animated: true, completion: nil)
                         
                     }
+                }
+                
+                SignUpService.shared.signUp(email: email, password: password,  nickname: nickname!) { response in
+                    switch response {
+                                case .success(let data):
+                        if let signUpData = data as? SignUpData {
+                                      print("server \(signUpData.email) 가입 완료")
+                                    }
+                                case .requestErr(let message):
+                                    if let message = message as? String {
+                                        print(message)
+                                    }
+                                case .pathErr:
+                                    print("pathErr")
+                                case .serverErr:
+                                    print("serverErr")
+                                case .networkFail:
+                                    print("networkFail")
+                                }
                 }
             }
         }
@@ -282,6 +304,25 @@ class LoginViewController: UIViewController {
                 hostingLoginViewController.modalTransitionStyle = .coverVertical
                 hostingLoginViewController.modalPresentationStyle = .fullScreen
                 self?.present(hostingLoginViewController, animated: true)
+            }
+            
+            LoginService.shared.login(email: email, password: password) { response in
+                switch response {
+                            case .success(let data):
+                    if let loginData = data as? LoginData {
+                                  print("server \(loginData.email)으로 로그인")
+                                }
+                            case .requestErr(let message):
+                                if let message = message as? String {
+                                    print(message)
+                                }
+                            case .pathErr:
+                                print("pathErr")
+                            case .serverErr:
+                                print("serverErr")
+                            case .networkFail:
+                                print("networkFail")
+                            }
             }
         }
     }

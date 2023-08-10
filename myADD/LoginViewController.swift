@@ -341,6 +341,22 @@ class LoginViewController: UIViewController {
         } catch let logoutError as NSError {
             print("로그아웃 에러: %@", logoutError)
         }
+        LogoutService.shared.logout() { response in
+            switch response {
+                        case .success(let data):
+                              print("server 로그아웃 성공")
+                        case .requestErr(let message):
+                            if let message = message as? String {
+                                print(message)
+                            }
+                        case .pathErr:
+                            print("pathErr")
+                        case .serverErr:
+                            print("serverErr")
+                        case .networkFail:
+                            print("networkFail")
+                        }
+        }
     }
     
     @IBAction func passwordChangeButton(_ sender: Any) {
@@ -560,6 +576,23 @@ class LoginViewController: UIViewController {
             } else {
                 print("delete account")
             }
+        }
+        
+        UserDeleteService.shared.userDelete() { response in
+            switch response {
+                        case .success(let data):
+                              print("server 회원 탈퇴")
+                        case .requestErr(let message):
+                            if let message = message as? String {
+                                print(message)
+                            }
+                        case .pathErr:
+                            print("pathErr")
+                        case .serverErr:
+                            print("serverErr")
+                        case .networkFail:
+                            print("networkFail")
+                        }
         }
         
         let loginViewController = self.storyboard?.instantiateViewController(identifier: "loginViewController")

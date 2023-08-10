@@ -34,6 +34,7 @@ struct SignUpService {
                             
                     let networkResult = self.judgeStatus(by: statusCode, value)
                     completion(networkResult)
+                //print(dataRequest)
                 case .failure(let error):
                     print(error)
                     completion(.networkFail)
@@ -74,7 +75,7 @@ struct LoginService {
         let dataRequest = AF.request(url,
                                     method: .post,
                                     parameters: body,
-                                    encoding: JSONEncoding.default,
+                                     encoding: URLEncoding(destination: .queryString),
                                     headers: header)
         dataRequest.responseData { response in
             switch response.result {
@@ -84,6 +85,7 @@ struct LoginService {
                             
                     let networkResult = self.judgeStatus(by: statusCode, value)
                     completion(networkResult)
+                //print(dataRequest)
                 case .failure(let error):
                     print(error)
                     completion(.networkFail)
@@ -108,3 +110,78 @@ struct LoginService {
             return .success(decodedData as Any)
     }
 }
+
+struct LogoutService {
+    static let shared = LogoutService()
+    
+    func logout(completion: @escaping (NetworkResult<Any>) -> (Void)) {
+        let url = APIConstants.logoutURL
+        let header: HTTPHeaders = [
+                    "Content-Type":"application/json"
+                ]
+        let dataRequest = AF.request(url,
+                                    method: .post,
+                                    parameters: nil,
+                                    encoding: URLEncoding.default,
+                                    headers: header)
+        dataRequest.responseData { response in
+            switch response.result {
+                case .success:
+                    guard let statusCode = response.response?.statusCode else { return }
+                    guard let value = response.value else { return }
+                    let networkResult = self.judgeStatus(by: statusCode, value)
+                    completion(networkResult)
+                //print(dataRequest)
+                case .failure(let error):
+                    print(error)
+                    completion(.networkFail)
+            }
+        }
+    }
+    
+    private func judgeStatus(by statusCode: Int, _ data: Data) -> NetworkResult<Any> {
+            switch statusCode {
+            case 400 : return .pathErr
+            case 500 : return .serverErr
+            default : return .networkFail
+        }
+    }
+}
+
+struct UserDeleteService {
+    static let shared = UserDeleteService()
+    
+    func userDelete(completion: @escaping (NetworkResult<Any>) -> (Void)) {
+        let url = APIConstants.userDeleteURL
+        let header: HTTPHeaders = [
+                    "Content-Type":"application/json"
+                ]
+        let dataRequest = AF.request(url,
+                                     method: .delete,
+                                     parameters: nil,
+                                     encoding: URLEncoding.default,
+                                     headers: header)
+        dataRequest.responseData { response in
+            switch response.result {
+                case .success:
+                    guard let statusCode = response.response?.statusCode else { return }
+                    guard let value = response.value else { return }
+                    let networkResult = self.judgeStatus(by: statusCode, value)
+                    completion(networkResult)
+                //print(dataRequest)
+                case .failure(let error):
+                    print(error)
+                    completion(.networkFail)
+            }
+        }
+    }
+    
+    private func judgeStatus(by statusCode: Int, _ data: Data) -> NetworkResult<Any> {
+            switch statusCode {
+            case 400 : return .pathErr
+            case 500 : return .serverErr
+            default : return .networkFail
+        }
+    }
+}
+

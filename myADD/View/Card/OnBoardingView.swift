@@ -6,40 +6,26 @@
 //
 
 import SwiftUI
+import SwiftUIPager
 
 struct OnboardingView: View {
-   // MARK: - PROPERTY
-    
-   @Binding var cards: [Card]
+    var cards: [Card]
 
-   // MARK: - BODY
-    
-   var body: some View {
-       TabView {
-           ForEach(cards) { card in
-               if let cardIndex = cards.firstIndex(where: { $0.id == card.id }) {
-                   NavigationLink(destination: CardBackView(card: $cards[cardIndex], cards: $cards)) {
-                       FlippableCardView(card: $cards[cardIndex], cards: $cards)
-                   }
-                   .buttonStyle(PlainButtonStyle())
-               }
-           }
-       }
-       .tabViewStyle(PageTabViewStyle())
-       .ignoresSafeArea(.all)
-//       .padding(.vertical)
-//       .padding(.horizontal)
-       .padding(.bottom, 10)
-   }
-}
+    @State private var selectedCardIndex: Page = .first()
+    @EnvironmentObject var viewModel: CardViewModel
 
-
-// MARK: - PREVIEW
-
-struct OnboardingView_Previews: PreviewProvider {
-    @State static var cards = animationCardsData
-
-    static var previews: some View {
-        OnboardingView(cards: $cards)
+    var body: some View {
+        VStack {
+            Pager(page: selectedCardIndex, data: cards, id: \.onboardingViewID) { card in
+                FlippableCardView(card: card)
+                    .environmentObject(viewModel)
+            }
+            .itemSpacing(10) // 카드 사이의 간격을 조절
+            .itemAspectRatio(0.85) // 카드의 가로/세로 비율을 조절
+            .interactive(scale: 0.9)  // 스케일 값을 조정
+            .onPageChanged { newPageIndex in
+                print("Current Page: \(newPageIndex)")
+            }
+        }
     }
 }

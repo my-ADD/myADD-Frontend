@@ -22,7 +22,6 @@
 		18F076ED2A7FE7BD005234CC /* HideKeyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18F076EC2A7FE7BD005234CC /* HideKeyboard.swift */; };
 		18F076EF2A7FE839005234CC /* CardDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18F076EE2A7FE839005234CC /* CardDataModel.swift */; };
 		18F076F12A7FE848005234CC /* CardViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18F076F02A7FE848005234CC /* CardViewModel.swift */; };
-		18F076F32A7FE8C4005234CC /* CardData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18F076F22A7FE8C4005234CC /* CardData.swift */; };
 		18F076F52A7FE91F005234CC /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18F076F42A7FE91F005234CC /* MainView.swift */; };
 		18F076F72A7FE962005234CC /* MyPageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18F076F62A7FE962005234CC /* MyPageView.swift */; };
 		18F076F92A7FE9FC005234CC /* FlippableCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18F076F82A7FE9FC005234CC /* FlippableCardView.swift */; };
@@ -40,6 +39,18 @@
 		18F077172A81625A005234CC /* LoginDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18F077162A81625A005234CC /* LoginDataModel.swift */; };
 		18F077192A81637D005234CC /* NetworkResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18F077182A81637D005234CC /* NetworkResult.swift */; };
 		18F0771B2A81692D005234CC /* APIConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18F0771A2A81692D005234CC /* APIConstants.swift */; };
+		18F077462A950111005234CC /* APIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18F077452A950111005234CC /* APIClient.swift */; };
+		18F077482A95012C005234CC /* APIEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18F077472A95012C005234CC /* APIEndpoint.swift */; };
+		18F0774A2A950143005234CC /* CardFlipViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18F077492A950143005234CC /* CardFlipViewModel.swift */; };
+		18F0774D2A950189005234CC /* CalendarCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18F0774C2A950189005234CC /* CalendarCardView.swift */; };
+		18F0774F2A9501A8005234CC /* CalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18F0774E2A9501A8005234CC /* CalendarView.swift */; };
+		18F077512A9501BA005234CC /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18F077502A9501BA005234CC /* ContentView.swift */; };
+		18F077542A950251005234CC /* ToggleViewSelector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18F077532A950251005234CC /* ToggleViewSelector.swift */; };
+		18F077562A95025D005234CC /* TopBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18F077552A95025D005234CC /* TopBarView.swift */; };
+		18F077582A95027E005234CC /* StoryboardMyPageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18F077572A95027E005234CC /* StoryboardMyPageView.swift */; };
+		18F0775B2A950957005234CC /* FSCalendar in Frameworks */ = {isa = PBXBuildFile; productRef = 18F0775A2A950957005234CC /* FSCalendar */; };
+		18F0775E2A950978005234CC /* SDWebImageSwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = 18F0775D2A950978005234CC /* SDWebImageSwiftUI */; };
+		18F077612A95099B005234CC /* SwiftUIPager in Frameworks */ = {isa = PBXBuildFile; productRef = 18F077602A95099B005234CC /* SwiftUIPager */; };
 		2EA27BDC5CC5C5EB8E8152CA /* Pods_myADD.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FC78431A1F07D286CB8A48D1 /* Pods_myADD.framework */; };
 /* End PBXBuildFile section */
 
@@ -61,7 +72,6 @@
 		18F076EC2A7FE7BD005234CC /* HideKeyboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HideKeyboard.swift; sourceTree = "<group>"; };
 		18F076EE2A7FE839005234CC /* CardDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardDataModel.swift; sourceTree = "<group>"; };
 		18F076F02A7FE848005234CC /* CardViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardViewModel.swift; sourceTree = "<group>"; };
-		18F076F22A7FE8C4005234CC /* CardData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardData.swift; sourceTree = "<group>"; };
 		18F076F42A7FE91F005234CC /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		18F076F62A7FE962005234CC /* MyPageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageView.swift; sourceTree = "<group>"; };
 		18F076F82A7FE9FC005234CC /* FlippableCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlippableCardView.swift; sourceTree = "<group>"; };
@@ -79,6 +89,15 @@
 		18F077162A81625A005234CC /* LoginDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginDataModel.swift; sourceTree = "<group>"; };
 		18F077182A81637D005234CC /* NetworkResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkResult.swift; sourceTree = "<group>"; };
 		18F0771A2A81692D005234CC /* APIConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIConstants.swift; sourceTree = "<group>"; };
+		18F077452A950111005234CC /* APIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIClient.swift; sourceTree = "<group>"; };
+		18F077472A95012C005234CC /* APIEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIEndpoint.swift; sourceTree = "<group>"; };
+		18F077492A950143005234CC /* CardFlipViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardFlipViewModel.swift; sourceTree = "<group>"; };
+		18F0774C2A950189005234CC /* CalendarCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarCardView.swift; sourceTree = "<group>"; };
+		18F0774E2A9501A8005234CC /* CalendarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarView.swift; sourceTree = "<group>"; };
+		18F077502A9501BA005234CC /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		18F077532A950251005234CC /* ToggleViewSelector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToggleViewSelector.swift; sourceTree = "<group>"; };
+		18F077552A95025D005234CC /* TopBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopBarView.swift; sourceTree = "<group>"; };
+		18F077572A95027E005234CC /* StoryboardMyPageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryboardMyPageView.swift; sourceTree = "<group>"; };
 		4E9FCC9790A9D7C39B09E572 /* Pods-myADD.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-myADD.debug.xcconfig"; path = "Target Support Files/Pods-myADD/Pods-myADD.debug.xcconfig"; sourceTree = "<group>"; };
 		D120F8CE219FB2A1584AE21B /* Pods-myADD.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-myADD.release.xcconfig"; path = "Target Support Files/Pods-myADD/Pods-myADD.release.xcconfig"; sourceTree = "<group>"; };
 		FC78431A1F07D286CB8A48D1 /* Pods_myADD.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_myADD.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -89,7 +108,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				18F0775E2A950978005234CC /* SDWebImageSwiftUI in Frameworks */,
 				2EA27BDC5CC5C5EB8E8152CA /* Pods_myADD.framework in Frameworks */,
+				18F077612A95099B005234CC /* SwiftUIPager in Frameworks */,
+				18F0775B2A950957005234CC /* FSCalendar in Frameworks */,
 				18F0768A2A7FC28A005234CC /* EmojiPicker in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -129,14 +151,9 @@
 				1804541C2A51D06C00D02308 /* AppDelegate.swift */,
 				1804541E2A51D06C00D02308 /* SceneDelegate.swift */,
 				180454202A51D06C00D02308 /* ViewController.swift */,
-				1804543A2A56B71600D02308 /* LoginViewController.swift */,
-				18F077162A81625A005234CC /* LoginDataModel.swift */,
-				18F077142A815A7E005234CC /* LoginService.swift */,
-				18F077182A81637D005234CC /* NetworkResult.swift */,
-				18F0771A2A81692D005234CC /* APIConstants.swift */,
+				18F077642A950BAB005234CC /* Login */,
 				180454222A51D06C00D02308 /* Main.storyboard */,
 				18F076E12A7FE688005234CC /* View */,
-				18F076E52A7FE716005234CC /* Data */,
 				18F076E62A7FE724005234CC /* Model */,
 				18F076E72A7FE765005234CC /* Extension */,
 				180454282A51D06D00D02308 /* Assets.xcassets */,
@@ -152,8 +169,8 @@
 		18F076E12A7FE688005234CC /* View */ = {
 			isa = PBXGroup;
 			children = (
-				18F076F42A7FE91F005234CC /* MainView.swift */,
-				18F076F62A7FE962005234CC /* MyPageView.swift */,
+				18F077522A9501DE005234CC /* Main */,
+				18F0774B2A95015D005234CC /* Calendar */,
 				18F076E22A7FE6C4005234CC /* Card */,
 				18F076E32A7FE6E5005234CC /* GridLayout */,
 				18F076E42A7FE6FB005234CC /* AddCard */,
@@ -193,19 +210,14 @@
 			path = AddCard;
 			sourceTree = "<group>";
 		};
-		18F076E52A7FE716005234CC /* Data */ = {
-			isa = PBXGroup;
-			children = (
-				18F076F22A7FE8C4005234CC /* CardData.swift */,
-			);
-			path = Data;
-			sourceTree = "<group>";
-		};
 		18F076E62A7FE724005234CC /* Model */ = {
 			isa = PBXGroup;
 			children = (
 				18F076EE2A7FE839005234CC /* CardDataModel.swift */,
 				18F076F02A7FE848005234CC /* CardViewModel.swift */,
+				18F077452A950111005234CC /* APIClient.swift */,
+				18F077472A95012C005234CC /* APIEndpoint.swift */,
+				18F077492A950143005234CC /* CardFlipViewModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -218,6 +230,40 @@
 				18F076EC2A7FE7BD005234CC /* HideKeyboard.swift */,
 			);
 			path = Extension;
+			sourceTree = "<group>";
+		};
+		18F0774B2A95015D005234CC /* Calendar */ = {
+			isa = PBXGroup;
+			children = (
+				18F0774C2A950189005234CC /* CalendarCardView.swift */,
+				18F0774E2A9501A8005234CC /* CalendarView.swift */,
+				18F077502A9501BA005234CC /* ContentView.swift */,
+			);
+			path = Calendar;
+			sourceTree = "<group>";
+		};
+		18F077522A9501DE005234CC /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				18F076F42A7FE91F005234CC /* MainView.swift */,
+				18F076F62A7FE962005234CC /* MyPageView.swift */,
+				18F077532A950251005234CC /* ToggleViewSelector.swift */,
+				18F077552A95025D005234CC /* TopBarView.swift */,
+				18F077572A95027E005234CC /* StoryboardMyPageView.swift */,
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
+		18F077642A950BAB005234CC /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				18F077162A81625A005234CC /* LoginDataModel.swift */,
+				1804543A2A56B71600D02308 /* LoginViewController.swift */,
+				18F077142A815A7E005234CC /* LoginService.swift */,
+				18F0771A2A81692D005234CC /* APIConstants.swift */,
+				18F077182A81637D005234CC /* NetworkResult.swift */,
+			);
+			path = Login;
 			sourceTree = "<group>";
 		};
 		9C5341E42ECF0376392FED9F /* Pods */ = {
@@ -249,6 +295,9 @@
 			name = myADD;
 			packageProductDependencies = (
 				18F076892A7FC28A005234CC /* EmojiPicker */,
+				18F0775A2A950957005234CC /* FSCalendar */,
+				18F0775D2A950978005234CC /* SDWebImageSwiftUI */,
+				18F077602A95099B005234CC /* SwiftUIPager */,
 			);
 			productName = myADD;
 			productReference = 180454192A51D06C00D02308 /* myADD.app */;
@@ -280,6 +329,9 @@
 			mainGroup = 180454102A51D06C00D02308;
 			packageReferences = (
 				18F076882A7FC28A005234CC /* XCRemoteSwiftPackageReference "EmojiPicker" */,
+				18F077592A950957005234CC /* XCRemoteSwiftPackageReference "FSCalendar" */,
+				18F0775C2A950978005234CC /* XCRemoteSwiftPackageReference "SDWebImageSwiftUI" */,
+				18F0775F2A95099B005234CC /* XCRemoteSwiftPackageReference "SwiftUIPager" */,
 			);
 			productRefGroup = 1804541A2A51D06C00D02308 /* Products */;
 			projectDirPath = "";
@@ -351,28 +403,36 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				18F0774D2A950189005234CC /* CalendarCardView.swift in Sources */,
 				18F076F12A7FE848005234CC /* CardViewModel.swift in Sources */,
 				18F077152A815A7E005234CC /* LoginService.swift in Sources */,
+				18F0774A2A950143005234CC /* CardFlipViewModel.swift in Sources */,
 				18F076F52A7FE91F005234CC /* MainView.swift in Sources */,
 				18F077192A81637D005234CC /* NetworkResult.swift in Sources */,
 				18F077032A7FEB7C005234CC /* GridItemView.swift in Sources */,
+				18F077462A950111005234CC /* APIClient.swift in Sources */,
 				18F077012A7FEB5C005234CC /* GridLayoutView.swift in Sources */,
 				18F077092A7FEC5B005234CC /* AddCardFrontView.swift in Sources */,
+				18F077562A95025D005234CC /* TopBarView.swift in Sources */,
 				18F076F72A7FE962005234CC /* MyPageView.swift in Sources */,
+				18F077542A950251005234CC /* ToggleViewSelector.swift in Sources */,
 				18F0771B2A81692D005234CC /* APIConstants.swift in Sources */,
 				18F076FB2A7FEA34005234CC /* OnBoardingView.swift in Sources */,
 				180454212A51D06C00D02308 /* ViewController.swift in Sources */,
 				180454272A51D06C00D02308 /* myADD.xcdatamodeld in Sources */,
 				18F076EF2A7FE839005234CC /* CardDataModel.swift in Sources */,
 				18F076E92A7FE793005234CC /* ImagePicker.swift in Sources */,
+				18F0774F2A9501A8005234CC /* CalendarView.swift in Sources */,
 				1804541D2A51D06C00D02308 /* AppDelegate.swift in Sources */,
+				18F077582A95027E005234CC /* StoryboardMyPageView.swift in Sources */,
 				18F076F92A7FE9FC005234CC /* FlippableCardView.swift in Sources */,
 				18F077052A7FEBBF005234CC /* EditCardView.swift in Sources */,
 				1804543B2A56B71600D02308 /* LoginViewController.swift in Sources */,
+				18F077482A95012C005234CC /* APIEndpoint.swift in Sources */,
 				18F0770D2A7FEC7C005234CC /* MemoInputView.swift in Sources */,
+				18F077512A9501BA005234CC /* ContentView.swift in Sources */,
 				18F076EB2A7FE7AD005234CC /* EmojiPicker.swift in Sources */,
 				18F076FD2A7FEA5D005234CC /* CardFrontView.swift in Sources */,
-				18F076F32A7FE8C4005234CC /* CardData.swift in Sources */,
 				18F0770B2A7FEC68005234CC /* AddCardBackView.swift in Sources */,
 				18F076ED2A7FE7BD005234CC /* HideKeyboard.swift in Sources */,
 				1804541F2A51D06C00D02308 /* SceneDelegate.swift in Sources */,
@@ -608,6 +668,30 @@
 				minimumVersion = 1.0.0;
 			};
 		};
+		18F077592A950957005234CC /* XCRemoteSwiftPackageReference "FSCalendar" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/WenchaoD/FSCalendar";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.0.0;
+			};
+		};
+		18F0775C2A950978005234CC /* XCRemoteSwiftPackageReference "SDWebImageSwiftUI" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SDWebImage/SDWebImageSwiftUI";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.0.0;
+			};
+		};
+		18F0775F2A95099B005234CC /* XCRemoteSwiftPackageReference "SwiftUIPager" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/fermoya/SwiftUIPager";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.0.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -615,6 +699,21 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 18F076882A7FC28A005234CC /* XCRemoteSwiftPackageReference "EmojiPicker" */;
 			productName = EmojiPicker;
+		};
+		18F0775A2A950957005234CC /* FSCalendar */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 18F077592A950957005234CC /* XCRemoteSwiftPackageReference "FSCalendar" */;
+			productName = FSCalendar;
+		};
+		18F0775D2A950978005234CC /* SDWebImageSwiftUI */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 18F0775C2A950978005234CC /* XCRemoteSwiftPackageReference "SDWebImageSwiftUI" */;
+			productName = SDWebImageSwiftUI;
+		};
+		18F077602A95099B005234CC /* SwiftUIPager */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 18F0775F2A95099B005234CC /* XCRemoteSwiftPackageReference "SwiftUIPager" */;
+			productName = SwiftUIPager;
 		};
 /* End XCSwiftPackageProductDependency section */
 

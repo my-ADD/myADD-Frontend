@@ -3,43 +3,48 @@
 //  myADD
 //
 //  
-// onboardingView 와 호환
+// 
 
 import SwiftUI
 
 struct GridLayoutView: View {
+    
     // MARK: - PROPERTY
-    @Binding var cards: [Card]
+    
+    var cards: [Card]
+    @EnvironmentObject var viewModel: CardViewModel
+    
+    @State private var selectedCard: Card? = nil
+
     let gridLayout: [GridItem] = Array(repeating: GridItem(.flexible()), count: 3)
     
     // MARK: - BODY
     var body: some View {
-        withAnimation(.easeIn) {
-            ScrollView(.vertical, showsIndicators: false) {
-                LazyVGrid(columns: gridLayout, alignment: .center, spacing: 10) {
-                    ForEach(cards) { item in
-                        if let itemIndex = cards.firstIndex(where: { $0.id == item.id }) {
-                            NavigationLink(destination: FlippableCardView(card: $cards[itemIndex], cards: $cards)) {
-                                GridItemView(card: $cards[itemIndex])
-                            } //: LINK
+        Group {
+            if let card = selectedCard {
+                FlippableCardView(card: card)
+                    .environmentObject(viewModel)
+                    .onTapGesture {
+                        withAnimation(.easeIn) {
+                            selectedCard = nil // Tap to close
                         }
-                    } //: LOOP
-                } //: GRID
-                .padding(10)
-            } //: SCROLL
+                    }
+            } else {
+                ScrollView(.vertical, showsIndicators: false) {
+                    LazyVGrid(columns: gridLayout, alignment: .center, spacing: 10) {
+                        ForEach(cards, id: \.id) { card in
+                            GridItemView(card: card)
+                                .environmentObject(viewModel)
+                                .onTapGesture {
+                                    withAnimation(.easeIn) {
+                                        selectedCard = card
+                                    }
+                                }
+                        }
+                    } //: GRID
+                    .padding(10)
+                } //: SCROLL
+            }
         }
-    }
-}
-
-
-
-// MARK: - PREVIEW
-
-struct GridLayoutView_Previews: PreviewProvider {
-
-    @State static var cards = animationCardsData
-
-    static var previews: some View {
-        GridLayoutView(cards: $cards)
     }
 }

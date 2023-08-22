@@ -5,8 +5,7 @@
 //  
 //
 
-import UIKit
-import CoreData
+
 import UIKit
 import CoreData
 import KakaoSDKCommon
@@ -22,7 +21,8 @@ import GoogleSignIn
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-
+    let userDefaults = UserDefaults.standard
+    
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         
@@ -30,7 +30,30 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         let kakaoAppKey = Bundle.main.infoDictionary?["KAKAO_NATIVE_APP_KEY"] ?? ""
         KakaoSDK.initSDK(appKey: kakaoAppKey as! String)
+        
+        let email = userDefaults.object(forKey: "email") as? String
+        let password = userDefaults.object(forKey: "password") as? String
+        
+        if email != nil && password != nil {
+            LoginService.shared.login(email: email!, password: password!) { response in
+                switch response {
+                case .success(let data):
                     
+                    print("server \(email) 로그인")
+                case .requestErr(let message):
+                    if let message = message as? String {
+                        print(message)
+                    }
+                case .pathErr:
+                    print("pathErr")
+                case .serverErr:
+                    print("serverErr")
+                case .networkFail:
+                    print("networkFail")
+                }
+            }
+        }
+        
         return true
     }
     

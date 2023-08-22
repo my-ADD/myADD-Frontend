@@ -13,6 +13,8 @@ import EmojiPicker
 
 struct AddCardBackView: View {
     @Binding var card: Card
+    @ObservedObject var viewModel: CardViewModel
+
     @Environment(\.colorScheme) var colorScheme
     @State private var selectedEmoji: Emoji?
     @State private var displayEmojiPicker: Bool = false
@@ -23,6 +25,10 @@ struct AddCardBackView: View {
     @FocusState private var isMemoFieldFocused: Bool
     
     @State private var showingMemoModal = false
+    
+    @State private var selectedPlatform: String = "넷플릭스"
+    let platforms: [String] = ["넷플릭스", "티빙", "쿠팡 플레이", "디즈니 플러스", "라프텔", "웨이브", "왓챠", "기타"]
+
 
     // MARK: - BODY
     var body: some View {
@@ -50,7 +56,7 @@ struct AddCardBackView: View {
                     Button(action: {
                         displayEmojiPicker = true
                     }) {
-                        Text(selectedEmoji?.value ?? "🙂") // Display the selected emoji when available
+                        Text(selectedEmoji?.value ?? "🙂")
                             .font(.largeTitle)
                     }
                     .sheet(isPresented: $displayEmojiPicker) {
@@ -60,7 +66,7 @@ struct AddCardBackView: View {
                                 .navigationBarTitleDisplayMode(.inline)
                                 .onDisappear {
                                     if let emoji = selectedEmoji {
-                                        card.emotion = emoji.value
+                                        card.emoji = emoji.value
                                     }
                                 }
                         }
@@ -70,19 +76,17 @@ struct AddCardBackView: View {
 //                .padding(.top)
 
                 HStack {
-                    let platformBinding = Binding<String>(
-                        get: { self.card.platform ?? "" },
-                        set: { if $0.count <= 10 { self.card.platform = $0 } }
-                    )
                     
-                    TextField("플랫폼", text: platformBinding)
-                        .font(.body)
-                        .foregroundColor(.gray)
-                        .focused($isPlatformFieldFocused)
-                        .submitLabel(.next)
-                        .onSubmit {
-                            isGenreFieldFocused = true
+                    Picker("플랫폼 선택", selection: $selectedPlatform) {
+                        ForEach(platforms, id: \.self) { platform in
+                            Text(platform).tag(platform)
                         }
+                    }
+                    .pickerStyle(MenuPickerStyle())
+                    .onChange(of: selectedPlatform) { newValue in
+                        card.platform = newValue
+                        isGenreFieldFocused = true
+                    }
                         
                     Rectangle()
                         .fill(Color.gray)
@@ -102,21 +106,10 @@ struct AddCardBackView: View {
                 }
 
                 DatePicker(
-                    "기록 날짜",
-                    selection: Binding<Date>(
-                        get: { self.card.date ?? Date() },
-                        set: { self.card.date = $0 }
-                    ),
-                    displayedComponents: .date
-                )
-                .font(.body)
-                .foregroundColor(.gray)
-
-                DatePicker(
                     "시청기간 시작일",
                     selection: Binding<Date>(
-                        get: { self.card.watchPeriodStart ?? Date() },
-                        set: { self.card.watchPeriodStart = $0 }
+                        get: { self.card.startedAt?.toDate() ?? Date() },
+                        set: { self.card.startedAt = $0.toString() }
                     ),
                     displayedComponents: .date
                 )
@@ -126,8 +119,8 @@ struct AddCardBackView: View {
                 DatePicker(
                     "시청기간 종료일",
                     selection: Binding<Date>(
-                        get: { self.card.watchPeriodEnd ?? Date() },
-                        set: { self.card.watchPeriodEnd = $0 }
+                        get: { self.card.endedAt?.toDate() ?? Date() },
+                        set: { self.card.endedAt = $0.toString() }
                     ),
                     displayedComponents: .date
                 )
@@ -135,22 +128,23 @@ struct AddCardBackView: View {
                 .foregroundColor(.gray)
 
                 HStack {
-                    // "Number of views" on the left
                     Text("시청 횟수")
                         .font(.body)
                         .foregroundColor(.gray)
                         .frame(alignment: .leading)
                     
                     Spacer()
-                    
-                    // Picker on the right
-                    Picker(selection: $card.watchCount, label: Text("회")) {
-                        ForEach(0..<100) { index in
-                            Text("\(index)").tag(index)
-                        }
+
+                    Picker(
+                        selection: Binding<Int>(
+                            get: { self.card.views ?? 0 },
+                            set: { self.card.views = $0 }),
+                        label: Text("회")
+                    ) { ForEach(0..<100) { index in
+                        Text("\(index)").tag(index)}
                     }
                     .pickerStyle(WheelPickerStyle())
-                    .frame(width: 60, height: 50, alignment: .center)
+                    .frame(width: 50, height: 50, alignment: .center)
                     
                     // "times" on the right of the Picker
                     Text("회")
@@ -168,14 +162,13 @@ struct AddCardBackView: View {
                         showingMemoModal = true
                     }) {
                         Text(card.memo ?? "메모를 작성해주세요")
-                            .font(.headline)
+                            .font(.body)
                             .multilineTextAlignment(.center)
                             .padding()
                             .foregroundColor(.gray)
-//                            .lineLimit(2)  // Limits the number of lines
-//                            .truncationMode(.tail)
+
                     }
-                    .frame(maxWidth: .infinity, maxHeight: 50)  // Sets the maximum dimensions for the frame
+                    .frame(maxWidth: .infinity, maxHeight: 50)
                     .submitLabel(.done)
                 }
                 .padding(.bottom)
@@ -193,15 +186,12 @@ struct AddCardBackView: View {
             .offset(y: 20) // 내용을 좀 더 아래로 조정
     
             .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: .infinity, alignment: .center)
-            .background(LinearGradient(gradient: Gradient(colors: colorScheme == .light ? [.white, .gray] : [.gray, .black]), startPoint: .topLeading, endPoint: .bottomTrailing)
+            .background(LinearGradient(gradient: Gradient(colors: colorScheme == .light ? [.gray, .white] : [.gray, .black]), startPoint: .topLeading, endPoint: .bottomTrailing)
                 .ignoresSafeArea(.all)
-                .opacity(0.2))
-            .cornerRadius(20)
-            .padding(.horizontal, 20) // 카드 간 간격
-        
+                .opacity(0.15)
+            )
         .onTapGesture {
             hideKeyboard()
         }
-//        .ignoresSafeArea(.keyboard, edges: .bottom)
     } //: BODY
 }

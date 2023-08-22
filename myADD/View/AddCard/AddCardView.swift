@@ -6,106 +6,125 @@
 // @ iOS 15.0 +
 
 import SwiftUI
+import UIKit
+
 
 struct AddCardView: View {
     // MARK: - PROPERTIES
-    
+    @State private var card = Card()
+
+    @ObservedObject var viewModel: CardViewModel
+
     @Environment(\.presentationMode) var presentationMode
-    @ObservedObject var viewModel = CardViewModel()
-    @State private var selectedCardType = CardType.animation
+    @StateObject var FlipViewModel = CardFlipViewModel()
+
+    @State private var isCardFlipped = false
+
+    @State private var image: UIImage?
     
-    @State private var isCardFlipped = false // 여기에 새로운 상태 변수를 추가
-    
-    @State private var card: Card = Card(
-        title: nil,
-        platform: nil,
-        genre: nil,
-        review: nil,
-        image: nil,
-        emotion: "",
-        date: nil,
-        watchPeriodStart: nil,
-        watchPeriodEnd: nil,
-        watchCount: 0,
-        memo: nil
-    )
-    
-    @Binding var animationCardsData: [Card]
-    @Binding var dramaCardsData: [Card]
-    @Binding var documentaryCardsData: [Card]
-    
+    @State private var selectedCardType: CardCategory?
+    @State private var isButtonPressed = false
+
     // MARK: - BODY
     var body: some View {
         NavigationView {
             VStack {
+                Spacer()
+
                 Picker("카드 유형", selection: $selectedCardType) {
-                    ForEach(CardType.allCases, id: \.self) { type in
-                        Text(type.rawValue).tag(type)
+                    ForEach(CardCategory.allCases, id: \.self) { category in
+                        Text(category.rawValue).tag(category as CardCategory?)
                     }
                 }
+                .onChange(of: selectedCardType) { newValue in
+                    card.category = newValue
+                    print("카테고리 값이 변경되었습니다: \(newValue?.rawValue ?? "None")")
+                }
+
                 .pickerStyle(SegmentedPickerStyle())
-                .padding()
-                
+                .padding(.horizontal)
+
                 Spacer()
 
                 ZStack {
-                    AddCardFrontView(card: $card)
-                        .opacity(viewModel.frontOpacity)
-                        .rotation3DEffect(.degrees(viewModel.frontDegrees), axis: (x: 0, y: 1, z: 0))
+                    AddCardFrontView(card: $card, viewModel: viewModel, image: $image)
+                        .rotation3DEffect(.degrees(FlipViewModel.degrees <= 90 ? FlipViewModel.degrees : 0), axis: (x: 0, y: 1, z: 0))
+                        .opacity(FlipViewModel.degrees <= 90 ? 1 : 0)
 
-                    AddCardBackView(card: $card)
-                        .opacity(viewModel.backOpacity)
-                        .rotation3DEffect(.degrees(viewModel.backDegrees), axis: (x: 0, y: 1, z: 0))
+                    AddCardBackView(card: $card, viewModel: viewModel)
+                        .rotation3DEffect(.degrees(FlipViewModel.degrees > 90 ? FlipViewModel.degrees - 180 : -180), axis: (x: 0, y: 1, z: 0))
+                        .opacity(FlipViewModel.degrees > 90 ? 1 : 0)
                 }
+                .frame(width: 350, height: 550)  // 카드의 크기 지정
+                .cornerRadius(20)
                 .gesture(
                     DragGesture(minimumDistance: 30, coordinateSpace: .local)
                         .onEnded { value in
                             let horizontalAmount = value.translation.width as CGFloat
-                            let swipeLength = abs(horizontalAmount) // absolute value to allow for left and right swipes
-                            
-                            // Check if swipe length is above threshold
+                            let swipeLength = abs(horizontalAmount)
                             if swipeLength > 100 {
                                 self.isCardFlipped.toggle()
-                                viewModel.flipCard()
+                                FlipViewModel.flipCard()
                             }
                         }
                 )
+                Spacer()
+                
+                // MARK: - BUTTON
+                Button(action: {
+                    print("버튼을 클릭하기 전 card 객체의 상태: \(card)")
+                    viewModel.addCard(image: image, card: card) { result in
+                        switch result {
+                        case .success:
+                            self.presentationMode.wrappedValue.dismiss()
+                        case .failure:
+                            // 에러 처리는 viewModel에서 진행. Alert는 아래에서 설정.
+                            break
+                        }
+                    }
+                    self.presentationMode.wrappedValue.dismiss()
+                }) {
+                    Text("완료")
+                        .font(.headline)
+                        .foregroundColor(.white)
+                        .frame(maxWidth: .infinity)
+                        .padding()
+                        .background(
+                            Group {
+                                if isButtonPressed {
+                                    LinearGradient(gradient: Gradient(colors: [Color.red.opacity(0.9), Color.red.opacity(0.7)]), startPoint: .top, endPoint: .bottom)
+
+                                } else {
+                                    selectedCardType == nil ? Color.gray : Color.red
+                                }
+                            }
+                        )
+                        .cornerRadius(15)
+                }
+                .disabled(selectedCardType == nil)
+                .scaleEffect(isButtonPressed ? 0.97 : 1.0)
+                .onLongPressGesture(minimumDuration: isButtonPressed ? 0 : 0.5, pressing: { pressing in
+                    withAnimation {
+                        self.isButtonPressed = pressing
+                    }
+                }, perform: {})
+                .padding(.horizontal)
             }
             .navigationBarTitle("기록 하기", displayMode: .inline)
             .navigationBarItems(
                 leading: Button(action: {
                     self.presentationMode.wrappedValue.dismiss()
                 }) {
-                    Text("취소")
-                },
-                trailing: Button(action: {
-                    // 선택된 카드 타입에 따른 '데이터' 세트에 카드를 추가
-                    switch selectedCardType {
-                    case .animation:
-                        animationCardsData.append(card)
-                    case .drama:
-                        dramaCardsData.append(card)
-                    case .documentary:
-                        documentaryCardsData.append(card)
-                    }
-                    self.presentationMode.wrappedValue.dismiss() // 저장 후 화면 닫기
-                }) {
-                    Text("완료")
+                    Image(systemName: "chevron.backward")
+                        .foregroundColor(.primary)
                 }
             )
         } //: NAVIGATION
+        .alert(isPresented: $viewModel.isError, content: {
+            Alert(title: Text("Error"),
+                  message: Text(viewModel.errorMessage),
+                  dismissButton: .default(Text("OK")))
+        })
     }
 }
 
-// MARK: - PREVIEW
-
-struct AddCardView_Previews: PreviewProvider {
-    static var previews: some View {
-        // 예시용 데이터
-        let animationCards = [Card(title: "Sample Animation", platform: "Netflix", genre: "Animation", review: "Good", image: nil, emotion: "Happy", date: nil, watchPeriodStart: nil, watchCount: 1, memo: "Sample")]
-        let dramaCards = [Card(title: "Sample Drama", platform: "Netflix", genre: "Drama", review: "Good", image: nil, emotion: "Happy", date: nil, watchPeriodStart: nil, watchCount: 1, memo: "Sample")]
-        let documentaryCards = [Card(title: "Sample Documentary", platform: "Netflix", genre: "Documentary", review: "Good", image: nil, emotion: "Happy", date: nil, watchPeriodStart: nil, watchCount: 1, memo: "Sample")]
-
-        AddCardView(animationCardsData: .constant(animationCards), dramaCardsData: .constant(dramaCards), documentaryCardsData: .constant(documentaryCards))
-    }
-}

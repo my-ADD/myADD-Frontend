@@ -9,36 +9,31 @@ import SwiftUI
 
 struct FlippableCardView: View {
     // MARK: - PROPERTY
-    
-    @Binding var card: Card
-    @Binding var cards: [Card]
-    @ObservedObject var viewModel = CardViewModel()
+
+    @StateObject var FlipViewModel = CardFlipViewModel()
+    @EnvironmentObject var viewModel: CardViewModel
+
+    var card: Card // 카드를 직접 전달
 
     // MARK: - BODY
     
     var body: some View {
         ZStack {
+            // Front
             CardFrontView(card: card)
-                .rotation3DEffect(.degrees(viewModel.frontDegrees), axis: (x: 0, y: 1, z: 0))
-                .opacity(viewModel.frontOpacity)
+                .rotation3DEffect(.degrees(FlipViewModel.degrees <= 90 ? FlipViewModel.degrees : 0), axis: (x: 0, y: 1, z: 0))
+                .opacity(FlipViewModel.degrees <= 90 ? 1 : 0)
             
-            CardBackView(card: $card, cards: $cards)
-                .rotation3DEffect(.degrees(viewModel.backDegrees), axis: (x: 0, y: 1, z: 0))
-                .opacity(viewModel.backOpacity)
+            // Back
+            CardBackView(card: card)
+                .environmentObject(viewModel)
+                .rotation3DEffect(.degrees(FlipViewModel.degrees > 90 ? FlipViewModel.degrees - 180 : -180), axis: (x: 0, y: 1, z: 0))
+                .opacity(FlipViewModel.degrees > 90 ? 1 : 0)
         }
         .onTapGesture {
-            viewModel.flipCard()
+            FlipViewModel.flipCard()
         }
-    }
-}
-
-// MARK: - PREVIEW
-
-struct FlippableCardView_Previews: PreviewProvider {
-    @State static var card = animationCardsData[1]
-    @State static var cards = animationCardsData
-
-    static var previews: some View {
-        FlippableCardView(card: $card, cards: $cards)
+        .frame(width: 330, height: 500)  // 카드의 크기 지정
+        .cornerRadius(20)
     }
 }

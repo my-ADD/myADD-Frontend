@@ -17,19 +17,20 @@ import SafariServices
 import FirebaseAuth
 import FirebaseCore
 import GoogleSignIn
+import Alamofire
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
-
+    
     var window: UIWindow?
-
-
+    let userDefaults = UserDefaults.standard
+    
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         // Use this method to optionally configure and attach the UIWindow `window` to the provided UIWindowScene `scene`.
         // If using a storyboard, the `window` property will automatically be initialized and attached to the scene.
         // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
         guard let _ = (scene as? UIWindowScene) else { return }
         
-        if Auth.auth().currentUser != nil || AuthApi.hasToken() {
+        if Auth.auth().currentUser != nil || AuthApi.hasToken() || (userDefaults.object(forKey: "isLogin") != nil && userDefaults.object(forKey: "email") != nil && userDefaults.object(forKey: "password") != nil) {
             let hostingLoginViewController = UIHostingController(rootView: MainView())
             hostingLoginViewController.modalTransitionStyle = .coverVertical
             hostingLoginViewController.modalPresentationStyle = .fullScreen
@@ -47,7 +48,6 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
                 self.window?.makeKeyAndVisible()
             }
         }
-        
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {
@@ -83,12 +83,11 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     
     func scene(_ scene: UIScene, openURLContexts URLContexts: Set<UIOpenURLContext>) {
         
-            if let url = URLContexts.first?.url {
-                if (AuthApi.isKakaoTalkLoginUrl(url)) {
-                    _ = AuthController.handleOpenUrl(url: url)
-                }
+        if let url = URLContexts.first?.url {
+            if (AuthApi.isKakaoTalkLoginUrl(url)) {
+                _ = AuthController.handleOpenUrl(url: url)
             }
         }
-
+    }
 }
 

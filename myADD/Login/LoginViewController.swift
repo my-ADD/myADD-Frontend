@@ -20,8 +20,9 @@ import FirebaseAuth
 import FirebaseFirestore
 import GoogleSignIn
 import Alamofire
+import Photos
 
-class LoginViewController: UIViewController {
+class LoginViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
     @IBOutlet var termsAllCheckButton: UIButton!
     @IBOutlet var termsCheck1Button: UIButton!
@@ -37,13 +38,18 @@ class LoginViewController: UIViewController {
     @IBOutlet var loginPassword: UITextField!
     
     @IBOutlet var passwordChangeEmail: UITextField!
+    @IBOutlet var passwordChangeCode: UITextField!
+    @IBOutlet var changedPassword: UITextField!
+    @IBOutlet var changedPasswordCheck: UITextField!
+    @IBOutlet var passwordChangeErrorLabel: UILabel!
     
-    @IBOutlet weak var mainNickname: UILabel!
     @IBOutlet weak var infoNickname: UILabel!
     @IBOutlet weak var profileEditNickname: UITextField!
     
     @IBOutlet var myPageProfileImage: UIImageView!
     @IBOutlet var profileEditImage: UIImageView!
+    @IBOutlet var profileEditImageButton: UIButton!
+    let imagePickerController = UIImagePickerController()
     
     var termsAllCheck = false
     var termsCheck1 = false
@@ -56,14 +62,13 @@ class LoginViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.nicknameDefaults()
+        self.profileImageDefaults()
+        imagePickerController.delegate = self
+        PHPhotoLibrary.requestAuthorization { status in }
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        
         handle = Auth.auth().addStateDidChangeListener { auth, user in
-            if let user = user {
-                print("\(user.email ?? "nil")")
-            }
         }
     }
     
@@ -75,6 +80,7 @@ class LoginViewController: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         self.nicknameDefaults()
+        self.profileImageDefaults()
     }
     
     // 텍스트 필드
@@ -95,7 +101,6 @@ class LoginViewController: UIViewController {
         guard let email = self.signUpEmail.text else { return }
         guard let password = self.signUpPassword.text else { return }
         guard let passwordCheck = self.signUpPasswordCheck.text else { return }
-        // guard let nickname = self.signUpEmail.text else { return } // self.signUpNickname.text else { return }
         let nickname = userDefaults.object(forKey: "nickname") as? String
         
         self.signUpErrorLabel.text = ""
@@ -128,32 +133,43 @@ class LoginViewController: UIViewController {
                     }
                     
                     if let result = authResult, let userEmail = result.user.email {
-                        print("\(userEmail) 가입 완료")
-                        let signupFinishedViewController = self.storyboard?.instantiateViewController(identifier: "signupFinishedViewController")
-                        signupFinishedViewController?.modalTransitionStyle = .coverVertical
-                        signupFinishedViewController?.modalPresentationStyle = .fullScreen
-                        self.present(signupFinishedViewController!, animated: true, completion: nil)
                         
-                    }
-                }
-                
-                SignUpService.shared.signUp(email: email, password: password,  nickname: nickname!) { response in
-                    switch response {
-                                case .success(let data):
-                        if let signUpData = data as? SignUpData {
-                                      print("server \(signUpData.email) 가입 완료")
+                        DuplicateService.shared.duplicate(email: email) { response in
+                            switch response {
+                            case .success(let data):
+                                SignUpService.shared.signUp(email: email, password: password,  nickname: nickname!) { response in
+                                    switch response {
+                                    case .success(let data):
+                                        print("server \(email) 가입 완료")
+                                        let signupFinishedViewController = self.storyboard?.instantiateViewController(identifier: "signupFinishedViewController")
+                                        signupFinishedViewController?.modalTransitionStyle = .coverVertical
+                                        signupFinishedViewController?.modalPresentationStyle = .fullScreen
+                                        self.present(signupFinishedViewController!, animated: true, completion: nil)
+                                    case .requestErr(let message):
+                                        if let message = message as? String {
+                                            print(message)
+                                        }
+                                    case .pathErr:
+                                        print("pathErr")
+                                    case .serverErr:
+                                        print("serverErr")
+                                    case .networkFail:
+                                        print("networkFail")
                                     }
-                                case .requestErr(let message):
-                                    if let message = message as? String {
-                                        print(message)
-                                    }
-                                case .pathErr:
-                                    print("pathErr")
-                                case .serverErr:
-                                    print("serverErr")
-                                case .networkFail:
-                                    print("networkFail")
                                 }
+                            case .requestErr(let message):
+                                if let message = message as? String {
+                                    print(message)
+                                }
+                            case .pathErr:
+                                print("pathErr")
+                            case .serverErr:
+                                print("serverErr")
+                            case .networkFail:
+                                print("networkFail")
+                            }
+                        }
+                    }
                 }
             }
         }
@@ -265,8 +281,6 @@ class LoginViewController: UIViewController {
     
     func nicknameDefaults() {
         let nickname = userDefaults.object(forKey: "nickname") as? String
-        print("닉네임:" + (nickname ?? "nil"))
-        mainNickname?.text = (nickname ?? "회원") + "님의"
         infoNickname?.text = (nickname ?? "회원") + "님"
         profileEditNickname?.text = nickname
     }
@@ -294,40 +308,64 @@ class LoginViewController: UIViewController {
         guard let email = self.loginEmail.text else { return }
         guard let password = self.loginPassword.text else { return }
         
-        Auth.auth().signIn(withEmail: email, password: password) { [weak self] authResult, error in
-            guard let strongSelf = self else { return }
-            if let error = error { print(error) }
-            if let result = authResult, let userEmail =  result.user.email {
-                print("\(userEmail)으로 로그인")
+        LoginService.shared.login(email: email, password: password) { response in
+            switch response {
+            case .success(let data):
+                print("server \(email) 로그인")
                 
+                self.userDefaults.set(true, forKey: "isLogin")
+                self.userDefaults.set(self.loginEmail.text, forKey: "email")
+                self.userDefaults.set(self.loginPassword.text, forKey: "password")
+                let password = self.userDefaults.object(forKey: "password") as! String
+                
+                GetInfoService.shared.getInfo() { response in
+                    switch response {
+                    case .success(let data):
+                        print("server 회원 정보")
+                    case .requestErr(let message):
+                        if let message = message as? String {
+                            print(message)
+                        }
+                    case .pathErr:
+                        print("pathErr")
+                    case .serverErr:
+                        print("serverErr")
+                    case .networkFail:
+                        print("networkFail")
+                    }
+                }
+              
+                Auth.auth().signIn(withEmail: email, password: password) { [weak self] authResult, error in
+                    guard let strongSelf = self else { return }
+                    if let error = error { print(error) }
+                    if let result = authResult, let userEmail =  result.user.email {
+                        print("\(userEmail) 로그인")
+                    }
+                }
                 let hostingLoginViewController = UIHostingController(rootView: MainView())
                 hostingLoginViewController.modalTransitionStyle = .coverVertical
                 hostingLoginViewController.modalPresentationStyle = .fullScreen
-                self?.present(hostingLoginViewController, animated: true)
-            }
-            
-            LoginService.shared.login(email: email, password: password) { response in
-                switch response {
-                            case .success(let data):
-                    if let loginData = data as? LoginData {
-                                  print("server \(loginData.email)으로 로그인")
-                                }
-                            case .requestErr(let message):
-                                if let message = message as? String {
-                                    print(message)
-                                }
-                            case .pathErr:
-                                print("pathErr")
-                            case .serverErr:
-                                print("serverErr")
-                            case .networkFail:
-                                print("networkFail")
-                            }
+                self.present(hostingLoginViewController, animated: true)
+            case .requestErr(let message):
+                if let message = message as? String {
+                    print(message)
+                }
+            case .pathErr:
+                print("pathErr")
+            case .serverErr:
+                print("serverErr")
+            case .networkFail:
+                print("networkFail")
             }
         }
     }
     
     @IBAction func logoutButton(_ sender: Any) {
+        
+        self.userDefaults.removeObject(forKey: "isLogin")
+        self.userDefaults.removeObject(forKey: "email")
+        self.userDefaults.removeObject(forKey: "password")
+        
         let auth = Auth.auth()
         do {
             try auth.signOut()
@@ -343,40 +381,121 @@ class LoginViewController: UIViewController {
         }
         LogoutService.shared.logout() { response in
             switch response {
-                        case .success(let data):
-                              print("server 로그아웃 성공")
-                        case .requestErr(let message):
-                            if let message = message as? String {
-                                print(message)
-                            }
-                        case .pathErr:
-                            print("pathErr")
-                        case .serverErr:
-                            print("serverErr")
-                        case .networkFail:
-                            print("networkFail")
-                        }
+            case .success(let data):
+                print("server 로그아웃 성공")
+            case .requestErr(let message):
+                if let message = message as? String {
+                    print(message)
+                }
+            case .pathErr:
+                print("pathErr")
+            case .serverErr:
+                print("serverErr")
+            case .networkFail:
+                print("networkFail")
+            }
         }
     }
     
-    @IBAction func passwordChangeButton(_ sender: Any) {
+    @IBAction func sendCodeButton(_ sender: Any) {
         
         guard let email = self.passwordChangeEmail.text else { return }
-        Auth.auth().sendPasswordReset(withEmail: email) { error in
-            guard let error = error else
-            {
-                print("재설정 메일 발송")
-                return
-            }
-            let nsError : NSError = error as NSError
-            switch nsError.code
-            {
-            case 17011:
-                print("존재하지 않는 이메일입니다.")
-            default:
-                break
+        userDefaults.set(self.passwordChangeEmail.text, forKey: "changePasswordEmail")
+        
+        SendCodeService.shared.sendCode(email: email) { response in
+            switch response {
+            case .success(let data):
+                print("server \(email) 비밀번호 변경 요청")
+                let checkCodeViewController = self.storyboard?.instantiateViewController(identifier: "checkCodeViewController")
+                checkCodeViewController?.modalTransitionStyle = .coverVertical
+                checkCodeViewController?.modalPresentationStyle = .fullScreen
+                self.present(checkCodeViewController!, animated: true, completion: nil)
+            case .requestErr(let message):
+                if let message = message as? String {
+                    print(message)
+                }
+            case .pathErr:
+                print("pathErr")
+            case .serverErr:
+                print("serverErr")
+            case .networkFail:
+                print("networkFail")
             }
         }
+    }
+    
+    @IBAction func checkCodeButton(_ sender: Any) {
+        
+        let email = userDefaults.object(forKey: "changePasswordEmail") as? String
+        guard let code = Int(self.passwordChangeCode.text!) else { return }
+        
+        CheckCodeService.shared.checkCode(email: email!, code: code) { response in
+            switch response {
+            case .success(let data):
+                print("server \(email) 인증번호 입력")
+                let changePasswordViewController = self.storyboard?.instantiateViewController(identifier: "changePasswordViewController")
+                changePasswordViewController?.modalTransitionStyle = .coverVertical
+                changePasswordViewController?.modalPresentationStyle = .fullScreen
+                self.present(changePasswordViewController!, animated: true, completion: nil)
+            case .requestErr(let message):
+                if let message = message as? String {
+                    print(message)
+                }
+            case .pathErr:
+                print("pathErr")
+            case .serverErr:
+                print("serverErr")
+            case .networkFail:
+                print("networkFail")
+            }
+        }
+    }
+    
+    @IBAction func checkCodeBackButton(_ sender: Any) {
+        self.dismiss(animated: true, completion: nil)
+    }
+    
+    @IBAction func changePasswordButton(_ sender: Any) {
+        
+        let email = userDefaults.object(forKey: "changePasswordEmail") as? String
+        guard let password = self.changedPassword.text else { return }
+        guard let passwordCheck = self.changedPasswordCheck.text else { return }
+        
+        self.passwordChangeErrorLabel.text = ""
+        
+        if password != passwordCheck {
+            
+            self.passwordChangeErrorLabel.text = "비밀번호가 일치하지 않습니다."
+            
+        }
+        else {
+            if password == passwordCheck {
+                ChangePasswordService.shared.changePassword(email: email!, password: password) { response in
+                    switch response {
+                    case .success(let data):
+                        print("server \(email) 비밀번호 변경 완료")
+                        let loginViewController = self.storyboard?.instantiateViewController(identifier: "loginViewController")
+                        loginViewController?.modalTransitionStyle = .coverVertical
+                        loginViewController?.modalPresentationStyle = .fullScreen
+                        self.present(loginViewController!, animated: true, completion: nil)
+                    case .requestErr(let message):
+                        if let message = message as? String {
+                            print(message)
+                        }
+                    case .pathErr:
+                        print("pathErr")
+                    case .serverErr:
+                        print("serverErr")
+                    case .networkFail:
+                        print("networkFail")
+                    }
+                }
+            }
+        }
+    }
+    
+    @IBAction func changePasswordBackButton(_ sender: Any) {
+        self.dismiss(animated: true, completion: nil)
     }
     
     
@@ -454,8 +573,47 @@ class LoginViewController: UIViewController {
                 
                 let nickname = user?.kakaoAccount?.profile?.nickname
                 let email = user?.kakaoAccount?.email
+                let id = String((user?.id)!)
                 
-                print(email)
+                let kakaoEmail = "k_" + email!
+                let kakaoId = "k" + id
+                let kakaoNickname = "회원"
+                
+                SignUpService.shared.signUp(email: kakaoEmail, password: kakaoId,  nickname: kakaoNickname) { response in
+                    switch response {
+                    case .success(let data):
+                        print("server \(kakaoEmail) 가입 완료")
+                    case .requestErr(let message):
+                        if let message = message as? String {
+                            print(message)
+                        }
+                    case .pathErr:
+                        print("pathErr")
+                    case .serverErr:
+                        print("serverErr")
+                    case .networkFail:
+                        print("networkFail")
+                    }
+                }
+                sleep(1)
+                LoginService.shared.login(email: kakaoEmail, password: kakaoId) { response in
+                    switch response {
+                    case .success(let data):
+                        print("server \(kakaoEmail) 로그인")
+                        self.userDefaults.set(kakaoEmail, forKey: "email")
+                        self.userDefaults.set(kakaoId, forKey: "password")
+                    case .requestErr(let message):
+                        if let message = message as? String {
+                            print(message)
+                        }
+                    case .pathErr:
+                        print("pathErr")
+                    case .serverErr:
+                        print("serverErr")
+                    case .networkFail:
+                        print("networkFail")
+                    }
+                }
                 
             }
         }
@@ -486,6 +644,46 @@ class LoginViewController: UIViewController {
                 }
                 if let authResult = authResult {
                     print(authResult.user.email)
+                    
+                    let googleEmail = "g_" + authResult.user.email!
+                    let googleId = "g" + authResult.user.uid
+                    let googleNickname = "회원"
+                    
+                    SignUpService.shared.signUp(email: googleEmail, password: googleId,  nickname: googleNickname) { response in
+                        switch response {
+                        case .success(let data):
+                            print("server \(googleEmail) 가입 완료")
+                        case .requestErr(let message):
+                            if let message = message as? String {
+                                print(message)
+                            }
+                        case .pathErr:
+                            print("pathErr")
+                        case .serverErr:
+                            print("serverErr")
+                        case .networkFail:
+                            print("networkFail")
+                        }
+                    }
+                    sleep(1)
+                    LoginService.shared.login(email: googleEmail, password: googleId) { response in
+                        switch response {
+                        case .success(let data):
+                            print("server \(googleEmail) 로그인")
+                            self.userDefaults.set(googleEmail, forKey: "email")
+                            self.userDefaults.set(googleId, forKey: "password")
+                        case .requestErr(let message):
+                            if let message = message as? String {
+                                print(message)
+                            }
+                        case .pathErr:
+                            print("pathErr")
+                        case .serverErr:
+                            print("serverErr")
+                        case .networkFail:
+                            print("networkFail")
+                        }
+                    }
                     
                     let hostingLoginViewController = UIHostingController(rootView: MainView())
                     hostingLoginViewController.modalTransitionStyle = .coverVertical
@@ -521,6 +719,17 @@ class LoginViewController: UIViewController {
         self.dismiss(animated: true, completion: nil)
     }
     
+    @IBAction func myADDInfoButton(_ sender: Any) {
+        let myADDInfoViewController = self.storyboard?.instantiateViewController(identifier: "myADDInfoViewController")
+        myADDInfoViewController?.modalTransitionStyle = .coverVertical
+        myADDInfoViewController?.modalPresentationStyle = .fullScreen
+        self.present(myADDInfoViewController!, animated: true, completion: nil)
+    }
+    
+    @IBAction func myADDInfoBackButton(_ sender: Any) {
+        self.dismiss(animated: true, completion: nil)
+    }
+    
     @IBAction func profileEditButton(_ sender: Any) {
         let profileEditViewController = self.storyboard?.instantiateViewController(identifier: "profileEditViewController")
         profileEditViewController?.modalTransitionStyle = .coverVertical
@@ -535,7 +744,58 @@ class LoginViewController: UIViewController {
     
     
     @IBAction func profileImageEditButton(_ sender: Any) {
+        self.imagePickerController.sourceType = .photoLibrary
+        
+        switch PHPhotoLibrary.authorizationStatus() {
+        case .notDetermined:
+            print("notDetermined")
+            UIApplication.shared.open(URL(string: UIApplication.openSettingsURLString)!)
+        case .restricted:
+            print("restricted")
+        case .denied:
+            print("denied")
+        case .authorized:
+            self.present(self.imagePickerController, animated: true, completion: nil)
+        case .limited:
+            print("limited")
+        @unknown default:
+            print( "unknown")
+        }
     }
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        if let image = info[UIImagePickerController.InfoKey.originalImage] {
+            profileEditImage.image = image as? UIImage
+            
+            profileEditImage.layer.cornerRadius = profileEditImage.frame.height / 2
+            profileEditImage.layer.borderWidth = 1
+            profileEditImage.layer.borderColor = UIColor.clear.cgColor
+            profileEditImage.contentMode = .scaleAspectFill
+            profileEditImage.clipsToBounds = true
+        }
+        dismiss(animated: true , completion: nil)
+        let profileEditImage = profileEditImage.image!.jpegData(compressionQuality: 1.0)
+        userDefaults.set(profileEditImage, forKey: "profileImage")
+    }
+    
+    func profileImageDefaults() {
+        guard let imageData = userDefaults.object(forKey: "profileImage") as? Data else { return }
+        let image = UIImage(data: imageData)
+        profileEditImage?.image = image
+        profileEditImage?.layer.cornerRadius = profileEditImage.frame.height / 2
+        profileEditImage?.layer.borderWidth = 1
+        profileEditImage?.layer.borderColor = UIColor.clear.cgColor
+        profileEditImage?.contentMode = .scaleAspectFill
+        profileEditImage?.clipsToBounds = true
+        myPageProfileImage?.image = image
+        myPageProfileImage?.image = image
+        myPageProfileImage?.layer.cornerRadius = myPageProfileImage.frame.height / 2
+        myPageProfileImage?.layer.borderWidth = 1
+        myPageProfileImage?.layer.borderColor = UIColor.clear.cgColor
+        myPageProfileImage?.contentMode = .scaleAspectFill
+        myPageProfileImage?.clipsToBounds = true
+    }
+
     
     @IBAction func profileNicknameEditButton(_ sender: Any) {
         userDefaults.set(self.profileEditNickname.text, forKey: "nickname")
@@ -578,21 +838,27 @@ class LoginViewController: UIViewController {
             }
         }
         
+        self.userDefaults.removeObject(forKey: "isLogin")
+        self.userDefaults.removeObject(forKey: "email")
+        self.userDefaults.removeObject(forKey: "password")
+        self.userDefaults.set("회원", forKey: "nickname")
+        self.userDefaults.removeObject(forKey: "profileImage")
+        
         UserDeleteService.shared.userDelete() { response in
             switch response {
-                        case .success(let data):
-                              print("server 회원 탈퇴")
-                        case .requestErr(let message):
-                            if let message = message as? String {
-                                print(message)
-                            }
-                        case .pathErr:
-                            print("pathErr")
-                        case .serverErr:
-                            print("serverErr")
-                        case .networkFail:
-                            print("networkFail")
-                        }
+            case .success(let data):
+                print("server 회원 탈퇴")
+            case .requestErr(let message):
+                if let message = message as? String {
+                    print(message)
+                }
+            case .pathErr:
+                print("pathErr")
+            case .serverErr:
+                print("serverErr")
+            case .networkFail:
+                print("networkFail")
+            }
         }
         
         let loginViewController = self.storyboard?.instantiateViewController(identifier: "loginViewController")
@@ -600,5 +866,5 @@ class LoginViewController: UIViewController {
         loginViewController?.modalPresentationStyle = .fullScreen
         self.present(loginViewController!, animated: true, completion: nil)
     }
-
+    
 }

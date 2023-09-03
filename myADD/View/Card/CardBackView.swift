@@ -146,9 +146,9 @@ struct CardBackView: View {
         }
         .padding([.horizontal, .vertical])
         .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: .infinity, alignment: .center)
-        .background(LinearGradient(gradient: Gradient(colors: colorScheme == .light ? [.gray, .white] : [.gray, .black]), startPoint: .topLeading, endPoint: .bottomTrailing)
+        .background(LinearGradient(gradient: Gradient(colors: colorScheme == .light ? [.gray.opacity(0.3), .white] : [.gray.opacity(0.7), .black]), startPoint: .topLeading, endPoint: .bottomTrailing)
             .ignoresSafeArea(.all)
-            .opacity(0.15)
+            .opacity(0.85)
         )
         .cornerRadius(20)
     } //: BODY

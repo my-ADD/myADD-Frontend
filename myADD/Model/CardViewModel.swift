@@ -13,7 +13,7 @@ class CardViewModel: ObservableObject {
     
     // MARK: - PROPERTIES
     
-    @Published var cards: [Card] = []
+    @Published private(set) var cards: [Card] = []
     @Published var isError: Bool = false
     @Published var errorMessage: String = ""
     
@@ -22,8 +22,8 @@ class CardViewModel: ObservableObject {
     // MARK: - UPDATE CONTENT
     
     // ViewModel의 초기화 메서드
-    init() {
-        updateContentFor(selectedPlatform: .전체, selectedTab: .animation)
+    init(selectedPlatform: OTTPlatform? = .전체, selectedTab: CardCategory = .animation) {
+        updateContentFor(selectedPlatform: selectedPlatform, selectedTab: selectedTab)
     }
     
     func updateContentFor(selectedPlatform: OTTPlatform?, selectedTab: CardCategory) {
@@ -83,7 +83,6 @@ class CardViewModel: ObservableObject {
     func getListAll(page: Int, completion: @escaping (Result<[Card], Error>) -> Void) {
         apiClient.getListAll(page: page) { [weak self] result in
             self?.handleAPIResult(result) { cards in
-                self?.cards.append(contentsOf: cards)
                 completion(.success(cards))
             }
         }
@@ -93,7 +92,6 @@ class CardViewModel: ObservableObject {
     func categoryList(category: String, platform: String, page: Int, completion: @escaping (Result<[Card], Error>) -> Void) {
         apiClient.categoryList(category: category, platform: platform, page: page) { [weak self] result in
             self?.handleAPIResult(result) { cards in
-                self?.cards.append(contentsOf: cards)
                 completion(.success(cards))
             }
         }
@@ -102,37 +100,43 @@ class CardViewModel: ObservableObject {
     // MARK: -  addCard 메서드
     func addCard(image: UIImage?, card: Card, completion: @escaping (Result<APIResponse<EmptyResult>, Error>) -> Void) {
         apiClient.addCard(image: image, card: card) { [weak self] result in
-            self?.handleAPIResult(result) { data in
-                self?.cards.append(card)
-                completion(.success(data))
+            self?.handleAPIResult(result) { _ in
+                if let category = card.category {
+                    self?.updateContentFor(selectedPlatform: .전체, selectedTab: category)
+                } else {
+                }
+                completion(result)
             }
+
         }
     }
+
 
     // MARK: -  updateCard 메서드
     func updateCard(postId: Int, image: UIImage?, card: Card, completion: @escaping (Result<APIResponse<EmptyResult>, Error>) -> Void) {
         apiClient.updateCard(postId: postId, image: image, card: card) { [weak self] result in
-            self?.handleAPIResult(result) { data in
-                if let index = self?.cards.firstIndex(where: { $0.postId == postId }) {
-                    self?.cards[index] = card
+            self?.handleAPIResult(result) { _ in
+                if let category = card.category {
+                    self?.updateContentFor(selectedPlatform: .전체, selectedTab: category)
+                } else {
                 }
-                completion(.success(data))
+                completion(result)
             }
         }
     }
+
 
     // MARK: -  deleteCard 메서드
     func deleteCard(postId: Int, completion: @escaping (Result<APIResponse<EmptyResult>, Error>) -> Void) {
         apiClient.deleteCard(postId: postId) { [weak self] result in
-            self?.handleAPIResult(result) { data in
-                self?.cards.removeAll(where: { $0.postId == postId })
-                completion(.success(data))
+            self?.handleAPIResult(result) { _ in
+                self?.updateContentFor(selectedPlatform: .전체, selectedTab: .animation)
+                completion(result)
             }
         }
     }
 
 
-    
     // MARK: - 카테고리 별로 개수 세기
     
     @Published var animationCount: Int = 0
@@ -161,8 +165,6 @@ class CardViewModel: ObservableObject {
         return filteredCardsForCategory(category, in: platform).count
     }
 
-
-
     func getHeaderText(for category: CardCategory, in platform: OTTPlatform?) -> String {
         let count: Int
         
@@ -181,21 +183,21 @@ class CardViewModel: ObservableObject {
     
     // MARK: - Calendar
     
-    // 캘린더 포토카드 목록 조회
-    func getCalendar(createdAt: String, completion: @escaping (Result<APIResponse<[Card]>, Error>) -> Void) {
+    func getCalendar(createdAt: String, completion: @escaping (Result<[Card], Error>) -> Void) {
         apiClient.getCalendar(createdAt: createdAt) { result in
             switch result {
-            case .success(let apiResponse):
-                self.cards.append(contentsOf: apiResponse.result)
-                completion(.success(apiResponse))
-
+            case .success(let cards):
+                self.cards.append(contentsOf: cards)
+                completion(.success(cards))
+                
             case .failure(let error):
-                print("error: \(error.localizedDescription)")
+                print("getCalendar API Error: \(error.localizedDescription)")
                 completion(.failure(error))
             }
         }
     }
-    
+
+
     @Published var datesWithEvents: [String] = []
     @Published var isLoading: Bool = false
 
@@ -208,20 +210,19 @@ class CardViewModel: ObservableObject {
             switch apiResponseResult {
             case .success(let apiResponse):
                 if apiResponse.isSuccess {
-                    let dateStrings = apiResponse.result
-                    let uniqueDates = Set(dateStrings.compactMap { self?.convertToDate($0) })
-                    self?.datesWithEvents = Array(uniqueDates)
-//                    print("Dates added:", self?.datesWithEvents ?? [])
+                    if let dateStrings = apiResponse.result {
+                        let uniqueDates = Set(dateStrings.compactMap { self?.convertToDate($0) })
+
+                        self?.datesWithEvents = Array(uniqueDates)
+                    }
                 } else {
-                    print("API Error: \(apiResponse.message)")
+                    print("getCreatedAt API Error: \(apiResponse.message)")
                 }
             case .failure(let error):
                 print("Error fetching dates: \(error.localizedDescription)")
             }
         }
     }
-
-
 
 
     func convertToDate(_ dateString: String) -> String? {

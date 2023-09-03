@@ -24,7 +24,7 @@ struct APIResponse<T: Decodable>: Decodable {
     let isSuccess: Bool
     let code: Int
     let message: String
-    let result: T
+    let result: T?
 }
 
 // MARK: - CARDS DATA MODEL

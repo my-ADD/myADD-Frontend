@@ -1,13 +1,13 @@
 //
-//  FlippableCardView.swift
+//  GridDetailView.swift
 //  myADD
 //
-//
+//  Created by 이융의 on 2023/08/23.
 //
 
 import SwiftUI
 
-struct FlippableCardView: View {
+struct GridDetailView: View {
     // MARK: - PROPERTY
 
     @StateObject var FlipViewModel = CardFlipViewModel()
@@ -34,15 +34,5 @@ struct FlippableCardView: View {
             FlipViewModel.flipCard()
         }
         .cornerRadius(20)
-    }
-}
-
-struct FlippableCardView_Preview: PreviewProvider {
-    static var previews: some View {
-        let viewModel = CardViewModel()
-        let card = Card()
-        
-        FlippableCardView(card: card)
-            .environmentObject(viewModel)
     }
 }

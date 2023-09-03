@@ -11,63 +11,69 @@ import SwiftUIPager
 struct CalendarCardView: View {
     var createdAt: String
 
-    @ObservedObject private var viewModel = CardViewModel()
+    @EnvironmentObject var viewModel: CardViewModel
     @State private var selectedCardIndex: Page = .first()
     @State private var cardsForDate: [Card] = []
 
     var body: some View {
-        VStack(spacing: 20) {
-         
-            HStack {
-                let dateComponents = createdAt.split(separator: "-").map(String.init)
-                if dateComponents.count == 3 {
-                    let year = dateComponents[0]
-                    let month = dateComponents[1]
-                    let day = dateComponents[2]
-                    VStack(alignment: .leading, spacing: 20) {
-                        Text("\(year)년 \(month)월 \(day)일,")
-                            .font(.headline)
-                            .fontWeight(.semibold)
-                                                                    
-                        Text("\(cardsForDate.count) 가지 ADD 기록")
-                            .font(.title2)
-                            .fontWeight(.bold)
-//                            .foregroundColor(.red)
+        GeometryReader { geometry in
+            VStack {
+             
+                HStack {
+                    let dateComponents = createdAt.split(separator: "-").map(String.init)
+                    if dateComponents.count == 3 {
+                        let year = dateComponents[0]
+                        let month = dateComponents[1]
+                        let day = dateComponents[2]
+                        // MARK: - HEADER TEXT
+                        
+                        VStack(alignment: .leading, spacing: 20) {
+                            Text("\(year)년 \(month)월 \(day)일,")
+                                .font(.headline)
+                                .fontWeight(.semibold)
+                                                                        
+                            Text("\(cardsForDate.count) 가지 ADD 기록")
+                                .font(.title2)
+                                .fontWeight(.bold)
+                        }
+                        
                     }
+                    Spacer()
+                } //: HSTACK
+                .padding([.top, .horizontal])
+                
+                Divider()
+                
+                if cardsForDate.isEmpty {
+                    Text("해당 날짜에는 기록한 myADD 카드가 없습니다.")
+                        .font(.headline)
+                        .foregroundColor(.red)
+                        .padding()
+                } else {
+                    // MARK: - CARD CONTENT
                     
-                }
-                Spacer()
-            }
-            .padding([.top, .horizontal])
-            
-            Divider()
-            
-            if cardsForDate.isEmpty {
-                Text("해당 날짜에는 기록한 myADD 카드가 없습니다.")
-                    .font(.headline)
-                    .foregroundColor(.red)
-                    .padding()
-            } else {
-                Pager(page: selectedCardIndex, data: cardsForDate, id: \.calendarViewID) { card in
-                    FlippableCardView(card: card)
-                        .environmentObject(viewModel)
-                }
-                .itemSpacing(10)
-                .itemAspectRatio(0.85)
-                .interactive(scale: 0.9)
-                .onPageChanged { newPageIndex in
-                    print("Current Page: \(newPageIndex)")
+                    Pager(page: selectedCardIndex, data: cardsForDate, id: \.calendarViewID) { card in
+                        FlippableCardView(card: card)
+                            .frame(width: geometry.size.width * 0.8, height: (geometry.size.width * 0.8) * 1.5) // 세로 크기를 가로 크기의 1.5배로 조절
+                            .environmentObject(viewModel)
+                    }
+                    .itemSpacing(10)
+                    .itemAspectRatio(0.85)
+                    .interactive(scale: 0.9)
+                    .onPageChanged { newPageIndex in
+                        print("Current Page: \(newPageIndex)")
+                    }
                 }
             }
         }
-        .padding(.bottom)
         .onAppear {
             viewModel.getCalendar(createdAt: createdAt) { result in
                 switch result {
-                case .success(let response):
-                    self.cardsForDate = response.result
+                case .success(let cards):
+                    self.cardsForDate = cards
                 case .failure(let error):
-                    print("Error loading cards for date: \(error)")
+                    print("getCalendar Error: \(error)")
+                    self.cardsForDate = []
                 }
             }
         }

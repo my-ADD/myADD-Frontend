@@ -16,12 +16,6 @@ struct APIEndpoint {
     // 포토카드 등록 post
     static let  addCardURL = baseURL + "/posts/add-post"
     
-//    // 포토카드 앞장 조회 (상세 페이지) get
-//    static let  getCardFrontURL = baseURL + "/posts/get-post/front"
-//
-//    // 포토카드 뒷장 조회 get
-//    static let  getCardBackURL = baseURL + "/posts/get-post/back"
-
     // 포토카드 전체 목록 조회 (기록순) get
     static let getListAllURL = baseURL + "/posts/get-post-listAll/createdAt"
     

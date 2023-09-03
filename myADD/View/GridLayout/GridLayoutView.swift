@@ -20,31 +20,30 @@ struct GridLayoutView: View {
     
     // MARK: - BODY
     var body: some View {
-        Group {
-            if let card = selectedCard {
-                FlippableCardView(card: card)
-                    .environmentObject(viewModel)
-                    .onTapGesture {
-                        withAnimation(.easeIn) {
-                            selectedCard = nil // Tap to close
-                        }
-                    }
-            } else {
+        GeometryReader { geometry in
+            NavigationView {
                 ScrollView(.vertical, showsIndicators: false) {
                     LazyVGrid(columns: gridLayout, alignment: .center, spacing: 10) {
                         ForEach(cards, id: \.id) { card in
-                            GridItemView(card: card)
-                                .environmentObject(viewModel)
-                                .onTapGesture {
-                                    withAnimation(.easeIn) {
-                                        selectedCard = card
-                                    }
-                                }
+                            NavigationLink(
+                                destination:
+                                    GridDetailView(card: card)
+                                    .scaleEffect(0.9)
+                                    .frame(width: geometry.size.width * 0.8, height: (geometry.size.width * 0.8) * 1.5)
+                                    .environmentObject(viewModel)
+                            ){
+                                GridItemView(card: card)
+                                    .environmentObject(viewModel)
+                            }
+                            .isDetailLink(false)
+                            .buttonStyle(PlainButtonStyle())
+                            .navigationTitle("")
                         }
                     } //: GRID
                     .padding(10)
                 } //: SCROLL
-            }
+            } //: NAVIGATION
         }
     }
 }
+

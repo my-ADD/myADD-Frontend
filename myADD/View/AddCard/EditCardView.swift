@@ -35,85 +35,100 @@ struct EditCardView: View {
     // MARK: - BODY
     
     var body: some View {
-        NavigationView {
-            VStack {
-                Spacer()
+        GeometryReader { geometry in
+            NavigationView {
+                VStack {
 
-                ZStack {
-                    EditCardFrontView(card: $workingCard, selectedImageFromPicker: $selectedImage)
-                        .environmentObject(viewModel)
-                        .rotation3DEffect(.degrees(FlipViewModel.degrees <= 90 ? FlipViewModel.degrees : 0), axis: (x: 0, y: 1, z: 0))
-                        .opacity(FlipViewModel.degrees <= 90 ? 1 : 0)
+                    Spacer()
 
-                    EditCardBackView(card: $workingCard)
-                        .environmentObject(viewModel)
-                        .rotation3DEffect(.degrees(FlipViewModel.degrees > 90 ? FlipViewModel.degrees - 180 : -180), axis: (x: 0, y: 1, z: 0))
-                        .opacity(FlipViewModel.degrees > 90 ? 1 : 0)
-                }
-                .frame(width: 350, height: 550)  // 카드의 크기 지정
-                .cornerRadius(20)
-                .gesture(
-                    DragGesture(minimumDistance: 30, coordinateSpace: .local)
-                        .onEnded { value in
-                            let horizontalAmount = value.translation.width as CGFloat
-                            let swipeLength = abs(horizontalAmount)
-                            if swipeLength > 100 {
-                                self.isCardFlipped.toggle()
-                                FlipViewModel.flipCard()
-                            }
-                        }
-                )
-                Spacer()
-                
-                // MARK: - BUTTON
-                Button(action: {
-                    viewModel.updateCard(postId: postId, image: selectedImage, card: workingCard) { result in
-                        switch result {
-                        case .success:
-                            self.presentationMode.wrappedValue.dismiss()
-                        case .failure:
-                            // 에러 처리는 viewModel에서 진행. Alert는 아래에서 설정.
-                            break
-                        }
+                    ZStack {
+                        EditCardFrontView(card: $workingCard, selectedImageFromPicker: $selectedImage)
+                            .environmentObject(viewModel)
+                            .rotation3DEffect(.degrees(FlipViewModel.degrees <= 90 ? FlipViewModel.degrees : 0), axis: (x: 0, y: 1, z: 0))
+                            .opacity(FlipViewModel.degrees <= 90 ? 1 : 0)
+
+                        EditCardBackView(card: $workingCard)
+                            .environmentObject(viewModel)
+                            .rotation3DEffect(.degrees(FlipViewModel.degrees > 90 ? FlipViewModel.degrees - 180 : -180), axis: (x: 0, y: 1, z: 0))
+                            .opacity(FlipViewModel.degrees > 90 ? 1 : 0)
                     }
-                    self.presentationMode.wrappedValue.dismiss()
-                }) {
-                    Text("완료")
-                        .font(.headline)
-                        .foregroundColor(.white)
-                        .frame(maxWidth: .infinity)
-                        .padding()
-                        .background(
-                            Group {
-                                if isButtonPressed {
-                                    LinearGradient(gradient: Gradient(colors: [Color.red.opacity(0.9), Color.red.opacity(0.7)]), startPoint: .top, endPoint: .bottom)
-
-                                } else {
-                                    Color.red
+                    .frame(width: geometry.size.width * 0.85, height: geometry.size.height * 0.7)
+                    .cornerRadius(20)
+                    .gesture(
+                        DragGesture(minimumDistance: 30, coordinateSpace: .local)
+                            .onEnded { value in
+                                let horizontalAmount = value.translation.width as CGFloat
+                                let swipeLength = abs(horizontalAmount)
+                                if swipeLength > 100 {
+                                    self.isCardFlipped.toggle()
+                                    FlipViewModel.flipCard()
                                 }
                             }
-                        )
-                        .cornerRadius(15)
-                }
-                .scaleEffect(isButtonPressed ? 0.97 : 1.0)
-                .onLongPressGesture(minimumDuration: isButtonPressed ? 0 : 0.5, pressing: { pressing in
-                    withAnimation {
-                        self.isButtonPressed = pressing
+                    )
+                    Spacer()
+                    
+                    // MARK: - BUTTON
+                    
+                    Button(action: {
+                        if let selectedImage = selectedImage {
+                            viewModel.updateCard(postId: postId, image: selectedImage, card: workingCard) { result in
+                                switch result {
+                                case .success:
+                                    self.presentationMode.wrappedValue.dismiss()
+                                case .failure:
+                                    // 에러 처리는 viewModel에서 진행. Alert는 아래에서 설정.
+                                    break
+                                }
+                            }
+                        } else if let imageUrl = workingCard.image?.encodedImageURL() {
+                            SDWebImageManager.shared.loadImage(with: imageUrl, options: .highPriority, progress: nil) { (image, _, _, _, _, _) in
+                                viewModel.updateCard(postId: postId, image: image, card: workingCard) { result in
+                                    switch result {
+                                    case .success:
+                                        self.presentationMode.wrappedValue.dismiss()
+                                    case .failure:
+                                        // 에러 처리는 viewModel에서 진행. Alert는 아래에서 설정.
+                                        break
+                                    }
+                                }
+                            }
+                        }
+                    }) {
+                        Text("완료")
+                            .font(.headline)
+                            .foregroundColor(.white)
+                            .frame(maxWidth: .infinity)
+                            .padding()
+                            .background(
+                                Group {
+                                    if isButtonPressed {
+                                        LinearGradient(gradient: Gradient(colors: [Color.red.opacity(0.9), Color.red.opacity(0.7)]), startPoint: .top, endPoint: .bottom)
+                                    } else {
+                                        Color.red
+                                    }
+                                }
+                            )
+                            .cornerRadius(15)
                     }
-                }, perform: {})
-                .padding(.horizontal)
 
-
-            }
-            .navigationBarTitle("기록 수정하기", displayMode: .inline)
-            .navigationBarItems(
-                leading: Button(action: {
-                    self.presentationMode.wrappedValue.dismiss()
-                }) {
-                    Image(systemName: "chevron.backward")
-                        .foregroundColor(.primary)
+                    .scaleEffect(isButtonPressed ? 0.97 : 1.0)
+                    .onLongPressGesture(minimumDuration: isButtonPressed ? 0 : 0.5, pressing: { pressing in
+                        withAnimation {
+                            self.isButtonPressed = pressing
+                        }
+                    }, perform: {})
+                    .padding([.horizontal, .bottom])
                 }
-            )
+                .navigationBarTitle("기록 수정하기", displayMode: .inline)
+                .navigationBarItems(
+                    leading: Button(action: {
+                        self.presentationMode.wrappedValue.dismiss()
+                    }) {
+                        Image(systemName: "chevron.backward")
+                            .foregroundColor(.primary)
+                    }
+                )
+            }
         }
         .alert(isPresented: $viewModel.isError, content: {
             Alert(title: Text("Error"),
@@ -145,71 +160,76 @@ struct EditCardFrontView: View {
 
 
     // MARK: - BODY
-    
+
     var body: some View {
-        VStack(alignment: .center, spacing: 20) {
-            if let uiImage = selectedImageFromPicker {
-                Image(uiImage: uiImage)
-                    .resizable()
-                    .scaledToFill()
-                    .frame(width: 300, height: 330)  // 이미지 크기 조정
-                    .cornerRadius(20)
-                    .clipped()
-                    .onTapGesture {
-                        isShowingImagePicker = true
-                    }
-            } else {
-                WebImage(url: card.image?.encodedImageURL())
-                    .onFailure { _ in }
-                    .resizable()
-                    .placeholder {
-                        Image(systemName: "camera")
-                            .resizable()
-                            .scaledToFit()
-                            .frame(width: 100, height: 250)
-                    }
-                
-                    .indicator { _, _ in
-                        ProgressView() // 이미지 로딩 중에 ProgressView
-                    }
-                    .transition(.fade(duration: 0.5))
-                    .scaledToFill()
-                    .frame(width: 300, height: 330)  // 이미지 크기 조정
-                    .cornerRadius(20)
-                    .clipped()
-                    .onTapGesture {
-                        isShowingImagePicker = true
-                    }
-            }
-            
-            VStack {
-                TextField("한 줄 평을 입력해주세요", text: Binding<String>(
-                    get: { card.comment ?? "" },
-                    set: {
-                        if $0.count > 25 {
-                            card.comment = String($0.prefix(25))
-                        } else {
-                            card.comment = $0
+        GeometryReader { geometry in
+            VStack(alignment: .center) {
+                Spacer()
+                if let uiImage = selectedImageFromPicker {
+                    Image(uiImage: uiImage)
+                        .resizable()
+                        .scaledToFit()
+                        .cornerRadius(20)
+                        .padding()
+                        .onTapGesture {
+                            isShowingImagePicker = true
                         }
-                    }
-                ))
-                .multilineTextAlignment(.center)
-                .font(.headline)
-                .fontWeight(.black)
-                .foregroundColor(.primary)
-                .opacity(0.85)
+                } else {
+                    WebImage(url: card.image?.encodedImageURL())
+                        .onFailure { _ in }
+                        .resizable()
+                        .placeholder {
+                            Image(systemName: "camera")
+                                .resizable()
+                                .scaledToFit()
+                                .frame(width: 100, height: 100)
+                        }
+                    
+                        .indicator { _, _ in
+                            ProgressView() // 이미지 로딩 중에 ProgressView
+                        }
+                        .transition(.fade(duration: 0.5))
+                        .scaledToFit()
+                        .cornerRadius(20)
+                        .padding()
+                        .onTapGesture {
+                            isShowingImagePicker = true
+                        }
+                }
+                Spacer()
+
+                VStack {
+                    TextField("한 줄 평을 입력해주세요", text: Binding<String>(
+                        get: { card.comment ?? "" },
+                        set: {
+                            if $0.count > 25 {
+                                card.comment = String($0.prefix(25))
+                            } else {
+                                card.comment = $0
+                            }
+                        }
+                    ))
+                    .multilineTextAlignment(.center)
+                    .font(.headline)
+                    .fontWeight(.black)
+                    .foregroundColor(.primary)
+                    .opacity(0.85)
+                    
+                    Text("\(card.comment?.count ?? 0)/25")
+                        .font(.footnote)
+                        .foregroundColor((card.comment?.count ?? 0) >= 20 ? .red : .secondary)
+                }
+                .padding(.bottom)
+                .padding(.horizontal)   // 텍스트 뷰 가로 공간 확보
                 
-                Text("\(card.comment?.count ?? 0)/25")
-                    .font(.footnote)
-                    .foregroundColor((card.comment?.count ?? 0) >= 20 ? .red : .secondary)
-            }
-            .padding(.bottom, 100)
-            .padding(.horizontal, 20)   // 텍스트 뷰 가로 공간 확보
-        }
+                Spacer()
+            } //: VSTACK
+        } //: GEO
         .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: .infinity, alignment: .center)
-        .background(LinearGradient(gradient: Gradient(colors: colorScheme == .light ? [.gray, .white] : [.gray, .black]), startPoint: .topLeading, endPoint: .bottomTrailing)
+        .background(LinearGradient(gradient: Gradient(colors: colorScheme == .light ? [.gray.opacity(0.3), .white] : [.gray.opacity(0.7), .black]), startPoint: .topLeading, endPoint: .bottomTrailing)
             .ignoresSafeArea(.all)
-            .opacity(0.15))
+            .opacity(0.85)
+        )
         .sheet(isPresented: $isShowingImagePicker) {
             ImagePicker(image: $selectedImageFromPicker)
         }
@@ -245,9 +265,9 @@ struct EditCardBackView: View {
 
     // MARK: - BODY
     var body: some View {
-            VStack(alignment: .leading, spacing: 20) {
-//                Spacer()
-                // TITLE
+        GeometryReader { geometry in
+            VStack(alignment: .leading) {
+                Spacer()
                 HStack {
                     TextField("제목을 입력하세요", text: Binding<String>(
                         get: { self.card.title ?? "" },
@@ -284,9 +304,8 @@ struct EditCardBackView: View {
                                 }
                         }
                     } //: Emoji
-                    
                 } //: HSTACK
-//                .padding(.top)
+                .ignoresSafeArea(.keyboard, edges: .bottom)
 
                 HStack {
                     
@@ -316,7 +335,7 @@ struct EditCardBackView: View {
                         .foregroundColor(.gray)
                         .focused($isGenreFieldFocused)
                         .submitLabel(.next)
-                }
+                } //: HSTACK
 
                 DatePicker(
                     "시청기간 시작일",
@@ -362,7 +381,7 @@ struct EditCardBackView: View {
                     Text("회")
                         .font(.body)
                         .frame(alignment: .leading)
-                }
+                } //: HSTACK
 
 
                 Divider()
@@ -373,13 +392,11 @@ struct EditCardBackView: View {
                     Button(action: {
                         showingMemoModal = true
                     }) {
-                        Text(card.memo ?? "메모를 작성해주세요")
+                        Text(card.memo?.isEmpty ?? true ? "메모를 작성해주세요" : card.memo!)
                             .font(.body)
                             .multilineTextAlignment(.center)
                             .padding()
                             .foregroundColor(.gray)
-//                            .lineLimit(2)  // Limits the number of lines
-//                            .truncationMode(.tail)
                     }
                     .frame(maxWidth: .infinity, maxHeight: 50)
                     .submitLabel(.done)
@@ -394,14 +411,15 @@ struct EditCardBackView: View {
                             })
                     }
                 }
+                Spacer()
             }
-            .padding([.horizontal, .vertical]) // 내용 간 간격
-            .offset(y: 20) // 내용을 좀 더 아래로 조정
-    
-            .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: .infinity, alignment: .center)
-            .background(LinearGradient(gradient: Gradient(colors: colorScheme == .light ? [.gray, .white] : [.gray, .black]), startPoint: .topLeading, endPoint: .bottomTrailing)
-                .ignoresSafeArea(.all)
-                .opacity(0.15))
+        }
+        .padding([.horizontal, .vertical]) // 내용 간 간격
+        .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: .infinity, alignment: .center)
+        .background(LinearGradient(gradient: Gradient(colors: colorScheme == .light ? [.gray.opacity(0.3), .white] : [.gray.opacity(0.7), .black]), startPoint: .topLeading, endPoint: .bottomTrailing)
+            .ignoresSafeArea(.all)
+            .opacity(0.85)
+        )
         .onTapGesture {
             hideKeyboard()
         }

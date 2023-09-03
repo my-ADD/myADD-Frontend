@@ -17,21 +17,15 @@ struct ContentView: View {
 
     var body: some View {
         NavigationView {
-            VStack(spacing: 0) {
-
-                if viewModel.isLoading {
-                    ProgressView("데이터 로딩 중...")
-                        .scaleEffect(1.5, anchor: .center)
-                } else {
-                    CalendarView(selectedDate: $selectedDate, datesWithEvents: viewModel.datesWithEvents)
-                        .padding()
-                        .frame(height: 400)
-                        .onChange(of: selectedDate) { newDate in
-                            if let date = newDate {
-                                showingCardView = true
-                            }
+            VStack {
+                CalendarView(selectedDate: $selectedDate, datesWithEvents: viewModel.datesWithEvents)
+                    .padding()
+                    .frame(height: 400)
+                    .onChange(of: selectedDate) { newDate in
+                        if let date = newDate {
+                            showingCardView = true
                         }
-                }
+                    }
                 Divider()
                 Spacer()
                 

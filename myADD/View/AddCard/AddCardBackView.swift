@@ -32,9 +32,9 @@ struct AddCardBackView: View {
 
     // MARK: - BODY
     var body: some View {
-            VStack(alignment: .leading, spacing: 20) {
-//                Spacer()
-                // TITLE
+        GeometryReader { geometry in
+            VStack(alignment: .leading) {
+                Spacer()
                 HStack {
                     TextField("제목을 입력하세요", text: Binding<String>(
                         get: { self.card.title ?? "" },
@@ -71,12 +71,10 @@ struct AddCardBackView: View {
                                 }
                         }
                     } //: Emoji
-                    
                 } //: HSTACK
-//                .padding(.top)
-
+                .ignoresSafeArea(.keyboard, edges: .bottom)
+                
                 HStack {
-                    
                     Picker("플랫폼 선택", selection: $selectedPlatform) {
                         ForEach(platforms, id: \.self) { platform in
                             Text(platform).tag(platform)
@@ -103,7 +101,7 @@ struct AddCardBackView: View {
                         .foregroundColor(.gray)
                         .focused($isGenreFieldFocused)
                         .submitLabel(.next)
-                }
+                } //: HSTACK
 
                 DatePicker(
                     "시청기간 시작일",
@@ -144,13 +142,12 @@ struct AddCardBackView: View {
                         Text("\(index)").tag(index)}
                     }
                     .pickerStyle(WheelPickerStyle())
-                    .frame(width: 50, height: 50, alignment: .center)
+                    .frame(width: 60, height: 50, alignment: .leading)
                     
-                    // "times" on the right of the Picker
                     Text("회")
                         .font(.body)
                         .frame(alignment: .leading)
-                }
+                } //: HSTACK
 
 
                 Divider()
@@ -161,7 +158,7 @@ struct AddCardBackView: View {
                     Button(action: {
                         showingMemoModal = true
                     }) {
-                        Text(card.memo ?? "메모를 작성해주세요")
+                        Text(card.memo?.isEmpty ?? true ? "메모를 작성해주세요" : card.memo!)
                             .font(.body)
                             .multilineTextAlignment(.center)
                             .padding()
@@ -171,7 +168,6 @@ struct AddCardBackView: View {
                     .frame(maxWidth: .infinity, maxHeight: 50)
                     .submitLabel(.done)
                 }
-                .padding(.bottom)
                 .sheet(isPresented: $showingMemoModal) {
                     NavigationView {
                         MemoInputView(memo: $card.memo)
@@ -181,15 +177,15 @@ struct AddCardBackView: View {
                             })
                     }
                 }
+                Spacer()
             }
-            .padding([.horizontal, .vertical]) // 내용 간 간격
-            .offset(y: 20) // 내용을 좀 더 아래로 조정
-    
-            .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: .infinity, alignment: .center)
-            .background(LinearGradient(gradient: Gradient(colors: colorScheme == .light ? [.gray, .white] : [.gray, .black]), startPoint: .topLeading, endPoint: .bottomTrailing)
-                .ignoresSafeArea(.all)
-                .opacity(0.15)
-            )
+        }
+        .padding([.horizontal, .vertical]) // 내용 간 간격
+        .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: .infinity, alignment: .center)
+        .background(LinearGradient(gradient: Gradient(colors: colorScheme == .light ? [.gray.opacity(0.3), .white] : [.gray.opacity(0.7), .black]), startPoint: .topLeading, endPoint: .bottomTrailing)
+            .ignoresSafeArea(.all)
+            .opacity(0.85)
+        )
         .onTapGesture {
             hideKeyboard()
         }

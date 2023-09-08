@@ -32,24 +32,10 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="252" verticalCompressionResistancePriority="752" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="i4y-QC-eJl">
-                                <rect key="frame" x="198" y="734" width="84" height="74"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" image="GoogleLoginButton"/>
-                                <connections>
-                                    <action selector="googleLoginButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="sm9-6f-tml"/>
-                                </connections>
-                            </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="로그인" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bwk-D2-YyF">
                                 <rect key="frame" x="53" y="115" width="140" height="39"/>
                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="32"/>
                                 <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="SNS 계정으로 간편하게 로그인하기" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="D0u-2x-uIq">
-                                <rect key="frame" x="33" y="682" width="324" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" systemColor="systemGrayColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" verticalHuggingPriority="252" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="이메일" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="SOV-2c-laS">
@@ -73,14 +59,6 @@
                                     <action selector="loginButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="vaG-PA-H8Y"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Hnc-fa-m7W">
-                                <rect key="frame" x="109" y="734" width="84" height="74"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" image="KakaoLoginButton"/>
-                                <connections>
-                                    <action selector="kakaologin:" destination="BYZ-38-t0r" eventType="touchUpInside" id="5a9-QS-qfB"/>
-                                </connections>
-                            </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="_____________________________________" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="F13-y0-oSx">
                                 <rect key="frame" x="33" y="257" width="346" height="21"/>
                                 <fontDescription key="fontDescription" type="system" weight="thin" pointSize="17"/>
@@ -93,8 +71,11 @@
                                 <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" image="MainLogo" translatesAutoresizingMaskIntoConstraints="NO" id="bql-Ox-IH9">
+                                <rect key="frame" x="53" y="31" width="78" height="76"/>
+                            </imageView>
                             <button opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="251" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bTy-2n-MbY">
-                                <rect key="frame" x="89" y="623" width="69" height="30"/>
+                                <rect key="frame" x="103" y="444" width="69" height="30"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <state key="normal" title="Button"/>
@@ -106,7 +87,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" verticalHuggingPriority="252" verticalCompressionResistancePriority="751" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Voo-ah-Fc0">
-                                <rect key="frame" x="168" y="623" width="164" height="30"/>
+                                <rect key="frame" x="182" y="444" width="146.66666666666663" height="30"/>
                                 <color key="tintColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="비밀번호를 잊으셨나요?">
@@ -117,19 +98,15 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="|" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="al0-xe-dDV">
-                                <rect key="frame" x="160" y="626" width="4" height="21"/>
+                                <rect key="frame" x="174" y="447" width="4" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" image="MainLogo" translatesAutoresizingMaskIntoConstraints="NO" id="bql-Ox-IH9">
-                                <rect key="frame" x="53" y="31" width="78" height="76"/>
-                            </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="i4y-QC-eJl" secondAttribute="bottom" constant="44" id="13A-tZ-a3F"/>
                             <constraint firstItem="Rmg-Rg-2ky" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="31" id="1Js-ty-ruf"/>
                             <constraint firstItem="D3Q-3R-kw3" firstAttribute="top" secondItem="SOV-2c-laS" secondAttribute="bottom" constant="40" id="3f2-zQ-M6t"/>
                             <constraint firstItem="al0-xe-dDV" firstAttribute="leading" secondItem="bTy-2n-MbY" secondAttribute="trailing" constant="2" id="7cE-wF-BUo"/>
@@ -137,11 +114,12 @@
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="bql-Ox-IH9" secondAttribute="trailing" constant="262" id="A1z-vw-lJt"/>
                             <constraint firstItem="D3Q-3R-kw3" firstAttribute="top" secondItem="F13-y0-oSx" secondAttribute="bottom" constant="34" id="CWp-tS-fUD"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="bwk-D2-YyF" secondAttribute="trailing" constant="200" id="FEr-4C-dzD"/>
-                            <constraint firstItem="D0u-2x-uIq" firstAttribute="top" secondItem="Voo-ah-Fc0" secondAttribute="bottom" constant="29" id="FiK-KG-Jx1"/>
-                            <constraint firstItem="i4y-QC-eJl" firstAttribute="leading" secondItem="Hnc-fa-m7W" secondAttribute="trailing" constant="5" id="JXA-sp-y4v"/>
-                            <constraint firstItem="D0u-2x-uIq" firstAttribute="top" secondItem="bTy-2n-MbY" secondAttribute="bottom" constant="29" id="Jyc-bK-jfI"/>
+                            <constraint firstItem="Voo-ah-Fc0" firstAttribute="top" secondItem="ceZ-Gj-pi6" secondAttribute="bottom" constant="18" id="FlL-OU-CVr"/>
+                            <constraint firstItem="al0-xe-dDV" firstAttribute="leading" secondItem="bTy-2n-MbY" secondAttribute="trailing" constant="2" id="Iy0-Mr-b2Y"/>
+                            <constraint firstItem="Voo-ah-Fc0" firstAttribute="leading" secondItem="al0-xe-dDV" secondAttribute="trailing" constant="4" id="QgF-yB-EWn"/>
                             <constraint firstItem="bql-Ox-IH9" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="53" id="UEE-pi-Yig"/>
                             <constraint firstItem="ceZ-Gj-pi6" firstAttribute="top" secondItem="Rmg-Rg-2ky" secondAttribute="bottom" constant="20" id="W29-wM-z6R"/>
+                            <constraint firstItem="bTy-2n-MbY" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="103" id="XCM-40-oxJ"/>
                             <constraint firstItem="Rmg-Rg-2ky" firstAttribute="top" secondItem="F13-y0-oSx" secondAttribute="bottom" constant="43" id="YJn-2h-PJH"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="ceZ-Gj-pi6" secondAttribute="trailing" constant="14" id="YM7-Zn-et6"/>
                             <constraint firstItem="bql-Ox-IH9" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="31" id="aKF-9a-kSS"/>
@@ -149,24 +127,16 @@
                             <constraint firstItem="F13-y0-oSx" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="33" id="aTs-pV-BhO"/>
                             <constraint firstItem="bwk-D2-YyF" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="53" id="bUr-tp-M0C"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="D3Q-3R-kw3" secondAttribute="trailing" constant="14" id="cyh-n6-cVw"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Voo-ah-Fc0" secondAttribute="trailing" constant="61" id="dET-w2-J1j"/>
                             <constraint firstItem="SOV-2c-laS" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="31" id="dWm-nn-GKS"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="F13-y0-oSx" secondAttribute="trailing" constant="14" id="hFT-HB-hSB"/>
-                            <constraint firstItem="D0u-2x-uIq" firstAttribute="top" secondItem="al0-xe-dDV" secondAttribute="bottom" constant="35" id="j8a-qA-fqL"/>
-                            <constraint firstItem="i4y-QC-eJl" firstAttribute="top" secondItem="D0u-2x-uIq" secondAttribute="bottom" constant="31" id="jsb-Dh-QH0"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="SOV-2c-laS" secondAttribute="trailing" constant="14" id="lgZ-mE-Hsi"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="D0u-2x-uIq" secondAttribute="trailing" constant="36" id="nHM-7V-A06"/>
+                            <constraint firstItem="al0-xe-dDV" firstAttribute="top" secondItem="ceZ-Gj-pi6" secondAttribute="bottom" constant="21" id="mgO-7W-9dm"/>
                             <constraint firstItem="ceZ-Gj-pi6" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="14" id="pSS-Nu-YeE"/>
-                            <constraint firstItem="bTy-2n-MbY" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="89" id="pVD-wU-Whe"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Rmg-Rg-2ky" secondAttribute="trailing" constant="16" id="pbj-tX-h77"/>
-                            <constraint firstItem="D0u-2x-uIq" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="33" id="pvK-Xl-krz"/>
                             <constraint firstItem="F13-y0-oSx" firstAttribute="top" secondItem="bwk-D2-YyF" secondAttribute="bottom" constant="103" id="qeq-12-ueo"/>
                             <constraint firstItem="SOV-2c-laS" firstAttribute="top" secondItem="bwk-D2-YyF" secondAttribute="bottom" constant="99.329999999999998" id="rcw-Hi-gar"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="i4y-QC-eJl" secondAttribute="trailing" constant="111" id="tvI-Wk-fVR"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="Hnc-fa-m7W" secondAttribute="bottom" constant="44" id="yMM-gb-s3m"/>
+                            <constraint firstItem="bTy-2n-MbY" firstAttribute="top" secondItem="ceZ-Gj-pi6" secondAttribute="bottom" constant="18" id="wKI-Ho-vxj"/>
                             <constraint firstItem="bwk-D2-YyF" firstAttribute="top" secondItem="bql-Ox-IH9" secondAttribute="bottom" constant="8" symbolic="YES" id="yQX-Bh-sFl"/>
-                            <constraint firstItem="Voo-ah-Fc0" firstAttribute="leading" secondItem="al0-xe-dDV" secondAttribute="trailing" constant="4" id="zZi-ih-umq"/>
-                            <constraint firstItem="Hnc-fa-m7W" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="109" id="zx5-wy-kEx"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="fPT-Hb-xO9"/>
@@ -363,6 +333,36 @@
                                 <rect key="frame" x="0.0" y="149" width="393" height="4"/>
                                 <color key="tintColor" systemColor="systemRedColor"/>
                             </progressView>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ME9-1z-ejT">
+                                <rect key="frame" x="0.0" y="161" width="393" height="657"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="E26-06-iu0">
+                                        <rect key="frame" x="0.0" y="0.0" width="393" height="20.333333333333332"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="이용약관" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iRR-J3-bIs">
+                                                <rect key="frame" x="0.0" y="0.0" width="393" height="20.333333333333332"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <constraints>
+                                            <constraint firstItem="iRR-J3-bIs" firstAttribute="top" secondItem="E26-06-iu0" secondAttribute="top" id="8br-2S-Jdz"/>
+                                            <constraint firstAttribute="trailing" secondItem="iRR-J3-bIs" secondAttribute="trailing" id="M5F-1V-Fd8"/>
+                                            <constraint firstItem="iRR-J3-bIs" firstAttribute="leading" secondItem="E26-06-iu0" secondAttribute="leading" id="TDw-M9-EhN"/>
+                                            <constraint firstAttribute="bottom" secondItem="iRR-J3-bIs" secondAttribute="bottom" id="uN1-Z9-uqs"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="E26-06-iu0" firstAttribute="leading" secondItem="ME9-1z-ejT" secondAttribute="leading" id="4l3-Nv-J5P"/>
+                                    <constraint firstItem="E26-06-iu0" firstAttribute="top" secondItem="ME9-1z-ejT" secondAttribute="top" id="F3X-PL-KZP"/>
+                                    <constraint firstItem="iRR-J3-bIs" firstAttribute="width" secondItem="ME9-1z-ejT" secondAttribute="width" id="VSU-Yw-qFK"/>
+                                    <constraint firstAttribute="bottom" secondItem="E26-06-iu0" secondAttribute="bottom" id="aDo-aq-gON"/>
+                                    <constraint firstAttribute="trailing" secondItem="E26-06-iu0" secondAttribute="trailing" id="m3l-7V-PmD"/>
+                                </constraints>
+                            </scrollView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="ECt-gt-5SS"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -370,11 +370,17 @@
                             <constraint firstItem="ECt-gt-5SS" firstAttribute="trailing" secondItem="ool-U5-JLf" secondAttribute="trailing" constant="153" id="2h6-wF-5kw"/>
                             <constraint firstItem="7ZV-E1-khO" firstAttribute="trailing" secondItem="ECt-gt-5SS" secondAttribute="trailing" id="3mK-Ix-8b9"/>
                             <constraint firstItem="7ZV-E1-khO" firstAttribute="top" secondItem="zkP-sm-TKb" secondAttribute="bottom" constant="25" id="6Fp-Kj-ZkJ"/>
+                            <constraint firstItem="ME9-1z-ejT" firstAttribute="top" secondItem="7ZV-E1-khO" secondAttribute="bottom" constant="8" id="7LC-o3-X2E"/>
+                            <constraint firstItem="ME9-1z-ejT" firstAttribute="trailing" secondItem="ECt-gt-5SS" secondAttribute="trailing" id="NM6-ky-oX3"/>
                             <constraint firstItem="ool-U5-JLf" firstAttribute="leading" secondItem="zkP-sm-TKb" secondAttribute="trailing" constant="80" id="aPR-yM-xxk"/>
+                            <constraint firstItem="ME9-1z-ejT" firstAttribute="leading" secondItem="7ZV-E1-khO" secondAttribute="leading" id="eNh-E5-apA"/>
                             <constraint firstItem="zkP-sm-TKb" firstAttribute="top" secondItem="ECt-gt-5SS" secondAttribute="top" constant="31" id="fvo-H4-eBz"/>
+                            <constraint firstItem="ME9-1z-ejT" firstAttribute="bottom" secondItem="ECt-gt-5SS" secondAttribute="bottom" id="hO3-jb-OzO"/>
+                            <constraint firstItem="ME9-1z-ejT" firstAttribute="leading" secondItem="ECt-gt-5SS" secondAttribute="leading" id="lHS-ku-uiV"/>
                             <constraint firstItem="zkP-sm-TKb" firstAttribute="leading" secondItem="ECt-gt-5SS" secondAttribute="leading" constant="33" id="q1W-Gr-2d5"/>
                             <constraint firstItem="ool-U5-JLf" firstAttribute="top" secondItem="ECt-gt-5SS" secondAttribute="top" constant="33" id="qL0-Hj-6fA"/>
                             <constraint firstItem="7ZV-E1-khO" firstAttribute="leading" secondItem="ECt-gt-5SS" secondAttribute="leading" id="qSv-gP-ORJ"/>
+                            <constraint firstItem="ME9-1z-ejT" firstAttribute="bottom" secondItem="ECt-gt-5SS" secondAttribute="bottom" id="rDQ-Lq-cCM"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="SY1-4s-5on"/>
@@ -382,7 +388,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Vos-Zz-Dky" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <exit id="hDV-md-E76" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="3375" y="-1618"/>
+            <point key="canvasLocation" x="3374.8091603053435" y="-1618.3098591549297"/>
         </scene>
         <!--Login View Controller-->
         <scene sceneID="EKB-2I-tqy">
@@ -411,15 +417,358 @@
                                 <rect key="frame" x="0.0" y="149" width="393" height="4"/>
                                 <color key="tintColor" systemColor="systemRedColor"/>
                             </progressView>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ICz-j9-DjK">
+                                <rect key="frame" x="0.0" y="161" width="393" height="657"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KDA-D0-6g5">
+                                        <rect key="frame" x="0.0" y="0.0" width="393" height="9535"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2Fb-r3-24O">
+                                                <rect key="frame" x="0.0" y="0.0" width="393" height="9535"/>
+                                                <string key="text">&lt; my ADD &gt;('https://www.notion.so/e03c6edce58b46eb9a870e4dcffc'이하 '나의 시청물 컬렉션, my ADD')은(는) 「개인정보 보호법」 제30조에 따라 정보주체의 개인정보를 보호하고 이와 관련한 고충을 신속하고 원활하게 처리할 수 있도록 하기 위하여 다음과 같이 개인정보 처리방침을 수립·공개합니다.
+
+○ 이 개인정보처리방침은 2023년 9월 1부터 적용됩니다.
+
+
+제1조(개인정보의 처리 목적)
+
+&lt; my ADD &gt;('https://www.notion.so/e03c6edce58b46eb9a870e4dcffc'이하 '나의 시청물 컬렉션, my ADD')은(는) 다음의 목적을 위하여 개인정보를 처리합니다. 처리하고 있는 개인정보는 다음의 목적 이외의 용도로는 이용되지 않으며 이용 목적이 변경되는 경우에는 「개인정보 보호법」 제18조에 따라 별도의 동의를 받는 등 필요한 조치를 이행할 예정입니다.
+
+1. 홈페이지 회원가입 및 관리
+
+회원 가입의사 확인, 회원제 서비스 제공에 따른 본인 식별·인증, 회원자격 유지·관리, 서비스 부정이용 방지, 만14세 미만 아동의 개인정보 처리 시 법정대리인의 동의여부 확인, 각종 고지·통지 목적으로 개인정보를 처리합니다.
+
+
+2. 민원사무 처리
+
+민원인의 신원 확인, 민원사항 확인, 사실조사를 위한 연락·통지, 처리결과 통보 목적으로 개인정보를 처리합니다.
+
+
+3. 재화 또는 서비스 제공
+
+서비스 제공, 계약서·청구서 발송, 콘텐츠 제공, 맞춤서비스 제공, 본인인증, 연령인증, 요금결제·정산을 목적으로 개인정보를 처리합니다.
+
+
+4. 마케팅 및 광고에의 활용
+
+신규 서비스(제품) 개발 및 맞춤 서비스 제공, 이벤트 및 광고성 정보 제공 및 참여기회 제공 , 인구통계학적 특성에 따른 서비스 제공 및 광고 게재 , 서비스의 유효성 확인, 접속빈도 파악 또는 회원의 서비스 이용에 대한 통계 등을 목적으로 개인정보를 처리합니다.
+
+
+5. 개인영상정보
+
+범죄의 예방 및 수사 등을 목적으로 개인정보를 처리합니다.
+
+
+
+
+제2조(개인정보의 처리 및 보유 기간)
+
+① &lt; my ADD &gt;은(는) 법령에 따른 개인정보 보유·이용기간 또는 정보주체로부터 개인정보를 수집 시에 동의받은 개인정보 보유·이용기간 내에서 개인정보를 처리·보유합니다.
+
+② 각각의 개인정보 처리 및 보유 기간은 다음과 같습니다.
+
+1.&lt;홈페이지 회원가입 및 관리&gt;
+&lt;홈페이지 회원가입 및 관리&gt;와 관련한 개인정보는 수집.이용에 관한 동의일로부터&lt;서비스 이용 종료 선언 시&gt;까지 위 이용목적을 위하여 보유.이용됩니다.
+보유근거 : 회원 가입 의사를 확인하여 계정을 생성하고, 원활한 서비스 이용을 위해 사용합니다.
+관련법령 : 1)표시/광고에 관한 기록 : 6개월
+2) 계약 또는 청약철회 등에 관한 기록 : 5년
+3) 대금결제 및 재화 등의 공급에 관한 기록 : 5년
+4) 소비자의 불만 또는 분쟁처리에 관한 기록 : 3년
+5) 신용정보의 수집/처리 및 이용 등에 관한 기록 : 3년
+예외사유 :
+
+
+제3조(처리하는 개인정보의 항목)
+
+① &lt; my ADD &gt;은(는) 다음의 개인정보 항목을 처리하고 있습니다.
+
+1&lt; 홈페이지 회원가입 및 관리 &gt;
+필수항목 : 이름, 로그인ID, 비밀번호, 이메일, 접속 IP 정보, 쿠키, 접속 로그, 서비스 이용 기록
+선택항목 :
+
+
+제4조(만 14세 미만 아동의 개인정보 처리에 관한 사항)
+
+
+
+① &lt;개인정보처리자명&gt;은(는) 만 14세 미만 아동에 대해 개인정보를 수집할 때 법정대리인의 동의를 얻어 해당 서비스 수행에 필요한 최소한의 개인정보를 수집합니다.
+
+• 필수항목 : 법정 대리인의 성명, 관계, 연락처
+
+② 또한, &lt;개인정보처리자명&gt;의 &lt;처리목적&gt; 관련 홍보를 위해 아동의 개인정보를 수집할 경우에는 법정대리인으로부터 별도의 동의를 얻습니다.
+
+③ &lt;개인정보처리자명&gt;은(는) 만 1 4세 미만 아동의 개인정보를 수집할 때에는 아동에게 법정대리인의 성명, 연락처와 같이 최소한의 정보를 요구할 수 있으며, 다음 중 하나의 방법으로 적법한 법정대리인이 동의하였는지를 확인합니다.
+
+• 동의 내용을 게재한 인터넷 사이트에 법정대리인이 동의 여부를 표시하도록 하고 개인정보처리자가 그 동의 표시를 확인했음을 법정대리인의 휴대전화 문자 메시지로 알리는 방법
+
+• 동의 내용을 게재한 인터넷 사이트에 법정대리인이 동의 여부를 표시하도록 하고 법정대리인의 신용카드·직불카드 등의 카드정보를 제공받는 방법
+
+• 동의 내용을 게재한 인터넷 사이트에 법정대리인이 동의 여부를 표시하도록 하고 법정대리인의 휴대전화 본인인증 등을 통해 본인 여부를 확인하는 방법
+
+• 동의 내용이 적힌 서면을 법정대리인에게 직접 발급하거나, 우편 또는 팩스를 통하여 전달하고 법정대리인이 동의 내용에 대하여 서명날인 후 제출하도록 하는 방법
+
+• 동의 내용이 적힌 전자우편을 발송하여 법정대리인으로부터 동의의 의사표시가 적힌 전자우편을 전송받는 방법
+
+• 전화를 통하여 동의 내용을 법정대리인에게 알리고 동의를 얻거나 인터넷주소 등 동의 내용을 확인할 수 있는 방법을 안내하고 재차 전화 통화를 통하여 동의를 얻는 방법
+
+• 그 밖에 위와 준하는 방법으로 법정대리인에게 동의 내용을 알리고 동의의 의사표시를 확인하는 방법
+
+
+
+제5조(개인정보의 제3자 제공에 관한 사항)
+
+① &lt; my ADD &gt;은(는) 개인정보를 제1조(개인정보의 처리 목적)에서 명시한 범위 내에서만 처리하며, 정보주체의 동의, 법률의 특별한 규정 등 「개인정보 보호법」 제17조 및 제18조에 해당하는 경우에만 개인정보를 제3자에게 제공합니다.
+
+② &lt; my ADD &gt;은(는) 다음과 같이 개인정보를 제3자에게 제공하고 있습니다.
+
+1. &lt; &gt;
+개인정보를 제공받는 자 :
+제공받는 자의 개인정보 이용목적 :
+제공받는 자의 보유.이용기간:
+
+
+제6조(개인정보처리의 위탁에 관한 사항)
+
+① &lt; my ADD &gt;은(는) 원활한 개인정보 업무처리를 위하여 다음과 같이 개인정보 처리업무를 위탁하고 있습니다.
+
+1. &lt; &gt;
+위탁받는 자 (수탁자) :
+위탁하는 업무의 내용 :
+위탁기간 :
+② &lt; my ADD &gt;은(는) 위탁계약 체결시 「개인정보 보호법」 제26조에 따라 위탁업무 수행목적 외 개인정보 처리금지, 기술적․관리적 보호조치, 재위탁 제한, 수탁자에 대한 관리․감독, 손해배상 등 책임에 관한 사항을 계약서 등 문서에 명시하고, 수탁자가 개인정보를 안전하게 처리하는지를 감독하고 있습니다.
+
+③ 위탁업무의 내용이나 수탁자가 변경될 경우에는 지체없이 본 개인정보 처리방침을 통하여 공개하도록 하겠습니다.
+
+
+
+제7조(개인정보의 파기절차 및 파기방법)
+
+
+① &lt; my ADD &gt; 은(는) 개인정보 보유기간의 경과, 처리목적 달성 등 개인정보가 불필요하게 되었을 때에는 지체없이 해당 개인정보를 파기합니다.
+
+② 정보주체로부터 동의받은 개인정보 보유기간이 경과하거나 처리목적이 달성되었음에도 불구하고 다른 법령에 따라 개인정보를 계속 보존하여야 하는 경우에는, 해당 개인정보를 별도의 데이터베이스(DB)로 옮기거나 보관장소를 달리하여 보존합니다.
+1. 법령 근거 :
+2. 보존하는 개인정보 항목 : 계좌정보, 거래날짜
+
+③ 개인정보 파기의 절차 및 방법은 다음과 같습니다.
+1. 파기절차
+&lt; my ADD &gt; 은(는) 파기 사유가 발생한 개인정보를 선정하고, &lt; my ADD &gt; 의 개인정보 보호책임자의 승인을 받아 개인정보를 파기합니다.
+
+2. 파기방법
+
+전자적 파일 형태의 정보는 기록을 재생할 수 없는 기술적 방법을 사용합니다
+
+
+
+제8조(미이용자의 개인정보 파기 등에 관한 조치)
+
+
+
+① &lt;개인정보처리자명&gt;은(는) 1년간 서비스를 이용하지 않은 이용자의 정보를 파기하고 있습니다. 다만, 다른 법령에서 정한 보존기간이 경과할 때까지 다른 이용자의 개인정보와 분리하여 별도로 저장·관리할 수 있습니다.
+② &lt;개인정보처리자명&gt;은(는) 개인정보의 파기 30일 전까지 개인정보가 파기되는 사실, 기간 만료일 및 파기되는 개인정보의 항목을 이메일, 문자 등 이용자에게 통지 가능한 방법으로 알리고 있습니다.
+③ 개인정보의 파기를 원하지 않으시는 경우, 기간 만료 전 서비스 로그인을 하시면 됩니다.
+
+
+제9조(정보주체와 법정대리인의 권리·의무 및 그 행사방법에 관한 사항)
+
+
+
+① 정보주체는 my ADD에 대해 언제든지 개인정보 열람·정정·삭제·처리정지 요구 등의 권리를 행사할 수 있습니다.
+
+② 제1항에 따른 권리 행사는my ADD에 대해 「개인정보 보호법」 시행령 제41조제1항에 따라 서면, 전자우편, 모사전송(FAX) 등을 통하여 하실 수 있으며 my ADD은(는) 이에 대해 지체 없이 조치하겠습니다.
+
+③ 제1항에 따른 권리 행사는 정보주체의 법정대리인이나 위임을 받은 자 등 대리인을 통하여 하실 수 있습니다.이 경우 “개인정보 처리 방법에 관한 고시(제2020-7호)” 별지 제11호 서식에 따른 위임장을 제출하셔야 합니다.
+
+④ 개인정보 열람 및 처리정지 요구는 「개인정보 보호법」 제35조 제4항, 제37조 제2항에 의하여 정보주체의 권리가 제한 될 수 있습니다.
+
+⑤ 개인정보의 정정 및 삭제 요구는 다른 법령에서 그 개인정보가 수집 대상으로 명시되어 있는 경우에는 그 삭제를 요구할 수 없습니다.
+
+⑥ my ADD은(는) 정보주체 권리에 따른 열람의 요구, 정정·삭제의 요구, 처리정지의 요구 시 열람 등 요구를 한 자가 본인이거나 정당한 대리인인지를 확인합니다.
+
+
+
+제10조(개인정보의 안전성 확보조치에 관한 사항)
+
+&lt; my ADD &gt;은(는) 개인정보의 안전성 확보를 위해 다음과 같은 조치를 취하고 있습니다.
+
+1. 내부관리계획의 수립 및 시행
+개인정보의 안전한 처리를 위하여 내부관리계획을 수립하고 시행하고 있습니다.
+
+2. 개인정보의 암호화
+이용자의 개인정보는 비밀번호는 암호화 되어 저장 및 관리되고 있어, 본인만이 알 수 있으며 중요한 데이터는 파일 및 전송 데이터를 암호화 하거나 파일 잠금 기능을 사용하는 등의 별도 보안기능을 사용하고 있습니다.
+
+
+
+
+제11조(개인정보를 자동으로 수집하는 장치의 설치·운영 및 그 거부에 관한 사항)
+
+
+
+① my ADD 은(는) 이용자에게 개별적인 맞춤서비스를 제공하기 위해 이용정보를 저장하고 수시로 불러오는 ‘쿠키(cookie)’를 사용합니다.
+② 쿠키는 웹사이트를 운영하는데 이용되는 서버(http)가 이용자의 컴퓨터 브라우저에게 보내는 소량의 정보이며 이용자들의 PC 컴퓨터내의 하드디스크에 저장되기도 합니다.
+가. 쿠키의 사용 목적 : 이용자가 방문한 각 서비스와 웹 사이트들에 대한 방문 및 이용형태, 인기 검색어, 보안접속 여부, 등을 파악하여 이용자에게 최적화된 정보 제공을 위해 사용됩니다.
+나. 쿠키의 설치•운영 및 거부 : 웹브라우저 상단의 도구&gt;인터넷 옵션&gt;개인정보 메뉴의 옵션 설정을 통해 쿠키 저장을 거부 할 수 있습니다.
+다. 쿠키 저장을 거부할 경우 맞춤형 서비스 이용에 어려움이 발생할 수 있습니다.
+
+
+제12조(행태정보의 수집·이용·제공 및 거부 등에 관한 사항)
+
+
+
+행태정보의 수집·이용·제공 및 거부등에 관한 사항
+
+&lt;개인정보처리자명&gt;은(는) 온라인 맞춤형 광고 등을 위한 행태정보를 수집·이용·제공하지 않습니다.
+
+
+
+제13조(추가적인 이용·제공 판단기준)
+
+&lt; my ADD &gt; 은(는) ｢개인정보 보호법｣ 제15조제3항 및 제17조제4항에 따라 ｢개인정보 보호법 시행령｣ 제14조의2에 따른 사항을 고려하여 정보주체의 동의 없이 개인정보를 추가적으로 이용·제공할 수 있습니다. 이에 따라 &lt; my ADD &gt; 가(이) 정보주체의 동의 없이 추가적인 이용·제공을 하기 위해서 다음과 같은 사항을 고려하였습니다.
+▶ 개인정보를 추가적으로 이용·제공하려는 목적이 당초 수집 목적과 관련성이 있는지 여부
+
+▶ 개인정보를 수집한 정황 또는 처리 관행에 비추어 볼 때 추가적인 이용·제공에 대한 예측 가능성이 있는지 여부
+
+▶ 개인정보의 추가적인 이용·제공이 정보주체의 이익을 부당하게 침해하는지 여부
+
+▶ 가명처리 또는 암호화 등 안전성 확보에 필요한 조치를 하였는지 여부
+
+※ 추가적인 이용·제공 시 고려사항에 대한 판단기준은 사업자/단체 스스로 자율적으로 판단하여 작성·공개함
+
+
+
+제14조(가명정보를 처리하는 경우 가명정보 처리에 관한 사항)
+
+&lt; my ADD &gt; 은(는) 다음과 같은 목적으로 가명정보를 처리하고 있습니다.
+
+▶ 가명정보의 처리 목적
+
+▶ 가명정보의 처리 및 보유기간
+
+▶ 가명처리하는 개인정보의 항목
+
+▶ 법 제28조의4(가명정보에 대한 안전조치 의무 등)에 따른 가명정보의 안전성 확보조치에 관한 사항
+
+제15조 (개인정보 보호책임자에 관한 사항)
+
+① my ADD 은(는) 개인정보 처리에 관한 업무를 총괄해서 책임지고, 개인정보 처리와 관련한 정보주체의 불만처리 및 피해구제 등을 위하여 아래와 같이 개인정보 보호책임자를 지정하고 있습니다.
+
+▶ 개인정보 보호책임자
+성명 :류가언
+직책 :Project Manager
+직급 :Project Manager
+연락처 :01062270513, developmyadd.gmail.com,
+※ 개인정보 보호 담당부서로 연결됩니다.
+
+
+▶ 개인정보 보호 담당부서
+부서명 :
+담당자 :
+연락처 :, ,
+② 정보주체께서는 my ADD 의 서비스(또는 사업)을 이용하시면서 발생한 모든 개인정보 보호 관련 문의, 불만처리, 피해구제 등에 관한 사항을 개인정보 보호책임자 및 담당부서로 문의하실 수 있습니다. my ADD 은(는) 정보주체의 문의에 대해 지체 없이 답변 및 처리해드릴 것입니다.
+
+
+
+제16조(국내대리인의 지정)
+
+정보주체는 ｢개인정보 보호법｣ 제39조의11에 따라 지정된 &lt; my ADD &gt;의 국내대리인에게 개인정보 관련 고충처리 등의 업무를 위하여 연락을 취할 수 있습니다. &lt; my ADD &gt;은(는) 정보주체의 개인정보 관련 고충처리 등 개인정보 보호책임자의 업무 등을 신속하게 처리할 수 있도록 노력하겠습니다.
+
+▶ &lt; my ADD &gt; 은(는) ｢개인정보 보호법｣ 제39조의11에 따라 국내대리인을 지정하였습니다.
+
+- 국내대리인의 성명 : [대리인 성명_직접입력] (법인의 경우 법인명, 대표자의 성명)
+
+- 국내대리인의 주소 : [대리인 주소_직접입력] (법인의 경우 영업소 소재지)
+
+- 국내대리인의 전화번호 : [대리인 전화번호_직접입력]
+
+- 국내대리인의 전자우편 주소 : [대리인 전자우편_직접입력]
+
+제17조(개인정보의 열람청구를 접수·처리하는 부서)
+정보주체는 ｢개인정보 보호법｣ 제35조에 따른 개인정보의 열람 청구를 아래의 부서에 할 수 있습니다.
+&lt; my ADD &gt;은(는) 정보주체의 개인정보 열람청구가 신속하게 처리되도록 노력하겠습니다.
+
+▶ 개인정보 열람청구 접수·처리 부서
+부서명 :
+담당자 :
+연락처 : , ,
+
+
+제18조(정보주체의 권익침해에 대한 구제방법)
+
+
+
+정보주체는 개인정보침해로 인한 구제를 받기 위하여 개인정보분쟁조정위원회, 한국인터넷진흥원 개인정보침해신고센터 등에 분쟁해결이나 상담 등을 신청할 수 있습니다. 이 밖에 기타 개인정보침해의 신고, 상담에 대하여는 아래의 기관에 문의하시기 바랍니다.
+
+1. 개인정보분쟁조정위원회 : (국번없이) 1833-6972 (www.kopico.go.kr)
+2. 개인정보침해신고센터 : (국번없이) 118 (privacy.kisa.or.kr)
+3. 대검찰청 : (국번없이) 1301 (www.spo.go.kr)
+4. 경찰청 : (국번없이) 182 (ecrm.cyber.go.kr)
+
+「개인정보보호법」제35조(개인정보의 열람), 제36조(개인정보의 정정·삭제), 제37조(개인정보의 처리정지 등)의 규정에 의한 요구에 대 하여 공공기관의 장이 행한 처분 또는 부작위로 인하여 권리 또는 이익의 침해를 받은 자는 행정심판법이 정하는 바에 따라 행정심판을 청구할 수 있습니다.
+
+※ 행정심판에 대해 자세한 사항은 중앙행정심판위원회(www.simpan.go.kr) 홈페이지를 참고하시기 바랍니다.
+
+제19조(영상정보처리기기 운영·관리에 관한 사항)
+① &lt; my ADD &gt;은(는) 아래와 같이 영상정보처리기기를 설치·운영하고 있습니다.
+
+1.영상정보처리기기 설치근거·목적 : &lt; my ADD &gt;의
+
+2.설치 대수, 설치 위치, 촬영 범위 :
+설치대수 : 대
+설치위치 :
+촬영범위 :
+3.관리책임자, 담당부서 및 영상정보에 대한 접근권한자 :
+
+4.영상정보 촬영시간, 보관기간, 보관장소, 처리방법
+촬영시간 : 시간
+보관기간 : 촬영시부터
+보관장소 및 처리방법 :
+5.영상정보 확인 방법 및 장소 :
+
+6.정보주체의 영상정보 열람등요구에 대한 조치 : 개인영상정보 열람.존재확인 청구서로 신청하여야 하며, 정보주체 자신이 촬영된 경우 또는 명백히 정보주체의 생명.신체.재산 이익을 위해 필요한 경우에 한해 열람을 허용함
+
+7.영상정보처리기기 설치근거·목적 :
+
+
+
+제20조(개인정보 처리방침 변경)
+
+
+① 이 개인정보처리방침은 2023년 9월 1부터 적용됩니다.</string>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <constraints>
+                                            <constraint firstAttribute="trailing" secondItem="2Fb-r3-24O" secondAttribute="trailing" id="6og-W4-lV2"/>
+                                            <constraint firstItem="2Fb-r3-24O" firstAttribute="leading" secondItem="KDA-D0-6g5" secondAttribute="leading" id="ZP0-qz-e5n"/>
+                                            <constraint firstItem="2Fb-r3-24O" firstAttribute="top" secondItem="KDA-D0-6g5" secondAttribute="top" id="e9f-0Q-r3b"/>
+                                            <constraint firstAttribute="bottom" secondItem="2Fb-r3-24O" secondAttribute="bottom" id="mX6-sX-ylP"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="KDA-D0-6g5" firstAttribute="top" secondItem="ICz-j9-DjK" secondAttribute="top" id="W6s-u5-Dkc"/>
+                                    <constraint firstItem="KDA-D0-6g5" firstAttribute="leading" secondItem="ICz-j9-DjK" secondAttribute="leading" id="Z9j-nE-bDp"/>
+                                    <constraint firstAttribute="bottom" secondItem="KDA-D0-6g5" secondAttribute="bottom" id="dDz-9q-Q14"/>
+                                    <constraint firstItem="2Fb-r3-24O" firstAttribute="width" secondItem="ICz-j9-DjK" secondAttribute="width" id="mn2-Q4-M4g"/>
+                                    <constraint firstAttribute="trailing" secondItem="KDA-D0-6g5" secondAttribute="trailing" id="oAG-1N-ghJ"/>
+                                </constraints>
+                            </scrollView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="MdM-iA-RK2"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="tzL-4a-KEg" firstAttribute="leading" secondItem="Mq8-xB-F7e" secondAttribute="trailing" constant="34" id="920-Pe-07k"/>
+                            <constraint firstItem="ICz-j9-DjK" firstAttribute="leading" secondItem="MdM-iA-RK2" secondAttribute="leading" id="E9j-Dc-kOt"/>
+                            <constraint firstItem="ICz-j9-DjK" firstAttribute="trailing" secondItem="MdM-iA-RK2" secondAttribute="trailing" id="N9h-Ps-JS4"/>
+                            <constraint firstItem="ICz-j9-DjK" firstAttribute="bottom" secondItem="MdM-iA-RK2" secondAttribute="bottom" id="VX6-w1-o1G"/>
                             <constraint firstItem="1v2-Oe-j27" firstAttribute="leading" secondItem="MdM-iA-RK2" secondAttribute="leading" id="bBL-WU-O96"/>
                             <constraint firstItem="Mq8-xB-F7e" firstAttribute="top" secondItem="MdM-iA-RK2" secondAttribute="top" constant="31" id="bTX-K3-oVs"/>
                             <constraint firstItem="Mq8-xB-F7e" firstAttribute="leading" secondItem="MdM-iA-RK2" secondAttribute="leading" constant="33" id="dq3-Aq-HOF"/>
                             <constraint firstItem="1v2-Oe-j27" firstAttribute="top" secondItem="Mq8-xB-F7e" secondAttribute="bottom" constant="25" id="fh9-QE-ymg"/>
+                            <constraint firstItem="ICz-j9-DjK" firstAttribute="top" secondItem="1v2-Oe-j27" secondAttribute="bottom" constant="8" id="pwa-Zi-gU8"/>
                             <constraint firstItem="MdM-iA-RK2" firstAttribute="trailing" secondItem="tzL-4a-KEg" secondAttribute="trailing" constant="107" id="sX8-1P-dlQ"/>
                             <constraint firstItem="1v2-Oe-j27" firstAttribute="trailing" secondItem="MdM-iA-RK2" secondAttribute="trailing" id="umJ-YJ-F2u"/>
                             <constraint firstItem="tzL-4a-KEg" firstAttribute="top" secondItem="MdM-iA-RK2" secondAttribute="top" constant="33" id="vhg-aQ-vho"/>
@@ -429,7 +778,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Z4Y-GL-t6h" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4207" y="-1618"/>
+            <point key="canvasLocation" x="4206.8702290076335" y="-1618.3098591549297"/>
         </scene>
         <!--Login View Controller-->
         <scene sceneID="JyZ-GH-DdL">
@@ -949,13 +1298,47 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Pzj-bN-aIR">
+                                <rect key="frame" x="0.0" y="161" width="393" height="657"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aCZ-Lk-8XG">
+                                        <rect key="frame" x="0.0" y="0.0" width="393" height="20.333333333333332"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="my ADD 정보" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lZu-f6-Xfa">
+                                                <rect key="frame" x="0.0" y="0.0" width="393" height="20.333333333333332"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <constraints>
+                                            <constraint firstItem="lZu-f6-Xfa" firstAttribute="leading" secondItem="aCZ-Lk-8XG" secondAttribute="leading" id="6L8-dk-KnF"/>
+                                            <constraint firstAttribute="bottom" secondItem="lZu-f6-Xfa" secondAttribute="bottom" id="ECW-Ya-ZQ7"/>
+                                            <constraint firstAttribute="trailing" secondItem="lZu-f6-Xfa" secondAttribute="trailing" id="HSj-CT-jXE"/>
+                                            <constraint firstItem="lZu-f6-Xfa" firstAttribute="top" secondItem="aCZ-Lk-8XG" secondAttribute="top" id="IJ2-JF-D3C"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="aCZ-Lk-8XG" secondAttribute="trailing" id="Fxi-CF-HYY"/>
+                                    <constraint firstItem="aCZ-Lk-8XG" firstAttribute="leading" secondItem="Pzj-bN-aIR" secondAttribute="leading" id="URg-Jn-yq2"/>
+                                    <constraint firstItem="lZu-f6-Xfa" firstAttribute="width" secondItem="Pzj-bN-aIR" secondAttribute="width" id="cba-fo-DT5"/>
+                                    <constraint firstItem="aCZ-Lk-8XG" firstAttribute="top" secondItem="Pzj-bN-aIR" secondAttribute="top" id="jWX-hq-YAo"/>
+                                    <constraint firstAttribute="bottom" secondItem="aCZ-Lk-8XG" secondAttribute="bottom" id="oqR-09-SfK"/>
+                                </constraints>
+                            </scrollView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="xYL-2g-h59"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="8OA-JA-TmE" firstAttribute="top" secondItem="xYL-2g-h59" secondAttribute="top" constant="31" id="JMf-dd-ygS"/>
+                            <constraint firstItem="Pzj-bN-aIR" firstAttribute="trailing" secondItem="xYL-2g-h59" secondAttribute="trailing" id="Xyf-M5-jRZ"/>
                             <constraint firstItem="6CS-HV-F49" firstAttribute="leading" secondItem="xYL-2g-h59" secondAttribute="leading" constant="33" id="aTc-tj-WEt"/>
+                            <constraint firstItem="Pzj-bN-aIR" firstAttribute="bottom" secondItem="xYL-2g-h59" secondAttribute="bottom" id="dxH-OG-lcM"/>
                             <constraint firstItem="6CS-HV-F49" firstAttribute="top" secondItem="xYL-2g-h59" secondAttribute="top" constant="31" id="i2P-rg-vQw"/>
+                            <constraint firstItem="Pzj-bN-aIR" firstAttribute="leading" secondItem="xYL-2g-h59" secondAttribute="leading" id="nGs-hM-vwx"/>
+                            <constraint firstItem="Pzj-bN-aIR" firstAttribute="top" secondItem="6CS-HV-F49" secondAttribute="bottom" constant="37" id="o6u-Su-ZKE"/>
                             <constraint firstItem="8OA-JA-TmE" firstAttribute="leading" secondItem="6CS-HV-F49" secondAttribute="trailing" constant="54" id="phv-1R-PC9"/>
                             <constraint firstItem="xYL-2g-h59" firstAttribute="trailing" secondItem="8OA-JA-TmE" secondAttribute="trailing" constant="128" id="wqG-kz-sQu"/>
                         </constraints>
@@ -963,7 +1346,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="egg-Tx-Oha" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="65" y="487"/>
+            <point key="canvasLocation" x="64.885496183206101" y="486.61971830985919"/>
         </scene>
         <!--logoutViewController-->
         <scene sceneID="MMo-3Q-sT6">
@@ -982,8 +1365,6 @@
                                     <fontDescription key="titleFontDescription" style="UICTFontTextStyleTitle3"/>
                                 </buttonConfiguration>
                                 <connections>
-                                    <action selector="googleLogoutButton:" destination="S8s-dr-UCN" eventType="touchUpInside" id="F9h-J6-KIm"/>
-                                    <action selector="kakaologout:" destination="S8s-dr-UCN" eventType="touchUpInside" id="W9V-Jp-n0X"/>
                                     <action selector="logoutButton:" destination="S8s-dr-UCN" eventType="touchUpInside" id="f5P-o2-j3r"/>
                                 </connections>
                             </button>
@@ -1309,14 +1690,12 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="oac-rZ-zGd"/>
+        <segue reference="d3t-NS-Dr7"/>
         <segue reference="jSy-ah-xqa"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="AllUncheckButton" width="17" height="17"/>
         <image name="FinishButton" width="341" height="50"/>
-        <image name="GoogleLoginButton" width="60" height="60"/>
-        <image name="KakaoLoginButton" width="60" height="60"/>
         <image name="LoginButton" width="341" height="50"/>
         <image name="MainLogo" width="138" height="76"/>
         <image name="MyPageProfileImage" width="85" height="84"/>
@@ -1334,9 +1713,6 @@
         </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
-        <systemColor name="systemGrayColor">
-            <color red="0.55686274509803924" green="0.55686274509803924" blue="0.57647058823529407" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemRedColor">
             <color red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

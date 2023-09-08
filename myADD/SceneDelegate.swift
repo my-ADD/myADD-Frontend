@@ -7,16 +7,8 @@
 
 import UIKit
 import SwiftUI
-import KakaoSDKCommon
-import KakaoSDKTalk
-import KakaoSDKAuth
-import KakaoSDKUser
-import KakaoSDKTemplate
-import KakaoSDKShare
-import SafariServices
 import FirebaseAuth
 import FirebaseCore
-import GoogleSignIn
 import Alamofire
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
@@ -30,23 +22,12 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
         guard let _ = (scene as? UIWindowScene) else { return }
         
-        if Auth.auth().currentUser != nil || AuthApi.hasToken() || (userDefaults.object(forKey: "isLogin") != nil && userDefaults.object(forKey: "email") != nil && userDefaults.object(forKey: "password") != nil) {
+        if Auth.auth().currentUser != nil || (userDefaults.object(forKey: "isLogin") != nil && userDefaults.object(forKey: "email") != nil && userDefaults.object(forKey: "password") != nil) {
             let hostingLoginViewController = UIHostingController(rootView: MainView())
             hostingLoginViewController.modalTransitionStyle = .coverVertical
             hostingLoginViewController.modalPresentationStyle = .fullScreen
             self.window?.rootViewController = hostingLoginViewController
             self.window?.makeKeyAndVisible()
-        }
-        
-        if GIDSignIn.sharedInstance.hasPreviousSignIn() {
-            GIDSignIn.sharedInstance.restorePreviousSignIn()
-            {_,_ in
-                let hostingLoginViewController = UIHostingController(rootView: MainView())
-                hostingLoginViewController.modalTransitionStyle = .coverVertical
-                hostingLoginViewController.modalPresentationStyle = .fullScreen
-                self.window?.rootViewController = hostingLoginViewController
-                self.window?.makeKeyAndVisible()
-            }
         }
     }
 
@@ -83,11 +64,6 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     
     func scene(_ scene: UIScene, openURLContexts URLContexts: Set<UIOpenURLContext>) {
         
-        if let url = URLContexts.first?.url {
-            if (AuthApi.isKakaoTalkLoginUrl(url)) {
-                _ = AuthController.handleOpenUrl(url: url)
-            }
-        }
     }
 }
 

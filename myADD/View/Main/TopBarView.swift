@@ -14,6 +14,7 @@ struct TopBarView: View {
         HStack {
             logo
             Spacer()
+            onboardingViewLink
             canlendarViewLink
             userProfileLink
         }
@@ -26,6 +27,18 @@ struct TopBarView: View {
             .scaledToFit()
             .frame(height: 30)
     }
+    
+    private var onboardingViewLink: some View {
+        NavigationLink(destination: OnboardingView()) {
+            Image(systemName: "lanyardcard")
+                .resizable()
+                .scaledToFit()
+                .frame(height: 30)
+                .accentColor(Color.primary)
+                .padding(.trailing)
+        }
+    }
+    
 
     private var canlendarViewLink: some View {
         NavigationLink(destination: ContentView().environmentObject(viewModel)) {

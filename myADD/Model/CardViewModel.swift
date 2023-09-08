@@ -26,17 +26,51 @@ class CardViewModel: ObservableObject {
         updateContentFor(selectedPlatform: selectedPlatform, selectedTab: selectedTab)
     }
     
+//    func updateContentFor(selectedPlatform: OTTPlatform?, selectedTab: CardCategory) {
+//        cards.removeAll()
+//
+//        // 카드 배열에 중복된 카드는 추가 x
+//        let completion: (Result<[Card], Error>) -> Void = { [weak self] result in
+//            switch result {
+//            case .success(let newCards):
+//                for card in newCards {
+//                    if !(self?.cards.contains(where: { $0.id == card.id }) ?? false) {
+//                        self?.cards.append(card)
+//                    }
+//                }
+//
+//                self?.updateCategoryCounts(for: selectedPlatform)
+//            case .failure(let error):
+//                print("error: \(error.localizedDescription)")
+//                self?.isError = true
+//                self?.errorMessage = error.localizedDescription
+//            }
+//        }
+//
+//        if selectedPlatform == .전체 {
+//            getListAll(completion: completion)
+//        } else {
+//            if let platformValue = selectedPlatform?.rawValue {
+//                categoryList(category: selectedTab.rawValue, platform: platformValue, completion: completion)
+//            }
+//
+//        }
+//    }
+    
     func updateContentFor(selectedPlatform: OTTPlatform?, selectedTab: CardCategory) {
-        cards.removeAll()
+        var newCards: [Card] = []
 
-        // 카드 배열에 중복된 카드는 추가 x
         let completion: (Result<[Card], Error>) -> Void = { [weak self] result in
             switch result {
-            case .success(let newCards):
-                for card in newCards {
-                    if !(self?.cards.contains(where: { $0.id == card.id }) ?? false) {
-                        self?.cards.append(card)
+            case .success(let fetchedCards):
+                for card in fetchedCards {
+                    if !newCards.contains(where: { $0.id == card.id }) {
+                        newCards.append(card)
                     }
+                }
+                
+                withAnimation(.easeInOut) {
+                    self?.cards = newCards
                 }
 
                 self?.updateCategoryCounts(for: selectedPlatform)
@@ -48,14 +82,14 @@ class CardViewModel: ObservableObject {
         }
 
         if selectedPlatform == .전체 {
-            getListAll(page: 0, completion: completion)
+            getListAll(completion: completion)
         } else {
             if let platformValue = selectedPlatform?.rawValue {
-                categoryList(category: selectedTab.rawValue, platform: platformValue, page: 0, completion: completion)
+                categoryList(category: selectedTab.rawValue, platform: platformValue, completion: completion)
             }
-
         }
     }
+
 
     
     func cardsForSelectedTab(_ category: CardCategory, platform: OTTPlatform?) -> [Card] {
@@ -80,8 +114,8 @@ class CardViewModel: ObservableObject {
     }
 
     // MARK: -  getListAll 메서드
-    func getListAll(page: Int, completion: @escaping (Result<[Card], Error>) -> Void) {
-        apiClient.getListAll(page: page) { [weak self] result in
+    func getListAll(completion: @escaping (Result<[Card], Error>) -> Void) {
+        apiClient.getListAll { [weak self] result in
             self?.handleAPIResult(result) { cards in
                 completion(.success(cards))
             }
@@ -89,8 +123,8 @@ class CardViewModel: ObservableObject {
     }
 
     // MARK: -  categoryList 메서드
-    func categoryList(category: String, platform: String, page: Int, completion: @escaping (Result<[Card], Error>) -> Void) {
-        apiClient.categoryList(category: category, platform: platform, page: page) { [weak self] result in
+    func categoryList(category: String, platform: String, completion: @escaping (Result<[Card], Error>) -> Void) {
+        apiClient.categoryList(category: category, platform: platform) { [weak self] result in
             self?.handleAPIResult(result) { cards in
                 completion(.success(cards))
             }

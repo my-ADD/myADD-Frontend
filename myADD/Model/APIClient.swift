@@ -10,51 +10,52 @@ import Alamofire
 class APIClient {
 
     // MARK: -  포토카드 전체 목록 조회 (기록순)
-    func getListAll(page: Int, completion: @escaping (Result<[Card], Error>) -> Void) {
-        let url = APIEndpoint.getListAllURL + "?page=\(page)"
+    func getListAll(completion: @escaping (Result<[Card], Error>) -> Void) {
+        let url = APIEndpoint.getListAllURL
         
         let headers: HTTPHeaders = [
             "Content-Type": "application/json",
             "Accept": "application/json"
         ]
-
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
-            AF.request(url, method: .get, headers: headers).responseDecodable(of: APIResponse<[Card]>.self) { response in
-                switch response.result {
-                case .success(let apiResponse):
-                    if apiResponse.isSuccess {
-                        if let resultData = apiResponse.result {
-                            print("getListAll GET 성공")
-                            completion(.success(resultData))
-                        } else {
-                            print("Received result is null for getListAll")
-                            completion(.failure(NSError(domain: "", code: -1, userInfo: [NSLocalizedDescriptionKey: "Received result is null for getListAll"])))
-                        }
+        
+        AF.request(url, method: .get, headers: headers).responseDecodable(of: APIResponse<[Card]>.self) { response in
+            switch response.result {
+            case .success(let apiResponse):
+                if apiResponse.isSuccess {
+                    if let resultData = apiResponse.result {
+                        print("getListAll GET 성공")
+                        completion(.success(resultData))
                     } else {
-                        let error = NSError(domain: "", code: apiResponse.code, userInfo: [NSLocalizedDescriptionKey: apiResponse.message])
-                        print("API Error: \(apiResponse.message)")
-                        completion(.failure(error))
+                        print("Received result is null for getListAll")
+                        completion(.failure(NSError(domain: "", code: -1, userInfo: [NSLocalizedDescriptionKey: "Received result is null for getListAll"])))
                     }
-                case .failure(let error):
-                    print("error: \(error.localizedDescription)")
+                } else {
+                    let error = NSError(domain: "", code: apiResponse.code, userInfo: [NSLocalizedDescriptionKey: apiResponse.message])
+                    print("API Error: \(apiResponse.message)")
                     completion(.failure(error))
                 }
+            case .failure(let error):
+                print("error: \(error.localizedDescription)")
+                completion(.failure(error))
             }
         }
     }
 
     
+    //        DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
+    //
+    //        }
+    
     // MARK: - OTT 플랫폼 선택 및 카테고리에 따른 포토카드 리스트 조회 (기록순)
     
-    func categoryList(category: String, platform: String, page: Int, completion: @escaping (Result<[Card], Error>) -> Void) {
+    func categoryList(category: String, platform: String, completion: @escaping (Result<[Card], Error>) -> Void) {
         
         let url = APIEndpoint.categoryListURL
         
         // 인코딩할 파라미터들
         let parameters: [String: Any] = [
             "category": category,
-            "platform": platform,
-            "page": page
+            "platform": platform
         ]
 
         let headers: HTTPHeaders = [
@@ -62,27 +63,25 @@ class APIClient {
             "Accept": "application/json"
         ]
         
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
-            AF.request(url, method: .get, parameters: parameters, encoding: URLEncoding.default, headers: headers).responseDecodable(of: APIResponse<[Card]>.self) { response in
-                switch response.result {
-                case .success(let apiResponse):
-                    if apiResponse.isSuccess {
-                        if let resultData = apiResponse.result {
-                            print("categoryList GET 성공")
-                            completion(.success(resultData))
-                        } else {
-                            print("Received result is null for categoryList")
-                            completion(.failure(NSError(domain: "", code: -1, userInfo: [NSLocalizedDescriptionKey: "Received result is null for categoryList"])))
-                        }
+        AF.request(url, method: .get, parameters: parameters, encoding: URLEncoding.default, headers: headers).responseDecodable(of: APIResponse<[Card]>.self) { response in
+            switch response.result {
+            case .success(let apiResponse):
+                if apiResponse.isSuccess {
+                    if let resultData = apiResponse.result {
+                        print("categoryList GET 성공")
+                        completion(.success(resultData))
                     } else {
-                        let error = NSError(domain: "", code: apiResponse.code, userInfo: [NSLocalizedDescriptionKey: apiResponse.message])
-                        print("API Error: \(apiResponse.message)")
-                        completion(.failure(error))
+                        print("Received result is null for categoryList")
+                        completion(.failure(NSError(domain: "", code: -1, userInfo: [NSLocalizedDescriptionKey: "Received result is null for categoryList"])))
                     }
-                case .failure(let error):
-                    print("error: \(error.localizedDescription)")
+                } else {
+                    let error = NSError(domain: "", code: apiResponse.code, userInfo: [NSLocalizedDescriptionKey: apiResponse.message])
+                    print("API Error: \(apiResponse.message)")
                     completion(.failure(error))
                 }
+            case .failure(let error):
+                print("error: \(error.localizedDescription)")
+                completion(.failure(error))
             }
         }
     }

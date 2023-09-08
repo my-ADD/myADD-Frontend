@@ -113,6 +113,8 @@ struct DuplicateService {
 
 struct LoginService {
     static let shared = LoginService()
+    private var apiClient = APIClient()
+
     
     func login(email: String, password: String, completion: @escaping (NetworkResult<Any>) -> (Void)) {
         let url = APIConstants.loginURL
@@ -136,6 +138,11 @@ struct LoginService {
                 let networkResult = self.judgeStatus(by: statusCode, value)
                 completion(networkResult)
                 print(networkResult)
+                
+                if statusCode == 200 {
+                    self.apiClient.getListAll(completion: { _ in })
+                }
+                
             case .failure(let error):
                 print(error)
                 completion(.networkFail)

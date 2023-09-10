@@ -27,7 +27,8 @@ struct GridLayoutView: View {
                         ForEach(cards, id: \.id) { card in
                             NavigationLink(
                                 destination:
-                                    GridDetailView(card: card)
+                                    GridItemView(card: card)
+                                    //GridDetailView(card: card)
                                     .scaleEffect(0.9)
                                     .frame(width: geometry.size.width * 0.8, height: (geometry.size.width * 0.8) * 1.5)
                                     .environmentObject(viewModel)

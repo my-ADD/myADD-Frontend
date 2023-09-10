@@ -23,9 +23,7 @@
 		18F076EF2A7FE839005234CC /* CardDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18F076EE2A7FE839005234CC /* CardDataModel.swift */; };
 		18F076F12A7FE848005234CC /* CardViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18F076F02A7FE848005234CC /* CardViewModel.swift */; };
 		18F076F52A7FE91F005234CC /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18F076F42A7FE91F005234CC /* MainView.swift */; };
-		18F076F72A7FE962005234CC /* MyPageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18F076F62A7FE962005234CC /* MyPageView.swift */; };
 		18F076F92A7FE9FC005234CC /* FlippableCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18F076F82A7FE9FC005234CC /* FlippableCardView.swift */; };
-		18F076FB2A7FEA34005234CC /* OnBoardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18F076FA2A7FEA34005234CC /* OnBoardingView.swift */; };
 		18F076FD2A7FEA5D005234CC /* CardFrontView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18F076FC2A7FEA5D005234CC /* CardFrontView.swift */; };
 		18F076FF2A7FEAE3005234CC /* CardBackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18F076FE2A7FEAE3005234CC /* CardBackView.swift */; };
 		18F077012A7FEB5C005234CC /* GridLayoutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18F077002A7FEB5C005234CC /* GridLayoutView.swift */; };
@@ -73,9 +71,7 @@
 		18F076EE2A7FE839005234CC /* CardDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardDataModel.swift; sourceTree = "<group>"; };
 		18F076F02A7FE848005234CC /* CardViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardViewModel.swift; sourceTree = "<group>"; };
 		18F076F42A7FE91F005234CC /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
-		18F076F62A7FE962005234CC /* MyPageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageView.swift; sourceTree = "<group>"; };
 		18F076F82A7FE9FC005234CC /* FlippableCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlippableCardView.swift; sourceTree = "<group>"; };
-		18F076FA2A7FEA34005234CC /* OnBoardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnBoardingView.swift; sourceTree = "<group>"; };
 		18F076FC2A7FEA5D005234CC /* CardFrontView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardFrontView.swift; sourceTree = "<group>"; };
 		18F076FE2A7FEAE3005234CC /* CardBackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardBackView.swift; sourceTree = "<group>"; };
 		18F077002A7FEB5C005234CC /* GridLayoutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GridLayoutView.swift; sourceTree = "<group>"; };
@@ -182,7 +178,6 @@
 			isa = PBXGroup;
 			children = (
 				18F076F82A7FE9FC005234CC /* FlippableCardView.swift */,
-				18F076FA2A7FEA34005234CC /* OnBoardingView.swift */,
 				18F076FC2A7FEA5D005234CC /* CardFrontView.swift */,
 				18F076FE2A7FEAE3005234CC /* CardBackView.swift */,
 			);
@@ -246,7 +241,6 @@
 			isa = PBXGroup;
 			children = (
 				18F076F42A7FE91F005234CC /* MainView.swift */,
-				18F076F62A7FE962005234CC /* MyPageView.swift */,
 				18F077532A950251005234CC /* ToggleViewSelector.swift */,
 				18F077552A95025D005234CC /* TopBarView.swift */,
 				18F077572A95027E005234CC /* StoryboardMyPageView.swift */,
@@ -414,10 +408,8 @@
 				18F077012A7FEB5C005234CC /* GridLayoutView.swift in Sources */,
 				18F077092A7FEC5B005234CC /* AddCardFrontView.swift in Sources */,
 				18F077562A95025D005234CC /* TopBarView.swift in Sources */,
-				18F076F72A7FE962005234CC /* MyPageView.swift in Sources */,
 				18F077542A950251005234CC /* ToggleViewSelector.swift in Sources */,
 				18F0771B2A81692D005234CC /* APIConstants.swift in Sources */,
-				18F076FB2A7FEA34005234CC /* OnBoardingView.swift in Sources */,
 				180454212A51D06C00D02308 /* ViewController.swift in Sources */,
 				180454272A51D06C00D02308 /* myADD.xcdatamodeld in Sources */,
 				18F076EF2A7FE839005234CC /* CardDataModel.swift in Sources */,

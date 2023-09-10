@@ -8,14 +8,7 @@
 
 import UIKit
 import CoreData
-import KakaoSDKCommon
-import KakaoSDKTalk
-import KakaoSDKAuth
-import KakaoSDKUser
-import KakaoSDKTemplate
-import KakaoSDKShare
 import FirebaseCore
-import GoogleSignIn
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -27,10 +20,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
         
         FirebaseApp.configure()
-        
-        let kakaoAppKey = Bundle.main.infoDictionary?["KAKAO_NATIVE_APP_KEY"] ?? ""
-        KakaoSDK.initSDK(appKey: kakaoAppKey as! String)
-        
+    
         let email = userDefaults.object(forKey: "email") as? String
         let password = userDefaults.object(forKey: "password") as? String
         
@@ -58,13 +48,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any] = [:]) -> Bool {
-           
-        if (AuthApi.isKakaoTalkLoginUrl(url)) {
-                return AuthController.handleOpenUrl(url: url)
-            }
-        
-        return GIDSignIn.sharedInstance.handle(url)
-
+    
         return false
     }
 

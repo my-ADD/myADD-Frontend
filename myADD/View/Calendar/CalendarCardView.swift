@@ -60,9 +60,6 @@ struct CalendarCardView: View {
                     .itemSpacing(10)
                     .itemAspectRatio(0.85)
                     .interactive(scale: 0.9)
-                    .onPageChanged { newPageIndex in
-                        print("Current Page: \(newPageIndex)")
-                    }
                 }
             }
         }
@@ -87,4 +84,5 @@ struct CalendarCardView_Previews: PreviewProvider {
             .padding()
     }
 }
+
 

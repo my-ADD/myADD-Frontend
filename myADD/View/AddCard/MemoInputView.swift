@@ -25,7 +25,6 @@ struct MemoInputView: View {
         VStack {
             TextEditor(text: memoBinding)
                 .padding()
-//                .font(.headline)
                 .multilineTextAlignment(.leading)
 
             Text("\(memo?.count ?? 0) / 200")

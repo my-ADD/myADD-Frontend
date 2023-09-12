@@ -15,7 +15,6 @@ struct AddCardFrontView: View {
     @Binding var card: Card
     @ObservedObject var viewModel: CardViewModel
 
-    // 이미지 관련
     @Binding var image: UIImage?
     @State private var isShowingImagePicker = false
     @Environment(\.colorScheme) var colorScheme
@@ -37,7 +36,7 @@ struct AddCardFrontView: View {
                             isShowingImagePicker = true
                         }
                 } else {
-                    Image(systemName: "camera") // Default image
+                    Image(systemName: "camera")
                         .resizable()
                         .scaledToFit()
                         .frame(width: 100, height: 100)

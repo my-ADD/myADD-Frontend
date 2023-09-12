@@ -2,39 +2,40 @@
 //  OnboardingSlideView.swift
 //  myADD
 //
-//  Created by 이융의 on 2023/09/03.
+//  
 //
 
 import SwiftUI
 
 struct OnboardingSlideView: View {
-    // MARK: - Properties
     var data: OnboardingData
-    
-    // MARK: - Body
+
     var body: some View {
-        VStack(spacing: 10) {
-            Image(uiImage: data.image)
-                .resizable()
-                .aspectRatio(contentMode: .fill)
-                .frame(height: 400)
-            
-                .mask(LinearGradient(gradient: Gradient(colors: [Color.white, Color.clear]), startPoint: .center, endPoint: .bottom))
+        VStack(alignment: .center, spacing: 20) {
+            if data.imageName == "logo" {
+                Image(data.imageName)
+                    .resizable()
+                    .aspectRatio(contentMode: .fit)
+                    .frame(width: 250, height: 250)
+            } else {
+                Image(data.imageName)
+                    .resizable()
+                    .aspectRatio(contentMode: .fill)
+                    .frame(width: 300, height: 300)
+                    .mask(LinearGradient(gradient: Gradient(colors: [Color.white, Color.clear]), startPoint: .center, endPoint: .bottom))
+
+            }
 
             Text(data.title)
                 .font(.title)
                 .fontWeight(.bold)
-            
+
             Text(data.description)
                 .font(.subheadline)
                 .multilineTextAlignment(.center)
+                .foregroundColor(.secondary)
+                .padding(.horizontal, 20)
         }
-        .padding()
-    }
-}
-
-struct OnboardingSlideView_Previews: PreviewProvider {
-    static var previews: some View {
-        OnboardingSlideView(data: OnboardingData(image: UIImage(named: "onboarding1") ?? UIImage(), title: "환영합니다", description: "나의 시청물 컬렉션 서비스\nmy ADD"))
+        .padding(.vertical, 20)
     }
 }

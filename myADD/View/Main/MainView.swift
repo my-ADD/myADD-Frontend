@@ -82,7 +82,7 @@ struct MainView: View {
 
     private var filteredCardsView: some View {
         let filteredCards = viewModel.cardsForSelectedTab(selectedTab, platform: selectedPlatform)
-        return isGridViewActive ? AnyView(GridLayoutView(cards: filteredCards)) : AnyView(GridLayoutView(cards: filteredCards))//CardPaperView(cards: filteredCards))
+        return isGridViewActive ? AnyView(GridLayoutView(cards: filteredCards)) : AnyView(CardPaperView(cards: filteredCards))
     }
 
     private func viewForTab(image: String, category: CardCategory) -> some View {
@@ -146,4 +146,5 @@ struct MainView_Previews: PreviewProvider {
         MainView()
     }
 }
+
 

@@ -76,7 +76,6 @@ struct EditCardView: View {
                                 case .success:
                                     self.presentationMode.wrappedValue.dismiss()
                                 case .failure:
-                                    // 에러 처리는 viewModel에서 진행. Alert는 아래에서 설정.
                                     break
                                 }
                             }
@@ -87,7 +86,6 @@ struct EditCardView: View {
                                     case .success:
                                         self.presentationMode.wrappedValue.dismiss()
                                     case .failure:
-                                        // 에러 처리는 viewModel에서 진행. Alert는 아래에서 설정.
                                         break
                                     }
                                 }
@@ -186,7 +184,7 @@ struct EditCardFrontView: View {
                         }
                     
                         .indicator { _, _ in
-                            ProgressView() // 이미지 로딩 중에 ProgressView
+                            ProgressView()
                         }
                         .transition(.fade(duration: 0.5))
                         .scaledToFit()
@@ -220,7 +218,7 @@ struct EditCardFrontView: View {
                         .foregroundColor((card.comment?.count ?? 0) >= 20 ? .red : .secondary)
                 }
                 .padding(.bottom)
-                .padding(.horizontal)   // 텍스트 뷰 가로 공간 확보
+                .padding(.horizontal)
                 
                 Spacer()
             } //: VSTACK
@@ -414,7 +412,7 @@ struct EditCardBackView: View {
                 Spacer()
             }
         }
-        .padding([.horizontal, .vertical]) // 내용 간 간격
+        .padding([.horizontal, .vertical])
         .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: .infinity, alignment: .center)
         .background(LinearGradient(gradient: Gradient(colors: colorScheme == .light ? [.gray.opacity(0.3), .white] : [.gray.opacity(0.7), .black]), startPoint: .topLeading, endPoint: .bottomTrailing)
             .ignoresSafeArea(.all)

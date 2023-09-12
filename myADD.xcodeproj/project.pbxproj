@@ -15,6 +15,11 @@
 		180454292A51D06D00D02308 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 180454282A51D06D00D02308 /* Assets.xcassets */; };
 		1804542C2A51D06D00D02308 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1804542A2A51D06D00D02308 /* LaunchScreen.storyboard */; };
 		1804543B2A56B71600D02308 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1804543A2A56B71600D02308 /* LoginViewController.swift */; };
+		183E4A742AB0792000F518F7 /* CardPaperView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 183E4A732AB0792000F518F7 /* CardPaperView.swift */; };
+		183E4A762AB079E600F518F7 /* GridDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 183E4A752AB079E600F518F7 /* GridDetailView.swift */; };
+		183E4A792AB07ADF00F518F7 /* OnboardingData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 183E4A782AB07ADF00F518F7 /* OnboardingData.swift */; };
+		183E4A7B2AB07AEB00F518F7 /* OnboardingSlideView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 183E4A7A2AB07AEB00F518F7 /* OnboardingSlideView.swift */; };
+		183E4A7D2AB07AF800F518F7 /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 183E4A7C2AB07AF800F518F7 /* OnboardingView.swift */; };
 		18F076502A7D2EB1005234CC /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 18F0764F2A7D2EB1005234CC /* GoogleService-Info.plist */; };
 		18F0768A2A7FC28A005234CC /* EmojiPicker in Frameworks */ = {isa = PBXBuildFile; productRef = 18F076892A7FC28A005234CC /* EmojiPicker */; };
 		18F076E92A7FE793005234CC /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18F076E82A7FE793005234CC /* ImagePicker.swift */; };
@@ -64,6 +69,11 @@
 		1804542D2A51D06D00D02308 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		180454392A5695B800D02308 /* LoginConfig.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = LoginConfig.xcconfig; sourceTree = "<group>"; };
 		1804543A2A56B71600D02308 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		183E4A732AB0792000F518F7 /* CardPaperView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardPaperView.swift; sourceTree = "<group>"; };
+		183E4A752AB079E600F518F7 /* GridDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GridDetailView.swift; sourceTree = "<group>"; };
+		183E4A782AB07ADF00F518F7 /* OnboardingData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingData.swift; sourceTree = "<group>"; };
+		183E4A7A2AB07AEB00F518F7 /* OnboardingSlideView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingSlideView.swift; sourceTree = "<group>"; };
+		183E4A7C2AB07AF800F518F7 /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
 		18F0764F2A7D2EB1005234CC /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../myADDAssets/0804googleplist/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		18F076E82A7FE793005234CC /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
 		18F076EA2A7FE7AD005234CC /* EmojiPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmojiPicker.swift; sourceTree = "<group>"; };
@@ -162,9 +172,20 @@
 			path = myADD;
 			sourceTree = "<group>";
 		};
+		183E4A772AB07AB100F518F7 /* Onboarding */ = {
+			isa = PBXGroup;
+			children = (
+				183E4A782AB07ADF00F518F7 /* OnboardingData.swift */,
+				183E4A7A2AB07AEB00F518F7 /* OnboardingSlideView.swift */,
+				183E4A7C2AB07AF800F518F7 /* OnboardingView.swift */,
+			);
+			path = Onboarding;
+			sourceTree = "<group>";
+		};
 		18F076E12A7FE688005234CC /* View */ = {
 			isa = PBXGroup;
 			children = (
+				183E4A772AB07AB100F518F7 /* Onboarding */,
 				18F077522A9501DE005234CC /* Main */,
 				18F0774B2A95015D005234CC /* Calendar */,
 				18F076E22A7FE6C4005234CC /* Card */,
@@ -180,6 +201,7 @@
 				18F076F82A7FE9FC005234CC /* FlippableCardView.swift */,
 				18F076FC2A7FEA5D005234CC /* CardFrontView.swift */,
 				18F076FE2A7FEAE3005234CC /* CardBackView.swift */,
+				183E4A732AB0792000F518F7 /* CardPaperView.swift */,
 			);
 			path = Card;
 			sourceTree = "<group>";
@@ -189,6 +211,7 @@
 			children = (
 				18F077002A7FEB5C005234CC /* GridLayoutView.swift */,
 				18F077022A7FEB7C005234CC /* GridItemView.swift */,
+				183E4A752AB079E600F518F7 /* GridDetailView.swift */,
 			);
 			path = GridLayout;
 			sourceTree = "<group>";
@@ -408,6 +431,7 @@
 				18F077012A7FEB5C005234CC /* GridLayoutView.swift in Sources */,
 				18F077092A7FEC5B005234CC /* AddCardFrontView.swift in Sources */,
 				18F077562A95025D005234CC /* TopBarView.swift in Sources */,
+				183E4A7B2AB07AEB00F518F7 /* OnboardingSlideView.swift in Sources */,
 				18F077542A950251005234CC /* ToggleViewSelector.swift in Sources */,
 				18F0771B2A81692D005234CC /* APIConstants.swift in Sources */,
 				180454212A51D06C00D02308 /* ViewController.swift in Sources */,
@@ -420,6 +444,8 @@
 				18F076F92A7FE9FC005234CC /* FlippableCardView.swift in Sources */,
 				18F077052A7FEBBF005234CC /* EditCardView.swift in Sources */,
 				1804543B2A56B71600D02308 /* LoginViewController.swift in Sources */,
+				183E4A7D2AB07AF800F518F7 /* OnboardingView.swift in Sources */,
+				183E4A762AB079E600F518F7 /* GridDetailView.swift in Sources */,
 				18F077482A95012C005234CC /* APIEndpoint.swift in Sources */,
 				18F0770D2A7FEC7C005234CC /* MemoInputView.swift in Sources */,
 				18F077512A9501BA005234CC /* ContentView.swift in Sources */,
@@ -427,10 +453,12 @@
 				18F076FD2A7FEA5D005234CC /* CardFrontView.swift in Sources */,
 				18F0770B2A7FEC68005234CC /* AddCardBackView.swift in Sources */,
 				18F076ED2A7FE7BD005234CC /* HideKeyboard.swift in Sources */,
+				183E4A742AB0792000F518F7 /* CardPaperView.swift in Sources */,
 				1804541F2A51D06C00D02308 /* SceneDelegate.swift in Sources */,
 				18F076FF2A7FEAE3005234CC /* CardBackView.swift in Sources */,
 				18F077172A81625A005234CC /* LoginDataModel.swift in Sources */,
 				18F077072A7FEBCF005234CC /* AddCardView.swift in Sources */,
+				183E4A792AB07ADF00F518F7 /* OnboardingData.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

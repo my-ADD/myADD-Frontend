@@ -2,7 +2,7 @@
 //  GridDetailView.swift
 //  myADD
 //
-//  Created by 이융의 on 2023/08/23.
+//
 //
 
 import SwiftUI
@@ -13,7 +13,7 @@ struct GridDetailView: View {
     @StateObject var FlipViewModel = CardFlipViewModel()
     @EnvironmentObject var viewModel: CardViewModel
 
-    var card: Card // 카드를 직접 전달
+    var card: Card
 
     // MARK: - BODY
 
@@ -36,3 +36,4 @@ struct GridDetailView: View {
         .cornerRadius(20)
     }
 }
+

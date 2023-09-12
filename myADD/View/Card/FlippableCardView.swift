@@ -13,7 +13,7 @@ struct FlippableCardView: View {
     @StateObject var FlipViewModel = CardFlipViewModel()
     @EnvironmentObject var viewModel: CardViewModel
 
-    var card: Card // 카드를 직접 전달
+    var card: Card
 
     // MARK: - BODY
 
@@ -46,3 +46,4 @@ struct FlippableCardView_Preview: PreviewProvider {
             .environmentObject(viewModel)
     }
 }
+

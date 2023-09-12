@@ -34,11 +34,11 @@ struct CardFrontView: View {
                     }
 
                     .indicator { _, _ in
-                        ProgressView() // 이미지 로딩 중에 ProgressView
+                        ProgressView()
                     }
                     .transition(.fade(duration: 0.5))
                     .scaledToFill()
-                    .frame(width: geometry.size.width * 0.85, height: (geometry.size.width * 0.8) * 1.5) // 세로 크기를 가로 크기의 1.5배로 조절
+                    .frame(width: geometry.size.width * 0.85, height: (geometry.size.width * 0.8) * 1.5)
                     .cornerRadius(20)
                     .clipped()
 

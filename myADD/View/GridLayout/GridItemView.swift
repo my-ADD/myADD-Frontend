@@ -31,10 +31,10 @@ struct GridItemView: View {
 
         
             .indicator { _, _ in
-                ProgressView() // 이미지 로딩 중에 ProgressView
+                ProgressView()
             }
             .scaledToFill()
-            .frame(width: 100, height: 160) // 프레임의 크기를 작게 조정
+            .frame(width: 100, height: 160)
             .background(LinearGradient(gradient: Gradient(colors: colorScheme == .light ? [.white, .gray] : [.gray, .black]), startPoint: .topLeading, endPoint: .bottomTrailing)
                 .ignoresSafeArea(.all)
                 .opacity(0.5))

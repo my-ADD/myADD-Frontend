@@ -180,7 +180,7 @@ struct AddCardBackView: View {
                 Spacer()
             }
         }
-        .padding([.horizontal, .vertical]) // 내용 간 간격
+        .padding([.horizontal, .vertical])
         .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: .infinity, alignment: .center)
         .background(LinearGradient(gradient: Gradient(colors: colorScheme == .light ? [.gray.opacity(0.3), .white] : [.gray.opacity(0.7), .black]), startPoint: .topLeading, endPoint: .bottomTrailing)
             .ignoresSafeArea(.all)

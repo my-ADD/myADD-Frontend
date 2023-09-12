@@ -76,7 +76,6 @@ struct AddCardView: View {
                             case .success:
                                 self.presentationMode.wrappedValue.dismiss()
                             case .failure:
-                                // 에러 처리는 viewModel에서 진행. Alert는 아래에서 설정.
                                 break
                             }
                         }

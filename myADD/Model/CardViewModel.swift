@@ -21,42 +21,10 @@ class CardViewModel: ObservableObject {
     
     // MARK: - UPDATE CONTENT
     
-    // ViewModel의 초기화 메서드
     init(selectedPlatform: OTTPlatform? = .전체, selectedTab: CardCategory = .animation) {
         updateContentFor(selectedPlatform: selectedPlatform, selectedTab: selectedTab)
     }
-    
-//    func updateContentFor(selectedPlatform: OTTPlatform?, selectedTab: CardCategory) {
-//        cards.removeAll()
-//
-//        // 카드 배열에 중복된 카드는 추가 x
-//        let completion: (Result<[Card], Error>) -> Void = { [weak self] result in
-//            switch result {
-//            case .success(let newCards):
-//                for card in newCards {
-//                    if !(self?.cards.contains(where: { $0.id == card.id }) ?? false) {
-//                        self?.cards.append(card)
-//                    }
-//                }
-//
-//                self?.updateCategoryCounts(for: selectedPlatform)
-//            case .failure(let error):
-//                print("error: \(error.localizedDescription)")
-//                self?.isError = true
-//                self?.errorMessage = error.localizedDescription
-//            }
-//        }
-//
-//        if selectedPlatform == .전체 {
-//            getListAll(completion: completion)
-//        } else {
-//            if let platformValue = selectedPlatform?.rawValue {
-//                categoryList(category: selectedTab.rawValue, platform: platformValue, completion: completion)
-//            }
-//
-//        }
-//    }
-    
+
     func updateContentFor(selectedPlatform: OTTPlatform?, selectedTab: CardCategory) {
         var newCards: [Card] = []
 
@@ -176,6 +144,7 @@ class CardViewModel: ObservableObject {
     @Published var animationCount: Int = 0
     @Published var dramaCount: Int = 0
     @Published var documentaryCount: Int = 0
+    let userDefaults = UserDefaults.standard
     
     private func filteredCardsForCategory(_ category: CardCategory, in platform: OTTPlatform?) -> [Card] {
         let filteredCards: [Card]
@@ -201,17 +170,18 @@ class CardViewModel: ObservableObject {
 
     func getHeaderText(for category: CardCategory, in platform: OTTPlatform?) -> String {
         let count: Int
+        let nickname = userDefaults.object(forKey: "nickname") as? String
         
         switch category {
         case .animation:
             count = countForCategory(category, in: platform)
-            return "회원님의 \n\(count)가지 애니메이션 기록"
+            return "\(nickname ?? "회원")님의 \n\(count)가지 애니메이션 기록"
         case .drama:
             count = countForCategory(category, in: platform)
-            return "회원님의 \n\(count)가지 드라마 기록"
+            return "\(nickname ?? "회원")님의 \n\(count)가지 드라마 기록"
         case .documentary:
             count = countForCategory(category, in: platform)
-            return "회원님의 \n\(count)가지 다큐멘터리 기록"
+            return "\(nickname ?? "회원")님의 \n\(count)가지 다큐멘터리 기록"
         }
     }
     
@@ -236,10 +206,10 @@ class CardViewModel: ObservableObject {
     @Published var isLoading: Bool = false
 
     func fetchDatesFromServer() {
-        self.isLoading = true  // <-- API 호출 시작 전에 로딩 상태 설정
+        self.isLoading = true
 
         apiClient.getCreatedAt { [weak self] apiResponseResult in
-            defer { self?.isLoading = false }  // <-- API 호출 완료 후에 로딩 상태 해제
+            defer { self?.isLoading = false }
 
             switch apiResponseResult {
             case .success(let apiResponse):

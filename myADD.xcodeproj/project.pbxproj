@@ -10,7 +10,6 @@
 		1804541D2A51D06C00D02308 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1804541C2A51D06C00D02308 /* AppDelegate.swift */; };
 		1804541F2A51D06C00D02308 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1804541E2A51D06C00D02308 /* SceneDelegate.swift */; };
 		180454212A51D06C00D02308 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 180454202A51D06C00D02308 /* ViewController.swift */; };
-		180454242A51D06C00D02308 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 180454222A51D06C00D02308 /* Main.storyboard */; };
 		180454272A51D06C00D02308 /* myADD.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 180454252A51D06C00D02308 /* myADD.xcdatamodeld */; };
 		180454292A51D06D00D02308 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 180454282A51D06D00D02308 /* Assets.xcassets */; };
 		1804542C2A51D06D00D02308 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1804542A2A51D06D00D02308 /* LaunchScreen.storyboard */; };
@@ -20,7 +19,6 @@
 		183E4A792AB07ADF00F518F7 /* OnboardingData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 183E4A782AB07ADF00F518F7 /* OnboardingData.swift */; };
 		183E4A7B2AB07AEB00F518F7 /* OnboardingSlideView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 183E4A7A2AB07AEB00F518F7 /* OnboardingSlideView.swift */; };
 		183E4A7D2AB07AF800F518F7 /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 183E4A7C2AB07AF800F518F7 /* OnboardingView.swift */; };
-		18F076502A7D2EB1005234CC /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 18F0764F2A7D2EB1005234CC /* GoogleService-Info.plist */; };
 		18F0768A2A7FC28A005234CC /* EmojiPicker in Frameworks */ = {isa = PBXBuildFile; productRef = 18F076892A7FC28A005234CC /* EmojiPicker */; };
 		18F076E92A7FE793005234CC /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18F076E82A7FE793005234CC /* ImagePicker.swift */; };
 		18F076EB2A7FE7AD005234CC /* EmojiPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18F076EA2A7FE7AD005234CC /* EmojiPicker.swift */; };
@@ -45,8 +43,6 @@
 		18F077462A950111005234CC /* APIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18F077452A950111005234CC /* APIClient.swift */; };
 		18F077482A95012C005234CC /* APIEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18F077472A95012C005234CC /* APIEndpoint.swift */; };
 		18F0774A2A950143005234CC /* CardFlipViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18F077492A950143005234CC /* CardFlipViewModel.swift */; };
-		18F0774D2A950189005234CC /* CalendarCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18F0774C2A950189005234CC /* CalendarCardView.swift */; };
-		18F0774F2A9501A8005234CC /* CalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18F0774E2A9501A8005234CC /* CalendarView.swift */; };
 		18F077512A9501BA005234CC /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18F077502A9501BA005234CC /* ContentView.swift */; };
 		18F077542A950251005234CC /* ToggleViewSelector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18F077532A950251005234CC /* ToggleViewSelector.swift */; };
 		18F077562A95025D005234CC /* TopBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18F077552A95025D005234CC /* TopBarView.swift */; };
@@ -54,7 +50,9 @@
 		18F0775B2A950957005234CC /* FSCalendar in Frameworks */ = {isa = PBXBuildFile; productRef = 18F0775A2A950957005234CC /* FSCalendar */; };
 		18F0775E2A950978005234CC /* SDWebImageSwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = 18F0775D2A950978005234CC /* SDWebImageSwiftUI */; };
 		18F077612A95099B005234CC /* SwiftUIPager in Frameworks */ = {isa = PBXBuildFile; productRef = 18F077602A95099B005234CC /* SwiftUIPager */; };
-		2EA27BDC5CC5C5EB8E8152CA /* Pods_myADD.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FC78431A1F07D286CB8A48D1 /* Pods_myADD.framework */; };
+		766B35CC8B8958E304E9A6FC /* Pods_myADD.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 22CC9D9AEB5CDC837FFE3BEF /* Pods_myADD.framework */; };
+		C6A40F122AB581FB00B22307 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C6A40F142AB581FB00B22307 /* Main.storyboard */; };
+		C6A8E01F2AB21DB100AE2307 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C6A8E01E2AB21DB100AE2307 /* StoreKit.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -62,19 +60,16 @@
 		1804541C2A51D06C00D02308 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1804541E2A51D06C00D02308 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		180454202A51D06C00D02308 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		180454232A51D06C00D02308 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		180454262A51D06C00D02308 /* myADD.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = myADD.xcdatamodel; sourceTree = "<group>"; };
 		180454282A51D06D00D02308 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1804542B2A51D06D00D02308 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		1804542D2A51D06D00D02308 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		180454392A5695B800D02308 /* LoginConfig.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = LoginConfig.xcconfig; sourceTree = "<group>"; };
 		1804543A2A56B71600D02308 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		183E4A732AB0792000F518F7 /* CardPaperView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardPaperView.swift; sourceTree = "<group>"; };
 		183E4A752AB079E600F518F7 /* GridDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GridDetailView.swift; sourceTree = "<group>"; };
 		183E4A782AB07ADF00F518F7 /* OnboardingData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingData.swift; sourceTree = "<group>"; };
 		183E4A7A2AB07AEB00F518F7 /* OnboardingSlideView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingSlideView.swift; sourceTree = "<group>"; };
 		183E4A7C2AB07AF800F518F7 /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
-		18F0764F2A7D2EB1005234CC /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../myADDAssets/0804googleplist/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		18F076E82A7FE793005234CC /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
 		18F076EA2A7FE7AD005234CC /* EmojiPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmojiPicker.swift; sourceTree = "<group>"; };
 		18F076EC2A7FE7BD005234CC /* HideKeyboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HideKeyboard.swift; sourceTree = "<group>"; };
@@ -98,15 +93,18 @@
 		18F077452A950111005234CC /* APIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIClient.swift; sourceTree = "<group>"; };
 		18F077472A95012C005234CC /* APIEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIEndpoint.swift; sourceTree = "<group>"; };
 		18F077492A950143005234CC /* CardFlipViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardFlipViewModel.swift; sourceTree = "<group>"; };
-		18F0774C2A950189005234CC /* CalendarCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarCardView.swift; sourceTree = "<group>"; };
-		18F0774E2A9501A8005234CC /* CalendarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarView.swift; sourceTree = "<group>"; };
 		18F077502A9501BA005234CC /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		18F077532A950251005234CC /* ToggleViewSelector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToggleViewSelector.swift; sourceTree = "<group>"; };
 		18F077552A95025D005234CC /* TopBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopBarView.swift; sourceTree = "<group>"; };
 		18F077572A95027E005234CC /* StoryboardMyPageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryboardMyPageView.swift; sourceTree = "<group>"; };
-		4E9FCC9790A9D7C39B09E572 /* Pods-myADD.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-myADD.debug.xcconfig"; path = "Target Support Files/Pods-myADD/Pods-myADD.debug.xcconfig"; sourceTree = "<group>"; };
-		D120F8CE219FB2A1584AE21B /* Pods-myADD.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-myADD.release.xcconfig"; path = "Target Support Files/Pods-myADD/Pods-myADD.release.xcconfig"; sourceTree = "<group>"; };
-		FC78431A1F07D286CB8A48D1 /* Pods_myADD.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_myADD.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		22CC9D9AEB5CDC837FFE3BEF /* Pods_myADD.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_myADD.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		7B7D73F8A9153F65203848BB /* Pods-myADD.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-myADD.debug.xcconfig"; path = "Target Support Files/Pods-myADD/Pods-myADD.debug.xcconfig"; sourceTree = "<group>"; };
+		85379C3792403656A4483D0F /* Pods-myADD.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-myADD.release.xcconfig"; path = "Target Support Files/Pods-myADD/Pods-myADD.release.xcconfig"; sourceTree = "<group>"; };
+		C658ABB02AB1D18C00876BEA /* ko */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ko; path = ko.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
+		C6A40F132AB581FB00B22307 /* ko */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = ko; path = ko.lproj/Main.storyboard; sourceTree = "<group>"; };
+		C6A40F152AB5820000B22307 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		C6A8E01D2AB1F7EB00AE2307 /* myADD.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = myADD.entitlements; sourceTree = "<group>"; };
+		C6A8E01E2AB21DB100AE2307 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -115,20 +113,22 @@
 			buildActionMask = 2147483647;
 			files = (
 				18F0775E2A950978005234CC /* SDWebImageSwiftUI in Frameworks */,
-				2EA27BDC5CC5C5EB8E8152CA /* Pods_myADD.framework in Frameworks */,
 				18F077612A95099B005234CC /* SwiftUIPager in Frameworks */,
 				18F0775B2A950957005234CC /* FSCalendar in Frameworks */,
+				C6A8E01F2AB21DB100AE2307 /* StoreKit.framework in Frameworks */,
 				18F0768A2A7FC28A005234CC /* EmojiPicker in Frameworks */,
+				766B35CC8B8958E304E9A6FC /* Pods_myADD.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		146DFC4DF65799D9D60C25F3 /* Frameworks */ = {
+		05C0B9E494827AD265765709 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				FC78431A1F07D286CB8A48D1 /* Pods_myADD.framework */,
+				C6A8E01E2AB21DB100AE2307 /* StoreKit.framework */,
+				22CC9D9AEB5CDC837FFE3BEF /* Pods_myADD.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -139,7 +139,7 @@
 				1804541B2A51D06C00D02308 /* myADD */,
 				1804541A2A51D06C00D02308 /* Products */,
 				9C5341E42ECF0376392FED9F /* Pods */,
-				146DFC4DF65799D9D60C25F3 /* Frameworks */,
+				05C0B9E494827AD265765709 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -154,11 +154,12 @@
 		1804541B2A51D06C00D02308 /* myADD */ = {
 			isa = PBXGroup;
 			children = (
+				C6A8E01D2AB1F7EB00AE2307 /* myADD.entitlements */,
 				1804541C2A51D06C00D02308 /* AppDelegate.swift */,
 				1804541E2A51D06C00D02308 /* SceneDelegate.swift */,
 				180454202A51D06C00D02308 /* ViewController.swift */,
+				C6A40F142AB581FB00B22307 /* Main.storyboard */,
 				18F077642A950BAB005234CC /* Login */,
-				180454222A51D06C00D02308 /* Main.storyboard */,
 				18F076E12A7FE688005234CC /* View */,
 				18F076E62A7FE724005234CC /* Model */,
 				18F076E72A7FE765005234CC /* Extension */,
@@ -166,8 +167,6 @@
 				1804542A2A51D06D00D02308 /* LaunchScreen.storyboard */,
 				1804542D2A51D06D00D02308 /* Info.plist */,
 				180454252A51D06C00D02308 /* myADD.xcdatamodeld */,
-				180454392A5695B800D02308 /* LoginConfig.xcconfig */,
-				18F0764F2A7D2EB1005234CC /* GoogleService-Info.plist */,
 			);
 			path = myADD;
 			sourceTree = "<group>";
@@ -175,9 +174,9 @@
 		183E4A772AB07AB100F518F7 /* Onboarding */ = {
 			isa = PBXGroup;
 			children = (
+				183E4A7C2AB07AF800F518F7 /* OnboardingView.swift */,
 				183E4A782AB07ADF00F518F7 /* OnboardingData.swift */,
 				183E4A7A2AB07AEB00F518F7 /* OnboardingSlideView.swift */,
-				183E4A7C2AB07AF800F518F7 /* OnboardingView.swift */,
 			);
 			path = Onboarding;
 			sourceTree = "<group>";
@@ -187,7 +186,6 @@
 			children = (
 				183E4A772AB07AB100F518F7 /* Onboarding */,
 				18F077522A9501DE005234CC /* Main */,
-				18F0774B2A95015D005234CC /* Calendar */,
 				18F076E22A7FE6C4005234CC /* Card */,
 				18F076E32A7FE6E5005234CC /* GridLayout */,
 				18F076E42A7FE6FB005234CC /* AddCard */,
@@ -250,16 +248,6 @@
 			path = Extension;
 			sourceTree = "<group>";
 		};
-		18F0774B2A95015D005234CC /* Calendar */ = {
-			isa = PBXGroup;
-			children = (
-				18F0774C2A950189005234CC /* CalendarCardView.swift */,
-				18F0774E2A9501A8005234CC /* CalendarView.swift */,
-				18F077502A9501BA005234CC /* ContentView.swift */,
-			);
-			path = Calendar;
-			sourceTree = "<group>";
-		};
 		18F077522A9501DE005234CC /* Main */ = {
 			isa = PBXGroup;
 			children = (
@@ -267,6 +255,7 @@
 				18F077532A950251005234CC /* ToggleViewSelector.swift */,
 				18F077552A95025D005234CC /* TopBarView.swift */,
 				18F077572A95027E005234CC /* StoryboardMyPageView.swift */,
+				18F077502A9501BA005234CC /* ContentView.swift */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -286,8 +275,8 @@
 		9C5341E42ECF0376392FED9F /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				4E9FCC9790A9D7C39B09E572 /* Pods-myADD.debug.xcconfig */,
-				D120F8CE219FB2A1584AE21B /* Pods-myADD.release.xcconfig */,
+				7B7D73F8A9153F65203848BB /* Pods-myADD.debug.xcconfig */,
+				85379C3792403656A4483D0F /* Pods-myADD.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -299,11 +288,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 180454302A51D06D00D02308 /* Build configuration list for PBXNativeTarget "myADD" */;
 			buildPhases = (
-				63228E7B49FF650F9A05BC0B /* [CP] Check Pods Manifest.lock */,
+				89084681846C64880C536A3B /* [CP] Check Pods Manifest.lock */,
 				180454152A51D06C00D02308 /* Sources */,
 				180454162A51D06C00D02308 /* Frameworks */,
 				180454172A51D06C00D02308 /* Resources */,
-				CFB7A2E5198BF84C5D2CDF73 /* [CP] Embed Pods Frameworks */,
+				5D01E2C441A98799CD02D11B /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -337,11 +326,11 @@
 			};
 			buildConfigurationList = 180454142A51D06C00D02308 /* Build configuration list for PBXProject "myADD" */;
 			compatibilityVersion = "Xcode 14.0";
-			developmentRegion = en;
+			developmentRegion = ko;
 			hasScannedForEncodings = 0;
 			knownRegions = (
-				en,
 				Base,
+				ko,
 			);
 			mainGroup = 180454102A51D06C00D02308;
 			packageReferences = (
@@ -365,16 +354,32 @@
 			buildActionMask = 2147483647;
 			files = (
 				1804542C2A51D06D00D02308 /* LaunchScreen.storyboard in Resources */,
+				C6A40F122AB581FB00B22307 /* Main.storyboard in Resources */,
 				180454292A51D06D00D02308 /* Assets.xcassets in Resources */,
-				180454242A51D06C00D02308 /* Main.storyboard in Resources */,
-				18F076502A7D2EB1005234CC /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		63228E7B49FF650F9A05BC0B /* [CP] Check Pods Manifest.lock */ = {
+		5D01E2C441A98799CD02D11B /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-myADD/Pods-myADD-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-myADD/Pods-myADD-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-myADD/Pods-myADD-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		89084681846C64880C536A3B /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -396,23 +401,6 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		CFB7A2E5198BF84C5D2CDF73 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-myADD/Pods-myADD-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-myADD/Pods-myADD-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-myADD/Pods-myADD-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -420,7 +408,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				18F0774D2A950189005234CC /* CalendarCardView.swift in Sources */,
 				18F076F12A7FE848005234CC /* CardViewModel.swift in Sources */,
 				18F077152A815A7E005234CC /* LoginService.swift in Sources */,
 				18F0774A2A950143005234CC /* CardFlipViewModel.swift in Sources */,
@@ -438,7 +425,6 @@
 				180454272A51D06C00D02308 /* myADD.xcdatamodeld in Sources */,
 				18F076EF2A7FE839005234CC /* CardDataModel.swift in Sources */,
 				18F076E92A7FE793005234CC /* ImagePicker.swift in Sources */,
-				18F0774F2A9501A8005234CC /* CalendarView.swift in Sources */,
 				1804541D2A51D06C00D02308 /* AppDelegate.swift in Sources */,
 				18F077582A95027E005234CC /* StoryboardMyPageView.swift in Sources */,
 				18F076F92A7FE9FC005234CC /* FlippableCardView.swift in Sources */,
@@ -465,20 +451,22 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		180454222A51D06C00D02308 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				180454232A51D06C00D02308 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		1804542A2A51D06D00D02308 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
 				1804542B2A51D06D00D02308 /* Base */,
+				C658ABB02AB1D18C00876BEA /* ko */,
 			);
 			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		C6A40F142AB581FB00B22307 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				C6A40F132AB581FB00B22307 /* ko */,
+				C6A40F152AB5820000B22307 /* Base */,
+			);
+			name = Main.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -486,9 +474,10 @@
 /* Begin XCBuildConfiguration section */
 		1804542E2A51D06D00D02308 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 180454392A5695B800D02308 /* LoginConfig.xcconfig */;
+			baseConfigurationReference = 7B7D73F8A9153F65203848BB /* Pods-myADD.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
@@ -547,9 +536,10 @@
 		};
 		1804542F2A51D06D00D02308 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 180454392A5695B800D02308 /* LoginConfig.xcconfig */;
+			baseConfigurationReference = 85379C3792403656A4483D0F /* Pods-myADD.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
@@ -602,59 +592,83 @@
 		};
 		180454312A51D06D00D02308 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 4E9FCC9790A9D7C39B09E572 /* Pods-myADD.debug.xcconfig */;
+			baseConfigurationReference = 7B7D73F8A9153F65203848BB /* Pods-myADD.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_ENTITLEMENTS = myADD/myADD.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = "";
+				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = 8T6H9R8F3Y;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = myADD/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = myADD;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.lifestyle";
 				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "프로필 사진 설정을 위하여 앨범 접근 권한 허용이 필요합니다.";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = myADD.myADD;
+				PRODUCT_BUNDLE_IDENTIFIER = com.UMCmyADD.myADD;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = dev_myADD;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
 		180454322A51D06D00D02308 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = D120F8CE219FB2A1584AE21B /* Pods-myADD.release.xcconfig */;
+			baseConfigurationReference = 85379C3792403656A4483D0F /* Pods-myADD.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_ENTITLEMENTS = myADD/myADD.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
+				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = "";
+				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = 8T6H9R8F3Y;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = myADD/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = myADD;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.lifestyle";
 				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "프로필 사진 설정을 위하여 앨범 접근 권한 허용이 필요합니다.";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = myADD.myADD;
+				PRODUCT_BUNDLE_IDENTIFIER = com.UMCmyADD.myADD;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = appstore_myAdd;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

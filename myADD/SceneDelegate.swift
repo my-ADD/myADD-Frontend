@@ -51,6 +51,28 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     func sceneWillEnterForeground(_ scene: UIScene) {
         // Called as the scene transitions from the background to the foreground.
         // Use this method to undo the changes made on entering the background.
+        
+        let email = userDefaults.object(forKey: "email") as? String
+        let password = userDefaults.object(forKey: "password") as? String
+        
+        if email != nil && password != nil {
+            LoginService.shared.login(email: email!, password: password!) { response in
+                switch response {
+                case .success(let data):
+                    print("server \(email) 로그인")
+                case .requestErr(let message):
+                    if let message = message as? String {
+                        print(message)
+                    }
+                case .pathErr:
+                    print("pathErr")
+                case .serverErr:
+                    print("serverErr")
+                case .networkFail:
+                    print("networkFail")
+                }
+            }
+        }
     }
 
     func sceneDidEnterBackground(_ scene: UIScene) {

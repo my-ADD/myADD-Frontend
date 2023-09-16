@@ -8,7 +8,8 @@
 import SwiftUI
 
 struct OnboardingView: View {
-    @AppStorage("isOnboarding") var isOnboarding: Bool?
+
+    @Binding var isFirstLaunching: Bool
     @State private var selectedPage: Int = 0
 
     var body: some View {
@@ -23,9 +24,9 @@ struct OnboardingView: View {
             .indexViewStyle(PageIndexViewStyle(backgroundDisplayMode: .always))
 
             if selectedPage == onboardingData.count - 1 {
-                Button(action: {
-                    isOnboarding = false
-                }) {
+                Button {
+                    isFirstLaunching.toggle()
+                } label: {
                     Text("시작하기")
                         .font(.headline)
                         .foregroundColor(.white)
@@ -57,10 +58,3 @@ struct OnboardingView: View {
         .padding()
     }
 }
-
-struct OnboardingView_Previews: PreviewProvider {
-    static var previews: some View {
-        OnboardingView()
-    }
-}
-

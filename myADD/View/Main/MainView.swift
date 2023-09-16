@@ -22,16 +22,22 @@ struct MainView: View {
     @State private var selectedPlatform: OTTPlatform? = .전체
     @State private var showingPlatformPicker = false
 
+    // onboarinding
+    @AppStorage("_isFirstLaunching") var isFirstLaunching: Bool = true
+    @State private var selectedPage: Int = 0
 
     // MARK: - Body
     
     var body: some View {
         mainNavigationView
             .alert(isPresented: $viewModel.isError, content: {
-                Alert(title: Text("Error"),
+                Alert(title: Text("오류"),
                       message: Text(viewModel.errorMessage),
-                      dismissButton: .default(Text("OK")))
+                      dismissButton: .default(Text("확인")))
             })
+            .fullScreenCover(isPresented: $isFirstLaunching) {
+                OnboardingView(isFirstLaunching: $isFirstLaunching)
+            }
     }
 
     // MARK: - Subviews

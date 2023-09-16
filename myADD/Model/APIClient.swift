@@ -18,32 +18,28 @@ class APIClient {
             "Accept": "application/json"
         ]
         
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
-            AF.request(url, method: .get, headers: headers).responseDecodable(of: APIResponse<[Card]>.self) { response in
-                switch response.result {
-                case .success(let apiResponse):
-                    if apiResponse.isSuccess {
-                        if let resultData = apiResponse.result {
-                            print("getListAll GET 성공")
-                            completion(.success(resultData))
-                        } else {
-                            print("Received result is null for getListAll")
-                            completion(.failure(NSError(domain: "", code: -1, userInfo: [NSLocalizedDescriptionKey: "Received result is null for getListAll"])))
-                        }
+        AF.request(url, method: .get, headers: headers).responseDecodable(of: APIResponse<[Card]>.self) { response in
+            switch response.result {
+            case .success(let apiResponse):
+                if apiResponse.isSuccess {
+                    if let resultData = apiResponse.result {
+                        print("getListAll GET 성공")
+                        completion(.success(resultData))
                     } else {
-                        let error = NSError(domain: "", code: apiResponse.code, userInfo: [NSLocalizedDescriptionKey: apiResponse.message])
-                        print("API Error: \(apiResponse.message)")
-                        completion(.failure(error))
+                        print("Received result is null for getListAll")
+                        completion(.failure(NSError(domain: "", code: -1, userInfo: [NSLocalizedDescriptionKey: "Received result is null for getListAll"])))
                     }
-                case .failure(let error):
-                    print("error: \(error.localizedDescription)")
+                } else {
+                    let error = NSError(domain: "", code: apiResponse.code, userInfo: [NSLocalizedDescriptionKey: apiResponse.message])
+                    print("API Error: \(apiResponse.message)")
                     completion(.failure(error))
                 }
+            case .failure(let error):
+                print("error: \(error.localizedDescription)")
+                completion(.failure(error))
             }
         }
-        
     }
-
 
     
     // MARK: - OTT 플랫폼 선택 및 카테고리에 따른 포토카드 리스트 조회 (기록순)
@@ -114,14 +110,12 @@ class APIClient {
                 print("JSONSerialization error: \(error.localizedDescription)")
             }
 
-            // Resize the UIImage and convert it to Data
             if let actualImage = image,
-               let resizedImage = actualImage.resizeWithWidth(width: 700),
+               let resizedImage = actualImage.resizeWithWidth(width: 400),
                let imageData = resizedImage.jpegData(compressionQuality: 1) {
                 multipartFormData.append(imageData, withName: "image", fileName: "image.jpg", mimeType: "image/jpeg")
             } else {
                 multipartFormData.append(Data(), withName: "image", fileName: "image.jpg", mimeType: "image/jpeg")
-                print("No image or error converting UIImage to Data.")
             }
 
         }, to: url, method: .post).responseDecodable(of: APIResponse<EmptyResult>.self) { response in
@@ -169,7 +163,6 @@ class APIClient {
                 print("JSONSerialization error: \(error.localizedDescription)")
             }
 
-            // Resize the UIImage and convert it to Data
             if let actualImage = image,
                let resizedImage = actualImage.resizeWithWidth(width: 700),
                let imageData = resizedImage.jpegData(compressionQuality: 1) {
@@ -212,68 +205,6 @@ class APIClient {
             case .success(let apiResponse):
                 if apiResponse.isSuccess {
                     print("DELETE 성공")
-                    completion(.success(apiResponse))
-                } else {
-                    let error = NSError(domain: "", code: apiResponse.code, userInfo: [NSLocalizedDescriptionKey: apiResponse.message])
-                    print("API Error: \(apiResponse.message)")
-                    completion(.failure(error))
-                }
-            case .failure(let error):
-                print("error: \(error.localizedDescription)")
-                completion(.failure(error))
-            }
-        }
-    }
-    
-    // MARK: - 캘린더
-
-    func getCalendar(createdAt: String, completion: @escaping (Result<[Card], Error>) -> Void) {
-        let url = APIEndpoint.calendarURL + "?createdAt=\(createdAt)"
-        
-        let parameter: [String: Any] = [
-            "createdAt": createdAt
-        ]
-
-        let headers: HTTPHeaders = [
-            "Content-Type": "application/json",
-            "Accept": "application/json"
-        ]
-        
-        print("CreatedAt parameter: \(createdAt)")
-
-        AF.request(url, method: .get, parameters: parameter, headers: headers).responseDecodable(of: APIResponse<[Card]>.self) { response in
-            print("Received data: \(String(data: response.data ?? Data(), encoding: .utf8) ?? "No data")")
-
-            switch response.result {
-            case .success(let apiResponse):
-                if apiResponse.isSuccess {
-                    print("getcalendar GET 성공")
-                    completion(.success(apiResponse.result ?? []))
-                } else {
-                    let error = NSError(domain: "", code: apiResponse.code, userInfo: [NSLocalizedDescriptionKey: apiResponse.message])
-                    print("API Error: \(apiResponse.message)")
-                    completion(.failure(error))
-                }
-            case .failure(let error):
-                print("error: \(error.localizedDescription)")
-                completion(.failure(error))
-            }
-        }
-    }
-    
-    func getCreatedAt(completion: @escaping (Result<APIResponse<[String]>, Error>) -> Void) {
-        let url = APIEndpoint.getCreatedAtURL
-        
-        let headers: HTTPHeaders = [
-            "Content-Type": "application/json",
-            "Accept": "application/json"
-        ]
-        
-        AF.request(url, method: .get, headers: headers).responseDecodable(of: APIResponse<[String]>.self) { response in
-            switch response.result {
-            case .success(let apiResponse):
-                if apiResponse.isSuccess {
-                    print("getCreatedAt GET 성공")
                     completion(.success(apiResponse))
                 } else {
                     let error = NSError(domain: "", code: apiResponse.code, userInfo: [NSLocalizedDescriptionKey: apiResponse.message])

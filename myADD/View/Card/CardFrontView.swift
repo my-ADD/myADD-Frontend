@@ -20,27 +20,27 @@ struct CardFrontView: View {
     var body: some View {
         GeometryReader { geometry in
             VStack(alignment: .center, spacing: 20) {
-                WebImage(url: card.image?.encodedImageURL())
-                    .onSuccess { image, data, cacheType in
-                        // Success
-                    }
-                    .resizable()
-                    .placeholder {
-                        Image(systemName: "camera")
-                            .resizable()
-                            .foregroundColor(.primary)
-                            .scaledToFit()
-                            .frame(width: 100, height: 100)
-                    }
+                if let url = card.image?.encodedImageURL() {
+                    WebImage(url: url)
+                        .onSuccess { image, data, cacheType in
+                        }
+                        .resizable()
 
-                    .indicator { _, _ in
-                        ProgressView()
-                    }
-                    .transition(.fade(duration: 0.5))
-                    .scaledToFill()
-                    .frame(width: geometry.size.width * 0.85, height: (geometry.size.width * 0.8) * 1.5)
-                    .cornerRadius(20)
+                        .indicator { _, _ in
+                            ProgressView()
+                        }
+                        .transition(.fade(duration: 1.0))
+                        .scaledToFill()
+                        .frame(width: geometry.size.width * 0.85, height: (geometry.size.width * 0.8) * 1.5)
+                        .cornerRadius(20)
                     .clipped()
+                } else {
+                    Image(systemName: "camera")
+                        .resizable()
+                        .foregroundColor(.primary)
+                        .scaledToFit()
+                        .frame(width: 100, height: 100)
+                }
 
                 Text(card.comment?.isEmpty ?? true ? "한 줄 평을 작성해주세요." : card.comment!)
                     .multilineTextAlignment(.leading)

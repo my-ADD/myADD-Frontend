@@ -9,13 +9,13 @@ import SwiftUI
 
 struct TopBarView: View {
     @EnvironmentObject var viewModel: CardViewModel
-    
+    @State private var isShowingContentView = false
+
     var body: some View {
         HStack {
             logo
             Spacer()
-            onboardingViewLink
-            canlendarViewLink
+            allCardListViewLink
             userProfileLink
         }
         .padding([.top, .horizontal])
@@ -28,8 +28,10 @@ struct TopBarView: View {
             .frame(height: 30)
     }
     
-    private var onboardingViewLink: some View {
-        NavigationLink(destination: OnboardingView()) {
+    private var allCardListViewLink: some View {
+        Button(action: {
+            isShowingContentView = true
+        }) {
             Image(systemName: "lanyardcard")
                 .resizable()
                 .scaledToFit()
@@ -37,17 +39,8 @@ struct TopBarView: View {
                 .accentColor(Color.primary)
                 .padding(.trailing)
         }
-    }
-    
-
-    private var canlendarViewLink: some View {
-        NavigationLink(destination: ContentView().environmentObject(viewModel)) {
-            Image(systemName: "calendar")
-                .resizable()
-                .scaledToFit()
-                .frame(height: 30)
-                .accentColor(Color.primary)
-                .padding(.trailing)
+        .sheet(isPresented: $isShowingContentView) {
+            ContentView().environmentObject(viewModel)
         }
     }
 

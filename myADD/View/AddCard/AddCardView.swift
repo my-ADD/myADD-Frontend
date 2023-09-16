@@ -70,7 +70,6 @@ struct AddCardView: View {
                     
                     // MARK: - BUTTON
                     Button(action: {
-                        print("버튼을 클릭하기 전 card 객체의 상태: \(card)")
                         viewModel.addCard(image: image, card: card) { result in
                             switch result {
                             case .success:

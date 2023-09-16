@@ -132,22 +132,49 @@ struct AddCardBackView: View {
                         .frame(alignment: .leading)
                     
                     Spacer()
-
-                    Picker(
-                        selection: Binding<Int>(
-                            get: { self.card.views ?? 0 },
-                            set: { self.card.views = $0 }),
-                        label: Text("회")
-                    ) { ForEach(0..<100) { index in
-                        Text("\(index)").tag(index)}
-                    }
-                    .pickerStyle(WheelPickerStyle())
-                    .frame(width: 60, height: 50, alignment: .leading)
                     
-                    Text("회")
-                        .font(.body)
-                        .frame(alignment: .leading)
+                    HStack {
+                        Button(action: {
+                            if let currentViews = self.card.views, currentViews > 0 {
+                                self.card.views = currentViews - 1
+                            }
+                        }) {
+                            Text("-")
+                                .font(.title)
+                                .foregroundColor(.black)
+                                .multilineTextAlignment(.center)
+                                .frame(width: 20)
+                                .padding(.all, 5)
+                                .background(Color.gray.opacity(0.2))
+                                .cornerRadius(5)
+                                .padding(.trailing, 5)
+
+                        }
+                        
+                        Text("\(self.card.views ?? 0) 회")
+                            .font(.body)
+                        
+                        Button(action: {
+                            if let currentViews = self.card.views {
+                                self.card.views = currentViews + 1
+                            } else {
+                                self.card.views = 1
+                            }
+                        }) {
+                            Text("+")
+                                .font(.title)
+                                .foregroundColor(.black)
+                                .multilineTextAlignment(.center)
+                                .frame(width: 20)
+                                .padding(.all, 5)
+                                .background(Color.gray.opacity(0.2))
+                                .cornerRadius(5)
+                                .padding(.leading, 5)
+                        }
+                    }
+                    .frame(alignment: .leading)
                 } //: HSTACK
+
 
 
                 Divider()

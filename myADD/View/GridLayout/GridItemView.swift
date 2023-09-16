@@ -35,9 +35,9 @@ struct GridItemView: View {
             }
             .scaledToFill()
             .frame(width: 100, height: 160)
-            .background(LinearGradient(gradient: Gradient(colors: colorScheme == .light ? [.white, .gray] : [.gray, .black]), startPoint: .topLeading, endPoint: .bottomTrailing)
+            .background(LinearGradient(gradient: Gradient(colors: colorScheme == .light ? [.gray.opacity(0.3), .white] : [.gray.opacity(0.7), .black]), startPoint: .topLeading, endPoint: .bottomTrailing)
                 .ignoresSafeArea(.all)
-                .opacity(0.5))
+                .opacity(0.85))
             .cornerRadius(12)
             .padding(.horizontal, 10)
     }

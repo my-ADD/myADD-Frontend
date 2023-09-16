@@ -23,7 +23,6 @@ struct OnboardingSlideView: View {
                     .aspectRatio(contentMode: .fill)
                     .frame(width: 300, height: 300)
                     .mask(LinearGradient(gradient: Gradient(colors: [Color.white, Color.clear]), startPoint: .center, endPoint: .bottom))
-
             }
 
             Text(data.title)

@@ -70,6 +70,7 @@ struct EditCardView: View {
                     // MARK: - BUTTON
                     
                     Button(action: {
+                        // 이미지를 바꾸었을 시,
                         if let selectedImage = selectedImage {
                             viewModel.updateCard(postId: postId, image: selectedImage, card: workingCard) { result in
                                 switch result {
@@ -79,6 +80,7 @@ struct EditCardView: View {
                                     break
                                 }
                             }
+                            // 기존 이미지를 수정하지 않았을 시,
                         } else if let imageUrl = workingCard.image?.encodedImageURL() {
                             SDWebImageManager.shared.loadImage(with: imageUrl, options: .highPriority, progress: nil) { (image, _, _, _, _, _) in
                                 viewModel.updateCard(postId: postId, image: image, card: workingCard) { result in
@@ -90,7 +92,18 @@ struct EditCardView: View {
                                     }
                                 }
                             }
+                        } else {
+                            // 기존에 업로드 한 이미지가 없을 시,
+                            viewModel.updateCard(postId: postId, image: nil, card: workingCard) { result in
+                                switch result {
+                                case .success:
+                                    self.presentationMode.wrappedValue.dismiss()
+                                case .failure:
+                                    break
+                                }
+                            }
                         }
+                        
                     }) {
                         Text("완료")
                             .font(.headline)
@@ -365,20 +378,46 @@ struct EditCardBackView: View {
                     
                     Spacer()
                     
-                    Picker(
-                        selection: Binding<Int>(
-                            get: { self.card.views ?? 0 },
-                            set: { self.card.views = $0 }),
-                        label: Text("회")
-                    ) { ForEach(0..<100) { index in
-                        Text("\(index)").tag(index)}
+                    HStack {
+                        Button(action: {
+                            if let currentViews = self.card.views, currentViews > 0 {
+                                self.card.views = currentViews - 1
+                            }
+                        }) {
+                            Text("-")
+                                .font(.title)
+                                .foregroundColor(.black)
+                                .multilineTextAlignment(.center)
+                                .frame(width: 20)
+                                .padding(.all, 5)
+                                .background(Color.gray.opacity(0.2))
+                                .cornerRadius(5)
+                                .padding(.trailing, 5)
+
+                        }
+                        
+                        Text("\(self.card.views ?? 0) 회")
+                            .font(.body)
+                        
+                        Button(action: {
+                            if let currentViews = self.card.views {
+                                self.card.views = currentViews + 1
+                            } else {
+                                self.card.views = 1
+                            }
+                        }) {
+                            Text("+")
+                                .font(.title)
+                                .foregroundColor(.black)
+                                .multilineTextAlignment(.center)
+                                .frame(width: 20)
+                                .padding(.all, 5)
+                                .background(Color.gray.opacity(0.2))
+                                .cornerRadius(5)
+                                .padding(.leading, 5)
+                        }
                     }
-                    .pickerStyle(WheelPickerStyle())
-                    .frame(width: 60, height: 50, alignment: .center)
-                    
-                    Text("회")
-                        .font(.body)
-                        .frame(alignment: .leading)
+                    .frame(alignment: .leading)
                 } //: HSTACK
 
 

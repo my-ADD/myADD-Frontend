@@ -22,10 +22,14 @@ class CardViewModel: ObservableObject {
     // MARK: - UPDATE CONTENT
     
     init(selectedPlatform: OTTPlatform? = .전체, selectedTab: CardCategory = .animation) {
-        updateContentFor(selectedPlatform: selectedPlatform, selectedTab: selectedTab)
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+            self.updateContentFor(selectedPlatform: selectedPlatform, selectedTab: selectedTab)
+        }
     }
-
+    
     func updateContentFor(selectedPlatform: OTTPlatform?, selectedTab: CardCategory) {
+        isError = false
+        errorMessage = ""
         var newCards: [Card] = []
 
         let completion: (Result<[Card], Error>) -> Void = { [weak self] result in
@@ -37,8 +41,10 @@ class CardViewModel: ObservableObject {
                     }
                 }
                 
-                withAnimation(.easeInOut) {
-                    self?.cards = newCards
+                DispatchQueue.main.async {
+                    withAnimation(.easeInOut) {
+                        self?.cards = newCards
+                    }
                 }
 
                 self?.updateCategoryCounts(for: selectedPlatform)
@@ -72,12 +78,15 @@ class CardViewModel: ObservableObject {
     private func handleAPIResult<T>(_ result: Result<T, Error>, updateAction: ((T) -> Void)? = nil) {
         switch result {
         case .success(let data):
-            updateAction?(data)
-            
+            DispatchQueue.main.async {
+                updateAction?(data)
+            }
         case .failure(let error):
-            print("error: \(error.localizedDescription)")
-            self.isError = true
-            self.errorMessage = error.localizedDescription
+            DispatchQueue.main.async {
+                print("error: \(error.localizedDescription)")
+                self.isError = true
+                self.errorMessage = error.localizedDescription
+            }
         }
     }
 
@@ -159,9 +168,11 @@ class CardViewModel: ObservableObject {
     }
 
     func updateCategoryCounts(for platform: OTTPlatform?) {
-        animationCount = filteredCardsForCategory(.animation, in: platform).count
-        dramaCount = filteredCardsForCategory(.drama, in: platform).count
-        documentaryCount = filteredCardsForCategory(.documentary, in: platform).count
+        DispatchQueue.main.async {
+            self.animationCount = self.filteredCardsForCategory(.animation, in: platform).count
+            self.dramaCount = self.filteredCardsForCategory(.drama, in: platform).count
+            self.documentaryCount = self.filteredCardsForCategory(.documentary, in: platform).count
+        }
     }
 
     func countForCategory(_ category: CardCategory, in platform: OTTPlatform?) -> Int {
@@ -185,62 +196,11 @@ class CardViewModel: ObservableObject {
         }
     }
     
-    // MARK: - Calendar
-    
-    func getCalendar(createdAt: String, completion: @escaping (Result<[Card], Error>) -> Void) {
-        apiClient.getCalendar(createdAt: createdAt) { result in
-            switch result {
-            case .success(let cards):
-                self.cards.append(contentsOf: cards)
-                completion(.success(cards))
-                
-            case .failure(let error):
-                print("getCalendar API Error: \(error.localizedDescription)")
-                completion(.failure(error))
-            }
-        }
-    }
-
-
-    @Published var datesWithEvents: [String] = []
-    @Published var isLoading: Bool = false
-
-    func fetchDatesFromServer() {
-        self.isLoading = true
-
-        apiClient.getCreatedAt { [weak self] apiResponseResult in
-            defer { self?.isLoading = false }
-
-            switch apiResponseResult {
-            case .success(let apiResponse):
-                if apiResponse.isSuccess {
-                    if let dateStrings = apiResponse.result {
-                        let uniqueDates = Set(dateStrings.compactMap { self?.convertToDate($0) })
-
-                        self?.datesWithEvents = Array(uniqueDates)
-                    }
-                } else {
-                    print("getCreatedAt API Error: \(apiResponse.message)")
-                }
-            case .failure(let error):
-                print("Error fetching dates: \(error.localizedDescription)")
-            }
-        }
-    }
-
-
-    func convertToDate(_ dateString: String) -> String? {
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSSSS"
-        dateFormatter.timeZone = TimeZone(abbreviation: "UTC")
+    func getTitleText() -> String {
+        let count: Int
+        let nickname = userDefaults.object(forKey: "nickname") as? String
         
-        if let date = dateFormatter.date(from: dateString) {
-            let dayFormatter = DateFormatter()
-            dayFormatter.dateFormat = "yyyy-MM-dd"
-            dayFormatter.timeZone = TimeZone(identifier: "Asia/Seoul")
-            return dayFormatter.string(from: date)
-        }
-        
-        return nil
+        count = cards.count
+        return "\(nickname ?? "회원")님의 \n\(count)가지 ADD 기록"
     }
 }
